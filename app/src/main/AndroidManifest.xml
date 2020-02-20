@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RoutineView" />
+        <activity android:name=".Settings" />
     </application>
 
 </manifest>
