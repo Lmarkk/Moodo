@@ -15,8 +15,8 @@ public class Routine {
     private String name;
     private List subRoutines;
 
-    public Routine() {
-        subRoutines = new ArrayList<SubRoutine>();
+    public Routine(String name) {
+        this.name = name;
     }
 
     public String getName() {
