@@ -1,5 +1,6 @@
 package fi.tuni.tamk.moodo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @version 2020.0220
  *
  */
-public class Routine {
+public class Routine implements Serializable {
     private String name;
     private List subRoutines;
 
