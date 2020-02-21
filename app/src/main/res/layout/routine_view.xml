@@ -6,17 +6,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/routine_list"
-        android:layout_width="334dp"
-        android:layout_height="572dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="91dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </ListView>
+
 </android.support.constraint.ConstraintLayout>
