@@ -1,7 +1,6 @@
 package fi.tuni.tamk.moodo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,8 +16,9 @@ public class Routine implements Serializable {
     private List subRoutines;
     private int id;
 
-    public Routine(String name) {
-        this.name = name;
+    public Routine(int id, String name) {
+        setName(name);
+        setId(id);
     }
 
     public String getName() {
@@ -26,11 +26,19 @@ public class Routine implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name.length() > 0) {
+            this.name = name;
+        } else {
+            throw new IllegalArgumentException("Name field can't be empty");
+        }
     }
 
     public void setId(int id) {
-        this.id = id;
+        if(id > 0) {
+            this.id = id;
+        } else {
+            throw new IllegalArgumentException("Index must be over 1");
+        }
     }
 
     public int returnId() {
