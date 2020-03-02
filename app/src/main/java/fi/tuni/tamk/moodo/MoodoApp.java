@@ -48,8 +48,8 @@ public class MoodoApp extends AppCompatActivity {
 
     // Adds default routines for all (unless deleted if possible)
     private void addDefaultRoutines() {
-        routineList.add(new Routine("Pese hampaat"));
-        routineList.add(new Routine("Vie roskat"));
+        routineList.add(new Routine(1,"Pese hampaat"));
+        routineList.add(new Routine(2,"Vie roskat"));
     }
 
     // Adds custom routines for each user
