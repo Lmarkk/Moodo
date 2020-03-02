@@ -11,16 +11,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="184dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="300dp"
+        android:text="Loading..."
+        android:textColor="#000"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:text="Loading..."
-        android:textColor = "#000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="210dp"
+        android:layout_height="54dp"
+        android:text="Start Routine"
+        android:textColor="#FFF"
+        android:background="#297"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/routine_list" />
+
+    <ListView
+        android:id="@+id/routine_list"
+        android:layout_width="212dp"
+        android:layout_height="324dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/routine_title"
+        app:layout_constraintVertical_bias="0.974">
+
+    </ListView>
 
 </android.support.constraint.ConstraintLayout>
