@@ -39,6 +39,7 @@ public class MoodoApp extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Routine listItem = (Routine) listView.getItemAtPosition(position);
+                Log.d("MoodoApp", "Subroutines: " + listItem.getSubRoutines().toString());
                 Intent intent = new Intent(getApplicationContext(), RoutineView.class);
                 // Add clicked list routine to be displayed in RoutineView
                 intent.putExtra("routine", listItem);
@@ -58,12 +59,14 @@ public class MoodoApp extends AppCompatActivity {
     private void addDefaultSubRoutines() {
         ArrayList<SubRoutine> subRoutines = new ArrayList<>();
         for(Routine item : routineList) {
+            System.out.println("Itemin id: " + item.getId());
             switch (item.getId()) {
                 case 1:
                     subRoutines.add(new SubRoutine(1, "Ota hammasharja"));
                     subRoutines.add(new SubRoutine(2, "Lisää hammastahna"));
                     subRoutines.add(new SubRoutine(3, "Pese hampaita kolme minuuttia"));
                     subRoutines.add(new SubRoutine(4, "Huuhtele suu ja hammasharja"));
+                    break;
                 case 2:
                     subRoutines.add(new SubRoutine(1, "Sulje roskapussi"));
                     subRoutines.add(new SubRoutine(2, "Nosta roskapussi pois säiliöstä"));
@@ -71,6 +74,7 @@ public class MoodoApp extends AppCompatActivity {
                     subRoutines.add(new SubRoutine(4, "Laita uusi roskapussi tilalle"));
             }
             if(subRoutines.size() != 0) {
+                Log.d("MoodoApp", subRoutines.toString());
                 item.setSubRoutines(subRoutines);
                 subRoutines.clear();
             }

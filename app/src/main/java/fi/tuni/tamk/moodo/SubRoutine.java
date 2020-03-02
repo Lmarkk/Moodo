@@ -1,5 +1,7 @@
 package fi.tuni.tamk.moodo;
 
+import java.io.Serializable;
+
 /**
  * Class that represents an individual step in the completion of a Routine. Each subroutine has a unique description.
  *
@@ -8,7 +10,7 @@ package fi.tuni.tamk.moodo;
  *
  */
 
-public class SubRoutine {
+public class SubRoutine implements Serializable {
     private String description;
     private boolean isComplete;
     private int id;
@@ -31,5 +33,10 @@ public class SubRoutine {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return description;
     }
 }

@@ -22,33 +22,34 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <Button
         android:id="@+id/startButton"
         android:layout_width="210dp"
         android:layout_height="54dp"
+        android:background="#297"
         android:text="Start Routine"
         android:textColor="#FFF"
-        android:background="#297"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/routine_list" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.911" />
 
     <ListView
-        android:id="@+id/routine_list"
+        android:id="@+id/subroutine_list"
         android:layout_width="212dp"
         android:layout_height="324dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/routine_title"
-        app:layout_constraintVertical_bias="0.974">
+        app:layout_constraintVertical_bias="0.142">
 
     </ListView>
 

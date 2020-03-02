@@ -1,6 +1,7 @@
 package fi.tuni.tamk.moodo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class Routine implements Serializable {
     private String name;
-    private List subRoutines;
+    private List<SubRoutine> subRoutines;
     private int id;
 
     public Routine(int id, String name) {
@@ -46,10 +47,10 @@ public class Routine implements Serializable {
     }
 
     public void setSubRoutines(List<SubRoutine> subRoutines) {
-        this.subRoutines = subRoutines;
+        this.subRoutines = new ArrayList<>(subRoutines);
     }
 
-    public List getSubRoutines() {
+    public List<SubRoutine> getSubRoutines() {
         return subRoutines;
     }
 
