@@ -26,7 +26,7 @@ public class MoodoApp extends AppCompatActivity {
         list.add(new Routine("Pese hampaat"));
         list.add(new Routine("Vie roskat"));
 
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item, list);
+        ArrayAdapter<Routine> adapter = new ArrayAdapter<>(this, R.layout.list_item, list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
