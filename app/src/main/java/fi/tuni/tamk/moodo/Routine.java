@@ -41,7 +41,7 @@ public class Routine implements Serializable {
         }
     }
 
-    public int returnId() {
+    public int getId() {
         return id;
     }
 

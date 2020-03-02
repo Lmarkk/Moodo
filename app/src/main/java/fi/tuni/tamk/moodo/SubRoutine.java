@@ -11,8 +11,25 @@ package fi.tuni.tamk.moodo;
 public class SubRoutine {
     private String description;
     private boolean isComplete;
+    private int id;
 
-    public SubRoutine(String desc) {
+    public SubRoutine(int id, String desc) {
         description = desc;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

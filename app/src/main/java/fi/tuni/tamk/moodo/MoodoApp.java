@@ -30,6 +30,8 @@ public class MoodoApp extends AppCompatActivity {
         // Adds custom routines that user has made
         // addCustomRoutines();
 
+        addDefaultSubRoutines();
+
         // Add list of routines to the list view
         ArrayAdapter<Routine> adapter = new ArrayAdapter<>(this, R.layout.list_item, routineList);
         listView.setAdapter(adapter);
@@ -50,6 +52,29 @@ public class MoodoApp extends AppCompatActivity {
     private void addDefaultRoutines() {
         routineList.add(new Routine(1,"Pese hampaat"));
         routineList.add(new Routine(2,"Vie roskat"));
+    }
+
+    // Adds sub routines for default routines using routine id's
+    private void addDefaultSubRoutines() {
+        ArrayList<SubRoutine> subRoutines = new ArrayList<>();
+        for(Routine item : routineList) {
+            switch (item.getId()) {
+                case 1:
+                    subRoutines.add(new SubRoutine(1, "Ota hammasharja"));
+                    subRoutines.add(new SubRoutine(2, "Lisää hammastahna"));
+                    subRoutines.add(new SubRoutine(3, "Pese hampaita kolme minuuttia"));
+                    subRoutines.add(new SubRoutine(4, "Huuhtele suu ja hammasharja"));
+                case 2:
+                    subRoutines.add(new SubRoutine(1, "Sulje roskapussi"));
+                    subRoutines.add(new SubRoutine(2, "Nosta roskapussi pois säiliöstä"));
+                    subRoutines.add(new SubRoutine(3, "Vie roskat roskikseen"));
+                    subRoutines.add(new SubRoutine(4, "Laita uusi roskapussi tilalle"));
+            }
+            if(subRoutines.size() != 0) {
+                item.setSubRoutines(subRoutines);
+                subRoutines.clear();
+            }
+        }
     }
 
     // Adds custom routines for each user
