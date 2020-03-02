@@ -15,6 +15,7 @@ import java.util.List;
 public class Routine implements Serializable {
     private String name;
     private List subRoutines;
+    private int id;
 
     public Routine(String name) {
         this.name = name;
@@ -26,6 +27,22 @@ public class Routine implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int returnId() {
+        return id;
+    }
+
+    public void setSubRoutines(List<SubRoutine> subRoutines) {
+        this.subRoutines = subRoutines;
+    }
+
+    public List getSubRoutines() {
+        return subRoutines;
     }
 
     @Override
