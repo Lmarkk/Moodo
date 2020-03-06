@@ -43,6 +43,7 @@
 
     <Button
         android:id="@+id/startButton"
+        android:onClick="startRoutine"
         android:layout_width="210dp"
         android:layout_height="54dp"
         android:background="#297"
