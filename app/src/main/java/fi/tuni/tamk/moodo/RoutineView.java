@@ -55,6 +55,12 @@ public class RoutineView extends AppCompatActivity {
 
     public void startRoutine(View v) {
         startTimer(routine.getTime(), timerText);
+        completeSubRoutineBtn.setText(routine.getSubRoutines().get(0).toString());
+        completeSubRoutineBtn.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
+        routineTitle.setVisibility(View.GONE);
+        listView.setVisibility(View.GONE);
     }
 
     @Override
