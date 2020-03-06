@@ -63,6 +63,16 @@ public class RoutineView extends AppCompatActivity {
         listView.setVisibility(View.GONE);
     }
 
+    public void completeSubRoutine(View v) {
+        if(subRtnIterator.hasNext()) {
+            completeSubRoutineBtn.setText(subRtnIterator.next().toString());
+            progressBar.setProgress(progressBar.getProgress() + (100 / routine.getSubRoutines().size()));
+        } else {
+            progressBar.setProgress(100);
+            routineTimer.cancel();
+            // start dialog with overview of completed routine...
+        }
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
