@@ -28,7 +28,7 @@ public class RoutineView extends AppCompatActivity {
         routineTitle.setText(routine.getName());
 
         // Set routine timer from routine time
-        timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime()));
+        timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
 
         // Set subroutines to list view for specific routine
         listView = (ListView) findViewById(R.id.subroutine_list);
