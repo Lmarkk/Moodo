@@ -96,6 +96,9 @@ public class RoutineView extends AppCompatActivity {
         routineTitle.setVisibility(View.VISIBLE);
         listView.setVisibility(View.VISIBLE);
 
+        // reset progress bar progress
+        progressBar.setProgress(0);
+
         // reset subroutine iterator
         subRtnIterator = routine.getSubRoutines().listIterator();
         subRtnIterator.next();
