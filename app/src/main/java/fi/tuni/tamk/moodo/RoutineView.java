@@ -81,6 +81,26 @@ public class RoutineView extends AppCompatActivity {
             // start dialog with overview of completed routine...
         }
     }
+
+    public void stopRoutine(View v) {
+        // reset timer and set timer text to full
+        routineTimer.cancel();
+        timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
+
+        //reset visibilities back to starting position
+        completeSubRoutineBtn.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
+        stopRoutineBtn.setVisibility(View.GONE);
+
+        startRoutineBtn.setVisibility(View.VISIBLE);
+        routineTitle.setVisibility(View.VISIBLE);
+        listView.setVisibility(View.VISIBLE);
+
+        // reset subroutine iterator
+        subRtnIterator = routine.getSubRoutines().listIterator();
+        subRtnIterator.next();
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
