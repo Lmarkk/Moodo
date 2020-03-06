@@ -56,6 +56,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.911" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <Button
+        android:id="@+id/completeSubRoutineButton"
+        android:layout_width="260dp"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_blue_light"
+        android:onClick="completeSubRoutine"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.670" />
+
     <ListView
         android:id="@+id/subroutine_list"
         android:layout_width="212dp"
