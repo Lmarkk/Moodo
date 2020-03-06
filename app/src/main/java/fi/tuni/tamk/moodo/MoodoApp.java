@@ -43,7 +43,7 @@ public class MoodoApp extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), RoutineView.class);
                 // Add clicked list routine to be displayed in RoutineView
                 intent.putExtra("routine", listItem);
-                Toast.makeText(getApplicationContext(), listItem.toString(), Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), listItem.toString(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
