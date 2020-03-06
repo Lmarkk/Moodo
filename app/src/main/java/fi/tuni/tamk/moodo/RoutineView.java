@@ -19,6 +19,8 @@ public class RoutineView extends AppCompatActivity {
     private ProgressBar progressBar;
     private ListIterator<SubRoutine> subRtnIterator;
     private Button completeSubRoutineBtn;
+    private Button startRoutineBtn;
+    private Button stopRoutineBtn;
     private TextView timerText;
     private CountDownTimer routineTimer = null;
     private Routine routine;
@@ -31,7 +33,10 @@ public class RoutineView extends AppCompatActivity {
         setContentView(R.layout.routine_view);
         routineTitle = findViewById(R.id.routine_title);
         timerText = findViewById(R.id.routine_timer);
+
         completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
+        startRoutineBtn = findViewById(R.id.startButton);
+        stopRoutineBtn = findViewById(R.id.stopButton);
 
         // Set routine variable from sent intent, set routine title from routine name
         routine = (Routine) getIntent().getSerializableExtra("routine");
@@ -58,7 +63,9 @@ public class RoutineView extends AppCompatActivity {
         completeSubRoutineBtn.setText(routine.getSubRoutines().get(0).toString());
         completeSubRoutineBtn.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.VISIBLE);
+        stopRoutineBtn.setVisibility(View.VISIBLE);
 
+        startRoutineBtn.setVisibility(View.GONE);
         routineTitle.setVisibility(View.GONE);
         listView.setVisibility(View.GONE);
     }
