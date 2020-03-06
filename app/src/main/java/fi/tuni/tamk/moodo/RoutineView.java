@@ -68,6 +68,7 @@ public class RoutineView extends AppCompatActivity {
             completeSubRoutineBtn.setText(subRtnIterator.next().toString());
             progressBar.setProgress(progressBar.getProgress() + (100 / routine.getSubRoutines().size()));
         } else {
+            completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
             routineTimer.cancel();
             // start dialog with overview of completed routine...
