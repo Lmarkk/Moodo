@@ -43,7 +43,7 @@ public class MoodoApp extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), RoutineView.class);
                 // Add clicked list routine to be displayed in RoutineView
                 intent.putExtra("routine", listItem);
-                Toast.makeText(getApplicationContext(), listItem.toString(), Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), listItem.toString(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
@@ -51,8 +51,8 @@ public class MoodoApp extends AppCompatActivity {
 
     // Adds default routines for all (unless deleted if possible)
     private void addDefaultRoutines() {
-        routineList.add(new Routine(1,"Pese hampaat"));
-        routineList.add(new Routine(2,"Vie roskat"));
+        routineList.add(new Routine(1,"Pese hampaat", 300));
+        routineList.add(new Routine(2,"Vie roskat", 300));
     }
 
     // Adds sub routines for default routines using routine id's
