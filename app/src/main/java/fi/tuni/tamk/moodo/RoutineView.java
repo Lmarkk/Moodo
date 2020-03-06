@@ -10,9 +10,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class RoutineView extends AppCompatActivity {
-    private long millisLeft;
     private TextView timerText;
-    private CountDownTimer routineTimer;
+    private CountDownTimer routineTimer = null;
     private Routine routine;
     private ListView listView;
 
@@ -27,8 +26,6 @@ public class RoutineView extends AppCompatActivity {
         // Set routine variable from sent intent, set routine title from routine name
         routine = (Routine) getIntent().getSerializableExtra("routine");
         routineTitle.setText(routine.getName());
-
-        millisLeft = routine.getTime() * 1000;
 
         // Set routine timer from routine time
         timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime()));
@@ -49,11 +46,14 @@ public class RoutineView extends AppCompatActivity {
         super.onDestroy();
         Log.d("RoutineView", "onDestroy");
         listView.setAdapter(null);
+        if(routineTimer != null) {
+            routineTimer.cancel();
+        }
     }
 
     public void startTimer(int seconds, final TextView textView) {
 
-        new CountDownTimer(seconds* 1000+1000, 1000) {
+        routineTimer = new CountDownTimer(seconds* 1000+1000, 1000) {
             public void onTick(long millisUntilFinished) {
                 int seconds = (int) (millisUntilFinished / 1000);
                 int minutes = seconds / 60;
