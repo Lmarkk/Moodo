@@ -6,10 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.Iterator;
+import java.util.ListIterator;
+
 public class RoutineView extends AppCompatActivity {
+    private TextView routineTitle;
+    private ProgressBar progressBar;
+    private ListIterator<SubRoutine> subRtnIterator;
+    private Button completeSubRoutineBtn;
     private TextView timerText;
     private CountDownTimer routineTimer = null;
     private Routine routine;
@@ -20,12 +29,19 @@ public class RoutineView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d("RoutineView", "onCreate");
         setContentView(R.layout.routine_view);
-        TextView routineTitle = findViewById(R.id.routine_title);
+        routineTitle = findViewById(R.id.routine_title);
         timerText = findViewById(R.id.routine_timer);
+        completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
 
         // Set routine variable from sent intent, set routine title from routine name
         routine = (Routine) getIntent().getSerializableExtra("routine");
         routineTitle.setText(routine.getName());
+
+        subRtnIterator = routine.getSubRoutines().listIterator();
+        subRtnIterator.next();
+
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(0);
 
         // Set routine timer from routine time
         timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
