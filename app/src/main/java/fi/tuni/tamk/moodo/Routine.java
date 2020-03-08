@@ -13,20 +13,34 @@ import java.util.List;
  *
  */
 public class Routine implements Serializable {
+    private int time;
     private String name;
     private List<SubRoutine> subRoutines;
     private int id;
 
-    public Routine(int id, String name) {
+    Routine(int id, String name, int time) {
         setName(name);
         setId(id);
+        setTime(time);
     }
 
-    public String getName() {
+    int getTime() {
+        return time;
+    }
+
+    private void setTime(int time) {
+        if(time > 0) {
+            this.time = time;
+        } else {
+            throw new IllegalArgumentException("Time must be larger than 0");
+        }
+    }
+
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         if(name.length() > 0) {
             this.name = name;
         } else {
@@ -34,7 +48,7 @@ public class Routine implements Serializable {
         }
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         if(id > 0) {
             this.id = id;
         } else {
@@ -42,15 +56,15 @@ public class Routine implements Serializable {
         }
     }
 
-    public int getId() {
+    int getId() {
         return id;
     }
 
-    public void setSubRoutines(List<SubRoutine> subRoutines) {
+    void setSubRoutines(List<SubRoutine> subRoutines) {
         this.subRoutines = new ArrayList<>(subRoutines);
     }
 
-    public List<SubRoutine> getSubRoutines() {
+    List<SubRoutine> getSubRoutines() {
         return subRoutines;
     }
 
