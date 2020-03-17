@@ -62,7 +62,7 @@
         android:layout_height="54dp"
         android:background="@android:color/holo_red_light"
         android:onClick="stopRoutine"
-        android:text="Cancel Routine"
+        android:text="Keskeytä rutiini"
         android:textColor="#FFF"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
