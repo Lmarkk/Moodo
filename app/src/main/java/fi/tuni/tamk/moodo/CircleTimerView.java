@@ -338,53 +338,55 @@ public class CircleTimerView extends View
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
-        switch (event.getAction() & event.getActionMasked())
-        {
-            case MotionEvent.ACTION_DOWN:
-                // If the point in the circle button
-                if (mInCircleButton(event.getX(), event.getY()) && isEnabled())
-                {
-                    mInCircleButton = true;
-                    mPreRadian = getRadian(event.getX(), event.getY());
-                    Log.d(TAG, "In circle button");
-                }
-                break;
-            case MotionEvent.ACTION_MOVE:
-                if (mInCircleButton && isEnabled())
-                {
-                    float temp = getRadian(event.getX(), event.getY());
-                    if (mPreRadian > Math.toRadians(270) && temp < Math.toRadians(90))
+        if(!mStarted) {
+            switch (event.getAction() & event.getActionMasked())
+            {
+                case MotionEvent.ACTION_DOWN:
+                    // If the point in the circle button
+                    if (mInCircleButton(event.getX(), event.getY()) && isEnabled())
                     {
-                        mPreRadian -= 2 * Math.PI;
+                        mInCircleButton = true;
+                        mPreRadian = getRadian(event.getX(), event.getY());
+                        Log.d(TAG, "In circle button");
                     }
-                    else if (mPreRadian < Math.toRadians(90) && temp > Math.toRadians(270))
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    if (mInCircleButton && isEnabled())
                     {
-                        mPreRadian = (float) (temp + (temp - 2 * Math.PI) - mPreRadian);
+                        float temp = getRadian(event.getX(), event.getY());
+                        if (mPreRadian > Math.toRadians(270) && temp < Math.toRadians(90))
+                        {
+                            mPreRadian -= 2 * Math.PI;
+                        }
+                        else if (mPreRadian < Math.toRadians(90) && temp > Math.toRadians(270))
+                        {
+                            mPreRadian = (float) (temp + (temp - 2 * Math.PI) - mPreRadian);
+                        }
+                        mCurrentRadian += (temp - mPreRadian);
+                        mPreRadian = temp;
+                        if (mCurrentRadian > 2 * Math.PI)
+                        {
+                            mCurrentRadian = (float) (2 * Math.PI);
+                        }
+                        else if (mCurrentRadian < 0)
+                        {
+                            mCurrentRadian = 0;
+                        }
+                        if (mCircleTimerListener != null)
+                            mCircleTimerListener.onTimerSetValueChange(getCurrentTime());
+                        mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentRadian * 60);
+                        invalidate();
                     }
-                    mCurrentRadian += (temp - mPreRadian);
-                    mPreRadian = temp;
-                    if (mCurrentRadian > 2 * Math.PI)
+                    break;
+                case MotionEvent.ACTION_UP:
+                    if (mInCircleButton && isEnabled())
                     {
-                        mCurrentRadian = (float) (2 * Math.PI);
+                        mInCircleButton = false;
+                        if (mCircleTimerListener != null)
+                            mCircleTimerListener.onTimerSetValueChanged(getCurrentTime());
                     }
-                    else if (mCurrentRadian < 0)
-                    {
-                        mCurrentRadian = 0;
-                    }
-                    if (mCircleTimerListener != null)
-                        mCircleTimerListener.onTimerSetValueChange(getCurrentTime());
-                    mCurrentTime = (int) (60 / (2 * Math.PI) * mCurrentRadian * 60);
-                    invalidate();
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                if (mInCircleButton && isEnabled())
-                {
-                    mInCircleButton = false;
-                    if (mCircleTimerListener != null)
-                        mCircleTimerListener.onTimerSetValueChanged(getCurrentTime());
-                }
-                break;
+                    break;
+            }
         }
         return true;
     }
