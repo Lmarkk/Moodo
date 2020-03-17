@@ -132,6 +132,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     }
 
     public void stopRoutine(View v) {
+        countThread.interrupt();
         // reset timer and set timer text to full
         //routineTimer.cancel();
         mTimer.pauseTimer();
@@ -210,13 +211,15 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     }
 
+    private Thread countThread;
     @Override
     public void onTimerStart(int time) {
-        Thread thread = new Thread() {
+        countThread = new Thread() {
             @Override
             public void run() {
                 try {
                     while(progressBar.getProgress() != 100) {
+                        System.out.println("hello");
                         sleep(1000);
                         userTime++;
                     }
@@ -225,7 +228,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
                 }
             }
         };
-        thread.start();
+        countThread.start();
     }
 
     @Override

@@ -97,7 +97,7 @@ public class CircleTimerView extends View
     private String mHintText;
 
     // TimerTask
-    public Timer timer = new Timer();
+    private Timer timer = new Timer();
 
     private TimerTask timerTask;
 
