@@ -1,5 +1,7 @@
 package fi.tuni.tamk.moodo;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -11,21 +13,24 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Iterator;
 import java.util.ListIterator;
 
-public class RoutineView extends AppCompatActivity {
+public class RoutineView extends AppCompatActivity implements CircleTimerView.CircleTimerListener {
     private TextView routineTitle;
     private ProgressBar progressBar;
     private ListIterator<SubRoutine> subRtnIterator;
     private Button completeSubRoutineBtn;
     private Button startRoutineBtn;
     private Button stopRoutineBtn;
-    private TextView timerText;
-    private CountDownTimer routineTimer = null;
+    //private TextView timerText;
+    //private CountDownTimer routineTimer = null;
     private Routine routine;
     private ListView listView;
+    private final int COLOR_DONE = Color.GREEN;
+    private CircleTimerView mTimer;
     private int userTime;
 
     @Override
@@ -34,7 +39,7 @@ public class RoutineView extends AppCompatActivity {
         Log.d("RoutineView", "onCreate");
         setContentView(R.layout.routine_view);
         routineTitle = findViewById(R.id.routine_title);
-        timerText = findViewById(R.id.routine_timer);
+        //timerText = findViewById(R.id.routine_timer);
 
         completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
         startRoutineBtn = findViewById(R.id.startButton);
@@ -50,9 +55,16 @@ public class RoutineView extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(0);
 
+
+        mTimer = (CircleTimerView) findViewById(R.id.ctv);
+        mTimer.setCircleTimerListener(this);
+        mTimer.setHintText("");
+
+        // Set routine timer from routine time
+        //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
         // Set routine timer from routine time and user time to 0;
         userTime = 0;
-        timerText.setText(formatTime(routine.getTime()));
+        //timerText.setText(formatTime(routine.getTime()));
 
         // Set subroutines to list view for specific routine
         listView = (ListView) findViewById(R.id.subroutine_list);
@@ -62,15 +74,21 @@ public class RoutineView extends AppCompatActivity {
     }
 
     public void startRoutine(View v) {
-        startTimer(routine.getTime(), timerText);
-        completeSubRoutineBtn.setText(routine.getSubRoutines().get(0).toString());
-        completeSubRoutineBtn.setVisibility(View.VISIBLE);
-        progressBar.setVisibility(View.VISIBLE);
-        stopRoutineBtn.setVisibility(View.VISIBLE);
+        if(mTimer.getCurrentTime() != 0) {
+            mTimer.startTimer();
+            progressBar.getProgressDrawable().setColorFilter(null);
+            //startTimer(routine.getTime(), timerText);
+            completeSubRoutineBtn.setText(routine.getSubRoutines().get(0).toString());
+            completeSubRoutineBtn.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
+            stopRoutineBtn.setVisibility(View.VISIBLE);
 
-        startRoutineBtn.setVisibility(View.GONE);
-        routineTitle.setVisibility(View.GONE);
-        listView.setVisibility(View.GONE);
+            startRoutineBtn.setVisibility(View.GONE);
+            routineTitle.setVisibility(View.GONE);
+            listView.setVisibility(View.GONE);
+        } else {
+            Toast.makeText(this, "Set time first", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void completeSubRoutine(View v) {
@@ -80,15 +98,16 @@ public class RoutineView extends AppCompatActivity {
         } else {
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
-            userTime = userTime -1;
-            routineTimer.cancel();
+            //userTime = userTime -1;
+            //routineTimer.cancel();
 
             // start dialog with overview of completed routine
             final Dialog resultDialog = new Dialog(this);
             resultDialog.setContentView(R.layout.result_dialog);
 
             TextView dialogText = resultDialog.findViewById(R.id.result_dialog_text);
-            dialogText.setText("Rutiiniin asetettu aika: " + formatTime(routine.getTime()) + "\n");
+            //dialogText.setText("Rutiiniin asetettu aika: " + formatTime(routine.getTime()) + "\n");
+            dialogText.setText("Rutiiniin asetettu aika: " + formatTime(mTimer.getCurrentTime() + userTime) + "\n");
             dialogText.append("Oma aikasi: " + formatTime(userTime) + "\n");
             dialogText.append("\n");
             if(userTime < routine.getTime() / 2) {
@@ -106,14 +125,22 @@ public class RoutineView extends AppCompatActivity {
                 stopRoutine(v1);
             });
             resultDialog.show();
+            progressBar.getProgressDrawable().setColorFilter(COLOR_DONE, PorterDuff.Mode.SRC_IN);
+            mTimer.pauseTimer();
+            // start dialog with overview of completed routine...
         }
     }
 
     public void stopRoutine(View v) {
+        countThread.interrupt();
         // reset timer and set timer text to full
-        routineTimer.cancel();
+        //routineTimer.cancel();
+        mTimer.pauseTimer();
+        mTimer.setCurrentTime(0);
+        //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
+        //routineTimer.cancel();
         userTime = 0;
-        timerText.setText(formatTime(routine.getTime()));
+        //timerText.setText(formatTime(routine.getTime()));
 
         //reset visibilities back to starting position
         completeSubRoutineBtn.setVisibility(View.GONE);
@@ -137,12 +164,12 @@ public class RoutineView extends AppCompatActivity {
         super.onDestroy();
         Log.d("RoutineView", "onDestroy");
         listView.setAdapter(null);
-        if(routineTimer != null) {
-            routineTimer.cancel();
-        }
+        //if(routineTimer != null) {
+        //    routineTimer.cancel();
+        //}
     }
 
-    public void startTimer(int seconds, final TextView textView) {
+    /*public void startTimer(int seconds, final TextView textView) {
 
         routineTimer = new CountDownTimer(seconds* 1000+1000, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -169,7 +196,7 @@ public class RoutineView extends AppCompatActivity {
                 thread.start();
             }
         }.start();
-    }
+    }*/
 
     public String formatTime(int seconds) {
         return String.format("%02d", seconds /60) + ":" + String.format("%02d", seconds % 60);
@@ -179,4 +206,48 @@ public class RoutineView extends AppCompatActivity {
         return (int) millis / 1000;
     }
 
+    @Override
+    public void onTimerStop() {
+
+    }
+
+    private Thread countThread;
+    @Override
+    public void onTimerStart(int time) {
+        countThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while(progressBar.getProgress() != 100) {
+                        System.out.println("hello");
+                        sleep(1000);
+                        userTime++;
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        countThread.start();
+    }
+
+    @Override
+    public void onTimerPause(int time) {
+
+    }
+
+    @Override
+    public void onTimerTimingValueChanged(int time) {
+
+    }
+
+    @Override
+    public void onTimerSetValueChanged(int time) {
+
+    }
+
+    @Override
+    public void onTimerSetValueChange(int time) {
+
+    }
 }
