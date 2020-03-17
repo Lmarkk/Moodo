@@ -219,7 +219,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             public void run() {
                 try {
                     while(progressBar.getProgress() != 100) {
-                        System.out.println("hello");
                         sleep(1000);
                         userTime++;
                     }
