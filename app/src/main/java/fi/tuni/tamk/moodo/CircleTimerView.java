@@ -97,7 +97,7 @@ public class CircleTimerView extends View
     private String mHintText;
 
     // TimerTask
-    private Timer timer = new Timer();
+    public Timer timer = new Timer();
 
     private TimerTask timerTask;
 
@@ -489,6 +489,7 @@ public class CircleTimerView extends View
         Log.d(TAG, "startTimer");
         if (mCurrentRadian > 0 && !mStarted)
         {
+            timer = new Timer();
             timerTask = new TimerTask()
             {
                 @Override

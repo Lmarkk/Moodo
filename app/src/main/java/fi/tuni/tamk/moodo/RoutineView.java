@@ -2,6 +2,7 @@ package fi.tuni.tamk.moodo;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private ListView listView;
     private final int COLOR_DONE = Color.GREEN;
     private CircleTimerView mTimer;
+    private int userTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +55,16 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(0);
 
+
         mTimer = (CircleTimerView) findViewById(R.id.ctv);
         mTimer.setCircleTimerListener(this);
         mTimer.setHintText("");
 
         // Set routine timer from routine time
         //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
+        // Set routine timer from routine time and user time to 0;
+        userTime = 0;
+        //timerText.setText(formatTime(routine.getTime()));
 
         // Set subroutines to list view for specific routine
         listView = (ListView) findViewById(R.id.subroutine_list);
@@ -92,9 +98,35 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         } else {
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
+            userTime = userTime -1;
+            //routineTimer.cancel();
+
+            // start dialog with overview of completed routine
+            final Dialog resultDialog = new Dialog(this);
+            resultDialog.setContentView(R.layout.result_dialog);
+
+            TextView dialogText = resultDialog.findViewById(R.id.result_dialog_text);
+            //dialogText.setText("Rutiiniin asetettu aika: " + formatTime(routine.getTime()) + "\n");
+            dialogText.setText("Rutiiniin asetettu aika: " + formatTime(mTimer.getCurrentTime() + userTime) + "\n");
+            dialogText.append("Oma aikasi: " + formatTime(userTime) + "\n");
+            dialogText.append("\n");
+            if(userTime < routine.getTime() / 2) {
+                dialogText.append("Todella nopeaa toimintaa, hienosti tehty! Olithan huolellinen? \n");
+            } else {
+                dialogText.append("Hyvä, jatka samaan malliin! \n");
+            }
+            dialogText.append("\n");
+            dialogText.append("Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.");
+            // give players points here...
+
+            Button dialogButton = resultDialog.findViewById(R.id.result_dialog_dismiss_button);
+            dialogButton.setOnClickListener(v1 -> {
+                resultDialog.dismiss();
+                stopRoutine(v1);
+            });
+            resultDialog.show();
             progressBar.getProgressDrawable().setColorFilter(COLOR_DONE, PorterDuff.Mode.SRC_IN);
             mTimer.pauseTimer();
-            //routineTimer.cancel();
             // start dialog with overview of completed routine...
         }
     }
@@ -105,6 +137,9 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         mTimer.pauseTimer();
         mTimer.setCurrentTime(0);
         //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
+        //routineTimer.cancel();
+        userTime = 0;
+        //timerText.setText(formatTime(routine.getTime()));
 
         //reset visibilities back to starting position
         completeSubRoutineBtn.setVisibility(View.GONE);
@@ -138,17 +173,32 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         routineTimer = new CountDownTimer(seconds* 1000+1000, 1000) {
             public void onTick(long millisUntilFinished) {
                 int seconds = (int) (millisUntilFinished / 1000);
-                int minutes = seconds / 60;
-                seconds = seconds % 60;
-                textView.setText(String.format("%02d", minutes) + ":" + String.format("%02d", seconds));
+                textView.setText(formatTime(seconds));
+                userTime++;
+                System.out.println(userTime);
             }
 
-            public void onFinish() {}
+            public void onFinish() {
+                Thread thread = new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            while(progressBar.getProgress() != 100) {
+                                sleep(1000);
+                                userTime++;
+                            }
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                thread.start();
+            }
         }.start();
     }*/
 
-    public int millisToMinutes(long millis) {
-        return millisToSeconds(millis) / 60;
+    public String formatTime(int seconds) {
+        return String.format("%02d", seconds /60) + ":" + String.format("%02d", seconds % 60);
     }
 
     public int millisToSeconds(long millis) {
@@ -162,7 +212,20 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     @Override
     public void onTimerStart(int time) {
-
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while(progressBar.getProgress() != 100) {
+                        sleep(1000);
+                        userTime++;
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        thread.start();
     }
 
     @Override
