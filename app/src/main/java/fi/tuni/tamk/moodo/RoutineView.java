@@ -1,5 +1,7 @@
 package fi.tuni.tamk.moodo;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +27,7 @@ public class RoutineView extends AppCompatActivity {
     private CountDownTimer routineTimer = null;
     private Routine routine;
     private ListView listView;
+    final static int COLOR_DONE = Color.GREEN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,7 @@ public class RoutineView extends AppCompatActivity {
     }
 
     public void startRoutine(View v) {
+        progressBar.getProgressDrawable().setColorFilter(null);
         startTimer(routine.getTime(), timerText);
         completeSubRoutineBtn.setText(routine.getSubRoutines().get(0).toString());
         completeSubRoutineBtn.setVisibility(View.VISIBLE);
@@ -77,6 +81,7 @@ public class RoutineView extends AppCompatActivity {
         } else {
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
+            progressBar.getProgressDrawable().setColorFilter(COLOR_DONE, PorterDuff.Mode.SRC_IN);
             routineTimer.cancel();
             // start dialog with overview of completed routine...
         }
