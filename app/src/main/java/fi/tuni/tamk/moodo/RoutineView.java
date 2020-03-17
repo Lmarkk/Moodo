@@ -81,6 +81,7 @@ public class RoutineView extends AppCompatActivity {
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
             routineTimer.cancel();
+
             // start dialog with overview of completed routine
             final Dialog resultDialog = new Dialog(this);
             resultDialog.setContentView(R.layout.result_dialog);
@@ -92,7 +93,6 @@ public class RoutineView extends AppCompatActivity {
                 resultDialog.dismiss();
                 stopRoutine(v1);
             });
-
             resultDialog.show();
         }
     }
@@ -100,7 +100,8 @@ public class RoutineView extends AppCompatActivity {
     public void stopRoutine(View v) {
         // reset timer and set timer text to full
         routineTimer.cancel();
-        timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
+        userTime = 0;
+        timerText.setText(formatTime(routine.getTime()));
 
         //reset visibilities back to starting position
         completeSubRoutineBtn.setVisibility(View.GONE);
@@ -134,17 +135,17 @@ public class RoutineView extends AppCompatActivity {
         routineTimer = new CountDownTimer(seconds* 1000+1000, 1000) {
             public void onTick(long millisUntilFinished) {
                 int seconds = (int) (millisUntilFinished / 1000);
-                int minutes = seconds / 60;
-                seconds = seconds % 60;
-                textView.setText(String.format("%02d", minutes) + ":" + String.format("%02d", seconds));
+                textView.setText(formatTime(seconds));
+                userTime++;
+                System.out.println(userTime);
             }
 
             public void onFinish() {}
         }.start();
     }
 
-    public int millisToMinutes(long millis) {
-        return millisToSeconds(millis) / 60;
+    public String formatTime(int seconds) {
+        return String.format("%02d", seconds /60) + ":" + String.format("%02d", seconds % 60);
     }
 
     public int millisToSeconds(long millis) {
