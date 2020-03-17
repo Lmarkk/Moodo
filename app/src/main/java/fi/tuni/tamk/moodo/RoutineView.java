@@ -1,5 +1,6 @@
 package fi.tuni.tamk.moodo;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -78,7 +79,19 @@ public class RoutineView extends AppCompatActivity {
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
             routineTimer.cancel();
-            // start dialog with overview of completed routine...
+            // start dialog with overview of completed routine
+            final Dialog resultDialog = new Dialog(this);
+            resultDialog.setContentView(R.layout.result_dialog);
+
+            TextView dialogText = resultDialog.findViewById(R.id.result_dialog_text);
+
+            Button dialogButton = resultDialog.findViewById(R.id.result_dialog_dismiss_button);
+            dialogButton.setOnClickListener(v1 -> {
+                resultDialog.dismiss();
+                stopRoutine(v1);
+            });
+
+            resultDialog.show();
         }
     }
 
