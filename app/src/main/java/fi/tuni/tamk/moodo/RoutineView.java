@@ -26,6 +26,7 @@ public class RoutineView extends AppCompatActivity {
     private CountDownTimer routineTimer = null;
     private Routine routine;
     private ListView listView;
+    private int userTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,9 @@ public class RoutineView extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(0);
 
-        // Set routine timer from routine time
-        timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
+        // Set routine timer from routine time and user time to 0;
+        userTime = 0;
+        timerText.setText(formatTime(routine.getTime()));
 
         // Set subroutines to list view for specific routine
         listView = (ListView) findViewById(R.id.subroutine_list);
