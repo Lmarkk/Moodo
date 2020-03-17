@@ -152,7 +152,22 @@ public class RoutineView extends AppCompatActivity {
                 System.out.println(userTime);
             }
 
-            public void onFinish() {}
+            public void onFinish() {
+                Thread thread = new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            while(progressBar.getProgress() != 100) {
+                                sleep(1000);
+                                userTime++;
+                            }
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                thread.start();
+            }
         }.start();
     }
 
