@@ -98,7 +98,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         } else {
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
-            userTime = userTime -1;
+            //userTime = userTime -1;
             //routineTimer.cancel();
 
             // start dialog with overview of completed routine
