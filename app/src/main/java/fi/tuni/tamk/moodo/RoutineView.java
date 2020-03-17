@@ -80,6 +80,7 @@ public class RoutineView extends AppCompatActivity {
         } else {
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
+            userTime = userTime -1;
             routineTimer.cancel();
 
             // start dialog with overview of completed routine
@@ -87,6 +88,17 @@ public class RoutineView extends AppCompatActivity {
             resultDialog.setContentView(R.layout.result_dialog);
 
             TextView dialogText = resultDialog.findViewById(R.id.result_dialog_text);
+            dialogText.setText("Rutiiniin asetettu aika: " + formatTime(routine.getTime()) + "\n");
+            dialogText.append("Oma aikasi: " + formatTime(userTime) + "\n");
+            dialogText.append("\n");
+            if(userTime < routine.getTime() / 2) {
+                dialogText.append("Todella nopeaa toimintaa, hienosti tehty! Olithan huolellinen? \n");
+            } else {
+                dialogText.append("Hyvä, jatka samaan malliin! \n");
+            }
+            dialogText.append("\n");
+            dialogText.append("Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.");
+            // give players points here...
 
             Button dialogButton = resultDialog.findViewById(R.id.result_dialog_dismiss_button);
             dialogButton.setOnClickListener(v1 -> {
