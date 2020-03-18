@@ -75,6 +75,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
+            mTimer.setCircleButtonDisabled(true);
             mTimer.startTimer();
             progressBar.getProgressDrawable().setColorFilter(null);
             //startTimer(routine.getTime(), timerText);
@@ -132,6 +133,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     }
 
     public void stopRoutine(View v) {
+        mTimer.setCircleButtonDisabled(false);
         countThread.interrupt();
         // reset timer and set timer text to full
         //routineTimer.cancel();
