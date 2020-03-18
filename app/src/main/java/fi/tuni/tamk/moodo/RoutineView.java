@@ -3,6 +3,7 @@ package fi.tuni.tamk.moodo;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.app.Dialog;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -70,6 +71,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         listView = (ListView) findViewById(R.id.subroutine_list);
         ArrayAdapter<SubRoutine> adapter = new ArrayAdapter<>(this, R.layout.subroutine_list_item_layout, routine.getSubRoutines());
         listView.setAdapter(adapter);
+
+        initializeBackgroundTransition();
 
     }
 
@@ -157,6 +160,25 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         // reset subroutine iterator
         subRtnIterator = routine.getSubRoutines().listIterator();
         subRtnIterator.next();
+    }
+
+    private void initializeBackgroundTransition() {
+        View containerView = findViewById(R.id.root_view_routine);
+
+        Drawable bg_0 = getResources().getDrawable(R.drawable.bg_blue);
+        Drawable bg_1 = getResources().getDrawable(R.drawable.bg_blueorange);
+        Drawable bg_2 = getResources().getDrawable(R.drawable.bg_greenyellow);
+        Drawable bg_3 = getResources().getDrawable(R.drawable.bg_green);
+        Drawable bg_4 = getResources().getDrawable(R.drawable.bg_orange);
+        Drawable bg_5 = getResources().getDrawable(R.drawable.bg_redorange);
+        Drawable bg_6 = getResources().getDrawable(R.drawable.bg_lightred);
+        Drawable bg_7 = getResources().getDrawable(R.drawable.bg_red);
+        Drawable bg_8 = getResources().getDrawable(R.drawable.bg_purple);
+        Drawable[] drawables = {bg_0, bg_1, bg_2, bg_3, bg_4, bg_5, bg_6, bg_7, bg_8};
+
+        CyclicTransitionDrawable ctd = new CyclicTransitionDrawable(drawables);
+        containerView.setBackground(ctd);
+        ctd.startTransition(4000, 8000); // 1 second transition, 3 second pause between transitions.
     }
 
     @Override
