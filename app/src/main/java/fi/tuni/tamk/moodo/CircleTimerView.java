@@ -95,6 +95,8 @@ public class CircleTimerView extends View
     private int mCurrentTime; // seconds
     private boolean mStarted;
     private String mHintText;
+    private boolean circleButtonDisabled;
+    private int mTotalTime;
 
     // TimerTask
     private Timer timer = new Timer();
@@ -113,6 +115,8 @@ public class CircleTimerView extends View
             {
                 mCurrentRadian -= (2 * Math.PI) / 3600;
                 mCurrentTime--;
+                mTotalTime++;
+                System.out.println(mTotalTime);
                 if (mCircleTimerListener != null)
                 {
                     mCircleTimerListener.onTimerTimingValueChanged(mCurrentTime);
@@ -154,6 +158,7 @@ public class CircleTimerView extends View
 
     private void initialize()
     {
+        circleButtonDisabled = false;
         Log.d(TAG, "initialize");
         // Set default dimension or read xml attributes
         mGapBetweenCircleAndLine = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE,
@@ -338,7 +343,7 @@ public class CircleTimerView extends View
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
-        if(!mStarted) {
+        if(!circleButtonDisabled) {
             switch (event.getAction() & event.getActionMasked())
             {
                 case MotionEvent.ACTION_DOWN:
@@ -591,6 +596,18 @@ public class CircleTimerView extends View
     public int getCurrentTime()
     {
         return mCurrentTime;
+    }
+
+    public void setCircleButtonDisabled(boolean circleButtonDisabled) {
+        this.circleButtonDisabled = circleButtonDisabled;
+    }
+
+    public void setTotalTime(int mTotaltime) {
+        this.mTotalTime = mTotaltime;
+    }
+
+    public int getTotalTime() {
+        return mTotalTime;
     }
 
 

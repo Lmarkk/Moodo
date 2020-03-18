@@ -32,6 +32,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private final int COLOR_DONE = Color.GREEN;
     private CircleTimerView mTimer;
     private int userTime;
+    private Thread countThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,9 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
+            mTimer.setCircleButtonDisabled(true);
             mTimer.startTimer();
+            startCountThread();
             progressBar.getProgressDrawable().setColorFilter(null);
             //startTimer(routine.getTime(), timerText);
             completeSubRoutineBtn.setText(routine.getSubRoutines().get(0).toString());
@@ -107,10 +110,10 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
             TextView dialogText = resultDialog.findViewById(R.id.result_dialog_text);
             //dialogText.setText("Rutiiniin asetettu aika: " + formatTime(routine.getTime()) + "\n");
-            dialogText.setText("Rutiiniin asetettu aika: " + formatTime(mTimer.getCurrentTime() + userTime) + "\n");
+            dialogText.setText("Rutiiniin asetettu aika: " + formatTime(mTimer.getCurrentTime() + mTimer.getTotalTime()) + "\n");
             dialogText.append("Oma aikasi: " + formatTime(userTime) + "\n");
             dialogText.append("\n");
-            if(userTime < routine.getTime() / 2) {
+            if(userTime < (mTimer.getCurrentTime() + mTimer.getTotalTime() / 2)) {
                 dialogText.append("Todella nopeaa toimintaa, hienosti tehty! Olithan huolellinen? \n");
             } else {
                 dialogText.append("Hyvä, jatka samaan malliin! \n");
@@ -132,11 +135,13 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     }
 
     public void stopRoutine(View v) {
+        mTimer.setCircleButtonDisabled(false);
         countThread.interrupt();
         // reset timer and set timer text to full
         //routineTimer.cancel();
         mTimer.pauseTimer();
         mTimer.setCurrentTime(0);
+        mTimer.setTotalTime(0);
         //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
         //routineTimer.cancel();
         userTime = 0;
@@ -198,6 +203,24 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         }.start();
     }*/
 
+    public void startCountThread() {
+        countThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while(progressBar.getProgress() != 100) {
+                        sleep(1000);
+                        userTime++;
+                        System.out.println("USER TIME: " + userTime);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        countThread.start();
+    }
+
     public String formatTime(int seconds) {
         return String.format("%02d", seconds /60) + ":" + String.format("%02d", seconds % 60);
     }
@@ -211,23 +234,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     }
 
-    private Thread countThread;
     @Override
     public void onTimerStart(int time) {
-        countThread = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    while(progressBar.getProgress() != 100) {
-                        sleep(1000);
-                        userTime++;
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        countThread.start();
     }
 
     @Override
