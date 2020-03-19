@@ -22,6 +22,7 @@
         app:layout_constraintVertical_bias="0.038" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:background="@android:color/black"
@@ -31,4 +32,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.091" />
+
+    <Switch
+        android:id="@+id/switch_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.239"
+        app:layout_constraintStart_toEndOf="@+id/text_notification"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.087" />
+
+    <Switch
+        android:id="@+id/switch_sounds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintStart_toEndOf="@+id/text_sounds"
+        app:layout_constraintTop_toBottomOf="@+id/switch_notification"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <TextView
+        android:id="@+id/text_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ilmoitukset"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <TextView
+        android:id="@+id/text_sounds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Äänet"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_notification"
+        app:layout_constraintVertical_bias="0.085" />
+
 </android.support.constraint.ConstraintLayout>
