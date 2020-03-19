@@ -9,16 +9,16 @@
     android:id="@+id/root_view_moodo">
 
     <Button
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:onClick="openSettings"
         android:background="@drawable/ic_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintVertical_bias="0.005" />
 
     <ListView
         android:id="@+id/routine_list"
