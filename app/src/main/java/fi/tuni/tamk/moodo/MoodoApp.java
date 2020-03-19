@@ -89,6 +89,11 @@ public class MoodoApp extends AppCompatActivity {
 
     }
 
+    public void openSettings(View view) {
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+    }
+
     private void initializeBackgroundTransition() {
         View containerView = findViewById(R.id.root_view_moodo);
 
