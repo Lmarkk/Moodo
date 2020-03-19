@@ -94,7 +94,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             routineTitle.setVisibility(View.GONE);
             listView.setVisibility(View.GONE);
         } else {
-            Toast.makeText(this, "Set time first", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Aseta aika ensin", Toast.LENGTH_LONG).show();
         }
     }
 
