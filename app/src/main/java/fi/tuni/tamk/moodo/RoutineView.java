@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -80,6 +81,9 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
+            ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
+            newLayoutParams.topMargin = 256;
+            mTimer.setLayoutParams(newLayoutParams);
             mTimer.setCircleButtonDisabled(true);
             mTimer.startTimer();
             startCountThread();
@@ -140,6 +144,9 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public void stopRoutine(View v) {
         mTimer.setCircleButtonDisabled(false);
+        ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
+        newLayoutParams.topMargin = 32;
+        mTimer.setLayoutParams(newLayoutParams);
         countThread.interrupt();
         // reset timer and set timer text to full
         //routineTimer.cancel();

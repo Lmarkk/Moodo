@@ -45,33 +45,32 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:text="Ladataan..."
-        android:textColor="#000"
+        android:textColor="@color/colorText"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/subroutine_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <fi.tuni.tamk.moodo.CircleTimerView
         android:id="@+id/ctv"
-        android:layout_width="193dp"
-        android:layout_height="195dp"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032"></fi.tuni.tamk.moodo.CircleTimerView>
+        app:layout_constraintVertical_bias="0" />
 
     <Button
         android:id="@+id/startButton"
         android:layout_width="210dp"
         android:layout_height="54dp"
         android:layout_marginBottom="28dp"
-        android:background="#297"
+        android:background="@drawable/button_start_rounded"
         android:onClick="startRoutine"
         android:text="Aloita rutiini"
         android:textColor="#FFF"
@@ -84,61 +83,60 @@
 
     <Button
         android:id="@+id/stopButton"
-        android:layout_width="210dp"
-        android:layout_height="54dp"
-        android:background="@android:color/holo_red_light"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/icon_exit_dark"
         android:onClick="stopRoutine"
         android:text="Keskeytä rutiini"
         android:textColor="#FFF"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.911" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="260dp"
-        android:layout_height="40dp"
+        android:layout_width="410dp"
+        android:layout_height="30dp"
+        android:progressDrawable="@drawable/progressbar"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/completeSubRoutineButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.738" />
+        app:layout_constraintVertical_bias="0" />
 
     <ListView
         android:id="@+id/subroutine_list"
-        android:layout_width="249dp"
-        android:layout_height="295dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="290dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/routine_title"></ListView>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/completeSubRoutineButton"
-        android:layout_width="260dp"
-        android:layout_height="100dp"
-        android:background="@android:color/holo_blue_light"
+        android:layout_width="410dp"
+        android:layout_height="130dp"
+        android:background="@drawable/button_subroutine_next"
         android:onClick="completeSubRoutine"
         android:text=""
         android:textAlignment="center"
-        android:textColor="#FFF"
+        android:textColor="@color/colorText"
         android:textSize="18sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599" />
+        app:layout_constraintVertical_bias="0.8" />
 
 </android.support.constraint.ConstraintLayout>
