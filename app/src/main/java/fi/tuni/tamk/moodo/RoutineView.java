@@ -1,5 +1,6 @@
 package fi.tuni.tamk.moodo;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.app.Dialog;
@@ -184,6 +185,11 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         CyclicTransitionDrawable ctd = new CyclicTransitionDrawable(drawables);
         containerView.setBackground(ctd);
         ctd.startTransition(4000, 8000); // 1 second transition, 3 second pause between transitions.
+    }
+
+    public void openSettings(View view) {
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
     }
 
     @Override

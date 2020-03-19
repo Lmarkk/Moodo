@@ -29,6 +29,7 @@
     <Button
         android:layout_width="38dp"
         android:layout_height="38dp"
+        android:onClick="openSettings"
         android:background="@drawable/ic_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
