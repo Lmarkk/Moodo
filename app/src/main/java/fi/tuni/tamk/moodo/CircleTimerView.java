@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -31,27 +32,27 @@ public class CircleTimerView extends View
     // Default dimension in dp/pt
     private static final float DEFAULT_GAP_BETWEEN_CIRCLE_AND_LINE = 5;
     private static final float DEFAULT_GAP_BETWEEN_NUMBER_AND_LINE = 5;
-    private static final float DEFAULT_NUMBER_SIZE = 10;
+    private static final float DEFAULT_NUMBER_SIZE = 15;
     private static final float DEFAULT_LINE_LENGTH = 14;
     private static final float DEFAULT_LONGER_LINE_LENGTH = 23;
-    private static final float DEFAULT_LINE_WIDTH = 0.8f;
-    private static final float DEFAULT_CIRCLE_BUTTON_RADIUS = 15;
-    private static final float DEFAULT_CIRCLE_STROKE_WIDTH = 1;
-    private static final float DEFAULT_TIMER_NUMBER_SIZE = 35;
+    private static final float DEFAULT_LINE_WIDTH = 1f;
+    private static final float DEFAULT_CIRCLE_BUTTON_RADIUS = 12;
+    private static final float DEFAULT_CIRCLE_STROKE_WIDTH = 2;
+    private static final float DEFAULT_TIMER_NUMBER_SIZE = 45;
     private static final float DEFAULT_TIMER_TEXT_SIZE = 14;
     private static final float DEFAULT_GAP_BETWEEN_TIMER_NUMBER_AND_TEXT = 30;
 
     // if you want to get color from resources
     // ContextCompat.getColor(context, R.color.red);
     // Default color
-    private final int DEFAULT_CIRCLE_COLOR = Color.BLACK;
-    private final int DEFAULT_CIRCLE_BUTTON_COLOR = Color.RED;
-    private final int DEFAULT_LINE_COLOR = Color.BLACK;
-    private final int DEFAULT_HIGHLIGHT_LINE_COLOR = Color.RED;
-    private final int DEFAULT_NUMBER_COLOR = Color.BLACK;
-    private final int DEFAULT_TIMER_NUMBER_COLOR = Color.RED;
-    private final int DEFAULT_TIMER_COLON_COLOR = Color.RED;
-    private final int DEFAULT_TIMER_TEXT_COLOR = Color.BLACK;
+    private final int DEFAULT_CIRCLE_COLOR = ContextCompat.getColor(context, R.color.colorTimerCircle);
+    private final int DEFAULT_CIRCLE_BUTTON_COLOR = ContextCompat.getColor(context, R.color.colorTimerCircleButton);;
+    private final int DEFAULT_LINE_COLOR = ContextCompat.getColor(context, R.color.colorTimerCircleLine);
+    private final int DEFAULT_HIGHLIGHT_LINE_COLOR = ContextCompat.getColor(context, R.color.colorTimerCircleLineHighlight);
+    private final int DEFAULT_NUMBER_COLOR = ContextCompat.getColor(context, R.color.colorTimerCircleNumber);
+    private final int DEFAULT_TIMER_NUMBER_COLOR = ContextCompat.getColor(context, R.color.colorTimerNumber);
+    private final int DEFAULT_TIMER_COLON_COLOR = ContextCompat.getColor(context, R.color.colorTimerNumberColon);
+    private final int DEFAULT_TIMER_TEXT_COLOR = ContextCompat.getColor(context, R.color.colorTimerText);
 
     // Paint
     private Paint mCirclePaint;
