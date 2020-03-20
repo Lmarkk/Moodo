@@ -23,6 +23,13 @@
             android:screenOrientation="portrait" />
         <activity android:name=".Unlocks"
             android:screenOrientation="portrait" />
+        <service
+            android:name=".CustomFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
