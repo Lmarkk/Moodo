@@ -1,5 +1,7 @@
 package fi.tuni.tamk.moodo;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -9,6 +11,8 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.util.Log;
 import android.view.View;
@@ -30,6 +34,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private Button stopRoutineBtn;
     //private TextView timerText;
     //private CountDownTimer routineTimer = null;
+    private NotificationManagerCompat notificationManager;
+    private boolean notificationIsOn = false;
     private Routine routine;
     private ListView listView;
     private final int COLOR_DONE = Color.GREEN;
@@ -44,6 +50,9 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         setContentView(R.layout.routine_view);
         routineTitle = findViewById(R.id.routine_title);
         //timerText = findViewById(R.id.routine_timer);
+
+        //Instantiate notification manager
+        notificationManager = NotificationManagerCompat.from(this);
 
         completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
         startRoutineBtn = findViewById(R.id.startButton);
@@ -247,6 +256,9 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
                         sleep(1000);
                         userTime++;
                         System.out.println("USER TIME: " + userTime);
+                        if(notificationIsOn) {
+                            showNotification();
+                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -262,6 +274,44 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public int millisToSeconds(long millis) {
         return (int) millis / 1000;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        showNotification();
+    }
+
+    public Notification createNotification() {
+        Intent intent = new Intent(this, RoutineView.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, MoodoApp.CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_settings)
+                .setContentTitle("Moodo")
+                .setContentText("Rutiini on kesken " + formatTime(mTimer.getCurrentTime()))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                // .setContentIntent(pendingIntent)
+                .setOngoing(true)
+                .setAutoCancel(true);
+
+        return builder.build();
+    }
+
+
+    public void showNotification() {
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(1, createNotification());
+        notificationIsOn = true;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        notificationIsOn = false;
+        notificationManager.cancelAll();
+        // mTimer.startTimer();
     }
 
     @Override
