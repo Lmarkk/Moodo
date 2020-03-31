@@ -12,6 +12,8 @@ import androidx.core.app.NotificationCompat;
 import static fi.tuni.tamk.moodo.TimerNotification.CHANNEL_ID;
 
 public class TimerService extends Service {
+    public static final String CONTENT_TITLE = "Moodo App";
+    public static final int SERVICE_ID = 1;
 
     @Override
     public void onCreate() {
@@ -32,13 +34,13 @@ public class TimerService extends Service {
                 0, notificationIntent, 0);
 
         Notification notification  = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Moodo App")
+                .setContentTitle(CONTENT_TITLE)
                 .setContentText("Moodo is running...")
                 .setSmallIcon(R.drawable.ic_alarm)
                 .setContentIntent(pendingIntent)
                 .build();
 
-        startForeground(1, notification);
+        startForeground(SERVICE_ID, notification);
         return START_STICKY;
     }
 

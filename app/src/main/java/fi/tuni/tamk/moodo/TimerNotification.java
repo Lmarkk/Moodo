@@ -7,6 +7,7 @@ import android.os.Build;
 
 public class TimerNotification extends Application {
     public static final String CHANNEL_ID = "timerServiceChannel";
+    public static final String CHANNEL_NAME = "timerServiceChannel";
 
     @Override
     public void onCreate() {
@@ -18,7 +19,7 @@ public class TimerNotification extends Application {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel serviceChannel = new NotificationChannel(
                     CHANNEL_ID,
-                    "timerServiceChannel",
+                    CHANNEL_NAME,
                     NotificationManager.IMPORTANCE_DEFAULT
             );
             NotificationManager manager = getSystemService((NotificationManager.class));
