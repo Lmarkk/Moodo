@@ -76,7 +76,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         listView.setAdapter(adapter);
 
         initializeBackgroundTransition();
-
     }
 
     public void startRoutine(View v) {
@@ -212,6 +211,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         super.onDestroy();
         Log.d("RoutineView", "onDestroy");
         listView.setAdapter(null);
+        Intent serviceIntent = new Intent(this, TimerService.class);
+        stopService(serviceIntent);
         //if(routineTimer != null) {
         //    routineTimer.cancel();
         //}
