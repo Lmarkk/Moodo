@@ -81,6 +81,10 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
+            // Start timer service
+            Intent serviceIntent = new Intent(this, TimerService.class);
+            startService(serviceIntent);
+
             ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
             newLayoutParams.topMargin = 256;
             mTimer.setLayoutParams(newLayoutParams);
@@ -107,6 +111,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             completeSubRoutineBtn.setText(subRtnIterator.next().toString());
             progressBar.setProgress(progressBar.getProgress() + (100 / routine.getSubRoutines().size()));
         } else {
+            Intent serviceIntent = new Intent(this, TimerService.class);
+            stopService(serviceIntent);
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
             //userTime = userTime -1;
@@ -144,6 +150,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public void stopRoutine(View v) {
         mTimer.setCircleButtonDisabled(false);
+        Intent serviceIntent = new Intent(this, TimerService.class);
+        stopService(serviceIntent);
         ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
         newLayoutParams.topMargin = 32;
         mTimer.setLayoutParams(newLayoutParams);
