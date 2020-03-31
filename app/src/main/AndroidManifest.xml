@@ -23,6 +23,7 @@
             android:screenOrientation="portrait" />
         <activity android:name=".Unlocks"
             android:screenOrientation="portrait" />
+        <service android:name=".TimerService"/>
     </application>
 
 </manifest>
