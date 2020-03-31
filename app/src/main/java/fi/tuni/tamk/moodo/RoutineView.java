@@ -39,48 +39,51 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.d("RoutineView", "onCreate");
-        setContentView(R.layout.routine_view);
-        routineTitle = findViewById(R.id.routine_title);
-        //timerText = findViewById(R.id.routine_timer);
+            super.onCreate(savedInstanceState);
+            Log.d("RoutineView", "onCreate");
+            setContentView(R.layout.routine_view);
+            routineTitle = findViewById(R.id.routine_title);
+            //timerText = findViewById(R.id.routine_timer);
 
-        completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
-        startRoutineBtn = findViewById(R.id.startButton);
-        stopRoutineBtn = findViewById(R.id.stopButton);
+            completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
+            startRoutineBtn = findViewById(R.id.startButton);
+            stopRoutineBtn = findViewById(R.id.stopButton);
 
-        // Set routine variable from sent intent, set routine title from routine name
-        routine = (Routine) getIntent().getSerializableExtra("routine");
-        routineTitle.setText(routine.getName());
+            // Set routine variable from sent intent, set routine title from routine name
+            routine = (Routine) getIntent().getSerializableExtra("routine");
+            routineTitle.setText(routine.getName());
 
-        subRtnIterator = routine.getSubRoutines().listIterator();
-        subRtnIterator.next();
+            subRtnIterator = routine.getSubRoutines().listIterator();
+            subRtnIterator.next();
 
-        progressBar = findViewById(R.id.progressBar);
-        progressBar.setProgress(0);
+            progressBar = findViewById(R.id.progressBar);
+            progressBar.setProgress(0);
 
 
-        mTimer = (CircleTimerView) findViewById(R.id.ctv);
-        mTimer.setCircleTimerListener(this);
-        mTimer.setHintText("");
+            mTimer = (CircleTimerView) findViewById(R.id.ctv);
+            mTimer.setCircleTimerListener(this);
+            mTimer.setHintText("");
 
-        // Set routine timer from routine time
-        //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
-        // Set routine timer from routine time and user time to 0;
-        userTime = 0;
-        //timerText.setText(formatTime(routine.getTime()));
+            // Set routine timer from routine time
+            //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
+            // Set routine timer from routine time and user time to 0;
+            userTime = 0;
+            //timerText.setText(formatTime(routine.getTime()));
 
-        // Set subroutines to list view for specific routine
-        listView = (ListView) findViewById(R.id.subroutine_list);
-        ArrayAdapter<SubRoutine> adapter = new ArrayAdapter<>(this, R.layout.subroutine_list_item_layout, routine.getSubRoutines());
-        listView.setAdapter(adapter);
+            // Set subroutines to list view for specific routine
+            listView = (ListView) findViewById(R.id.subroutine_list);
+            ArrayAdapter<SubRoutine> adapter = new ArrayAdapter<>(this, R.layout.subroutine_list_item_layout, routine.getSubRoutines());
+            listView.setAdapter(adapter);
 
-        initializeBackgroundTransition();
-
+            initializeBackgroundTransition();
     }
 
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
+            // Start timer service
+            Intent serviceIntent = new Intent(this, TimerService.class);
+            startService(serviceIntent);
+
             ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
             newLayoutParams.topMargin = 256;
             mTimer.setLayoutParams(newLayoutParams);
@@ -107,6 +110,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             completeSubRoutineBtn.setText(subRtnIterator.next().toString());
             progressBar.setProgress(progressBar.getProgress() + (100 / routine.getSubRoutines().size()));
         } else {
+            Intent serviceIntent = new Intent(this, TimerService.class);
+            stopService(serviceIntent);
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
             //userTime = userTime -1;
@@ -144,6 +149,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public void stopRoutine(View v) {
         mTimer.setCircleButtonDisabled(false);
+        Intent serviceIntent = new Intent(this, TimerService.class);
+        stopService(serviceIntent);
         ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
         newLayoutParams.topMargin = 32;
         mTimer.setLayoutParams(newLayoutParams);
@@ -204,6 +211,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         super.onDestroy();
         Log.d("RoutineView", "onDestroy");
         listView.setAdapter(null);
+        Intent serviceIntent = new Intent(this, TimerService.class);
+        stopService(serviceIntent);
         //if(routineTimer != null) {
         //    routineTimer.cancel();
         //}
