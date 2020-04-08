@@ -35,7 +35,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     //private TextView timerText;
     //private CountDownTimer routineTimer = null;
     private NotificationManagerCompat notificationManager;
-    private boolean notificationIsOn = false;
     private Routine routine;
     private ListView listView;
     private final int COLOR_DONE = Color.GREEN;
@@ -45,46 +44,38 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            Log.d("RoutineView", "onCreate");
-            setContentView(R.layout.routine_view);
-            routineTitle = findViewById(R.id.routine_title);
-            //timerText = findViewById(R.id.routine_timer);
-
-            //Instantiate notification manager
+        super.onCreate(savedInstanceState);
+        Log.d("RoutineView", "onCreate");
+        setContentView(R.layout.routine_view);
+        routineTitle = findViewById(R.id.routine_title);
+        //timerText = findViewById(R.id.routine_timer);
+        //Instantiate notification manager
         notificationManager = NotificationManagerCompat.from(this);
 
         completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
         startRoutineBtn = findViewById(R.id.startButton);
         stopRoutineBtn = findViewById(R.id.stopButton);
 
-            // Set routine variable from sent intent, set routine title from routine name
-            routine = (Routine) getIntent().getSerializableExtra("routine");
-            routineTitle.setText(routine.getName());
-
-            subRtnIterator = routine.getSubRoutines().listIterator();
-            subRtnIterator.next();
-
-            progressBar = findViewById(R.id.progressBar);
-            progressBar.setProgress(0);
-
-
-            mTimer = (CircleTimerView) findViewById(R.id.ctv);
-            mTimer.setCircleTimerListener(this);
-            mTimer.setHintText("");
-
-            // Set routine timer from routine time
-            //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
-            // Set routine timer from routine time and user time to 0;
-            userTime = 0;
-            //timerText.setText(formatTime(routine.getTime()));
-
-            // Set subroutines to list view for specific routine
-            listView = (ListView) findViewById(R.id.subroutine_list);
-            ArrayAdapter<SubRoutine> adapter = new ArrayAdapter<>(this, R.layout.subroutine_list_item_layout, routine.getSubRoutines());
-            listView.setAdapter(adapter);
-
-            initializeBackgroundTransition();
+        // Set routine variable from sent intent, set routine title from routine name
+        routine = (Routine) getIntent().getSerializableExtra("routine");
+        routineTitle.setText(routine.getName());
+        subRtnIterator = routine.getSubRoutines().listIterator();
+        subRtnIterator.next();
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(0);
+        mTimer = (CircleTimerView) findViewById(R.id.ctv);
+        mTimer.setCircleTimerListener(this);
+        mTimer.setHintText("");
+        // Set routine timer from routine time
+        //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
+        // Set routine timer from routine time and user time to 0;
+        userTime = 0;
+        //timerText.setText(formatTime(routine.getTime()));
+        // Set subroutines to list view for specific routine
+        listView = (ListView) findViewById(R.id.subroutine_list);
+        ArrayAdapter<SubRoutine> adapter = new ArrayAdapter<>(this, R.layout.subroutine_list_item_layout, routine.getSubRoutines());
+        listView.setAdapter(adapter);
+        initializeBackgroundTransition();
     }
 
     public void startRoutine(View v) {
@@ -152,7 +143,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             resultDialog.show();
             progressBar.getProgressDrawable().setColorFilter(COLOR_DONE, PorterDuff.Mode.SRC_IN);
             mTimer.pauseTimer();
-            // start dialog with overview of completed routine...
         }
     }
 
@@ -264,10 +254,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
                     while(progressBar.getProgress() != 100) {
                         sleep(1000);
                         userTime++;
-                        System.out.println("USER TIME: " + userTime);
-                        if(notificationIsOn) {
-                            showNotification();
-                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
