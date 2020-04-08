@@ -15,6 +15,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,6 +35,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private Button stopRoutineBtn;
     //private TextView timerText;
     //private CountDownTimer routineTimer = null;
+    private boolean exitCountThread = false;
+    private boolean doNotNotify = false;
     private NotificationManagerCompat notificationManager;
     private Routine routine;
     private ListView listView;
@@ -81,8 +84,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
             // Start timer service
-            Intent serviceIntent = new Intent(this, TimerService.class);
-            startService(serviceIntent);
+            // Intent serviceIntent = new Intent(this, TimerService.class);
+            // startService(serviceIntent);
 
             ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
             newLayoutParams.topMargin = 256;
@@ -111,7 +114,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             progressBar.setProgress(progressBar.getProgress() + (100 / routine.getSubRoutines().size()));
         } else {
             Intent serviceIntent = new Intent(this, TimerService.class);
-            stopService(serviceIntent);
+            // stopService(serviceIntent);
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
             //userTime = userTime -1;
@@ -212,6 +215,10 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         listView.setAdapter(null);
         Intent serviceIntent = new Intent(this, TimerService.class);
         stopService(serviceIntent);
+        notificationManager.cancelAll();
+        exitCountThread = true;
+        mTimer.pauseTimer();
+
         //if(routineTimer != null) {
         //    routineTimer.cancel();
         //}
@@ -251,7 +258,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             @Override
             public void run() {
                 try {
-                    while(progressBar.getProgress() != 100) {
+                    while(progressBar.getProgress() != 100 && !exitCountThread) {
                         sleep(1000);
                         userTime++;
                     }
@@ -274,37 +281,18 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     @Override
     public void onPause() {
         super.onPause();
-        showNotification();
-    }
-
-    public Notification createNotification() {
-        Intent intent = new Intent(this, RoutineView.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, MoodoApp.CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_settings)
-                .setContentTitle("Moodo")
-                .setContentText("Rutiini on kesken " + formatTime(mTimer.getCurrentTime()))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                // .setContentIntent(pendingIntent)
-                .setOngoing(true)
-                .setAutoCancel(true);
-
-        return builder.build();
-    }
-
-
-    public void showNotification() {
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(1, createNotification());
-        notificationIsOn = true;
+        // Start timer service
+        if(mTimer.ismStarted() && !doNotNotify) {
+            Intent serviceIntent = new Intent(this, TimerService.class);
+            startService(serviceIntent);
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        notificationIsOn = false;
+        // stop timer service
+        Intent serviceIntent = new Intent(this, TimerService.class);
         notificationManager.cancelAll();
         // mTimer.startTimer();
     }
