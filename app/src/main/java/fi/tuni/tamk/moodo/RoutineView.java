@@ -44,6 +44,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private CircleTimerView mTimer;
     private int userTime;
     private Thread countThread;
+    public static final int OPEN_NEW_ACTIVITY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,7 +207,16 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     public void openSettings(View view) {
         doNotNotify = true;
         Intent intent = new Intent(this, Settings.class);
-        startActivity(intent);
+        //startActivity(intent);
+        startActivityForResult(intent, OPEN_NEW_ACTIVITY);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Result OK.d.
+        if (requestCode == OPEN_NEW_ACTIVITY) {
+            doNotNotify = false;
+        }
     }
 
     @Override
