@@ -610,6 +610,9 @@ public class CircleTimerView extends View
         return mTotalTime;
     }
 
+    public boolean ismStarted() {
+        return mStarted;
+    }
 
     public interface CircleTimerListener
     {
