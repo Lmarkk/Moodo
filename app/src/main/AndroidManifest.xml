@@ -3,14 +3,14 @@
     package="fi.tuni.tamk.moodo" >
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <application
-        android:name=".TimerNotification"
+        android:name=".Classes.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
-        <activity android:name=".MoodoApp"
+        <activity android:name=".Activity.MoodoApp"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,20 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RoutineView"
+        <activity android:name=".Activity.RoutineView"
             android:screenOrientation="portrait" />
-        <activity android:name=".Settings"
+        <activity android:name=".Activity.Settings"
             android:screenOrientation="portrait" />
-        <activity android:name=".Unlocks"
+        <activity android:name=".Activity.Unlocks"
             android:screenOrientation="portrait" />
         <service
-            android:name=".CustomFirebaseMessagingService"
+            android:name=".Service.CustomFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".TimerService"/>
+        <service android:name=".Service.TimerService"/>
     </application>
 
 </manifest>

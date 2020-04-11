@@ -1,0 +1,42 @@
+{
+  "routines": [
+    {
+      "id": 1,
+      "name": "Pese hampaat",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Ota hammasharja"
+        },
+        {
+          "description": "Lisää hammastahna"
+        },
+        {
+          "description": "Pese hampaita kolme minuuttia"
+        },
+        {
+          "description": "Huuhtele suu ja hammasharja"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Vie roskat",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Sulje roskapussi"
+        },
+        {
+          "description": "Nosta roskapussi pois säiliöstä"
+        },
+        {
+          "description": "Vie roskat roskikseen"
+        },
+        {
+          "description": "Laita uusi roskapussi tilalle"
+        }
+      ]
+    }
+  ]
+}

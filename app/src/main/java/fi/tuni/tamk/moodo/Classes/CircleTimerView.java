@@ -1,4 +1,25 @@
-package fi.tuni.tamk.moodo;
+/**
+ * NOTICE
+ * This class uses source code from Circle Timer View project
+ * https://github.com/jiahuanyu/CircleTimerView, copyright Jiahuan 2015,
+ * licensed under the Apache 2.0 license.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Source https://github.com/jiahuanyu/CircleTimerView/blob/master/library/src/main/java/com/github/jiahuanyu/circletimerview/CircleTimerView.java
+ *
+ */
+package fi.tuni.tamk.moodo.Classes;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,6 +31,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
 import androidx.core.content.ContextCompat;
+import fi.tuni.tamk.moodo.R;
+
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -241,7 +264,6 @@ public class CircleTimerView extends View
         mTimerColonPaint.setTextAlign(Paint.Align.CENTER);
         mTimerColonPaint.setTextSize(mTimerNumberSize);
 
-        mHintText = "Hello world";
         // Solve the target version related to shadow
         setLayerType(View.LAYER_TYPE_SOFTWARE, null); // use this, when targetSdkVersion is greater than or equal to api 14
     }
@@ -323,7 +345,6 @@ public class CircleTimerView extends View
                 "0" + mCurrentTime % 60 : mCurrentTime % 60), mCx, mCy + getFontHeight(mTimerNumberPaint) / 2, mTimerNumberPaint);
         canvas.drawText(":", mCx, mCy + getFontHeight(mTimerNumberPaint) / 2, mTimerColonPaint);
         canvas.restore();
-        // Timer Text
         canvas.save();
         canvas.drawText(mHintText, mCx, mCy + getFontHeight(mTimerNumberPaint) / 2 + mGapBetweenTimerNumberAndText + getFontHeight
                 (mTimerTextPaint) / 2, mTimerTextPaint);
