@@ -18,13 +18,13 @@ public class Routine implements Serializable {
     private List<SubRoutine> subRoutines;
     private int id;
 
-    Routine(int id, String name, int time) {
+    public Routine(int id, String name, int time) {
         setName(name);
         setId(id);
         setTime(time);
     }
 
-    int getTime() {
+    public int getTime() {
         return time;
     }
 
@@ -36,7 +36,7 @@ public class Routine implements Serializable {
         }
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
@@ -56,15 +56,15 @@ public class Routine implements Serializable {
         }
     }
 
-    int getId() {
+    public int getId() {
         return id;
     }
 
-    void setSubRoutines(List<SubRoutine> subRoutines) {
+    public void setSubRoutines(List<SubRoutine> subRoutines) {
         this.subRoutines = new ArrayList<>(subRoutines);
     }
 
-    List<SubRoutine> getSubRoutines() {
+    public List<SubRoutine> getSubRoutines() {
         return subRoutines;
     }
 
