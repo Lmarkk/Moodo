@@ -17,4 +17,5 @@
     <string name="timer_warning">Set time first</string>
     <string name="user_time">Your time:</string>
     <string name="routine_dialog_done">OK</string>
+    <string name="json_data_language">en</string>
 </resources>

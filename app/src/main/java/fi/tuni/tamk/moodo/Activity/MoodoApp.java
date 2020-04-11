@@ -63,10 +63,15 @@ public class MoodoApp extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // Loads JSON data from raw/routine_data.json file and convert it to string
+    // Loads JSON data from json file and convert it to string
     private void loadRoutineData() {
         Resources res = getResources();
-        InputStream is = res.openRawResource(R.raw.routine_data);
+        InputStream is = null;
+        if(getString(R.string.json_data_language).equals("fi")) {
+            is = res.openRawResource(R.raw.routine_data_fin);
+        } else {
+            is = res.openRawResource(R.raw.routine_data_en);
+        }
         Scanner scanner = new Scanner(is);
         StringBuilder builder = new StringBuilder();
         while(scanner.hasNextLine()) {
