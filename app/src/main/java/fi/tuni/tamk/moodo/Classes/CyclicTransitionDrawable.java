@@ -7,10 +7,13 @@
  */
 package fi.tuni.tamk.moodo.Classes;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.SystemClock;
+import android.view.View;
+import fi.tuni.tamk.moodo.R;
 
 public class CyclicTransitionDrawable extends LayerDrawable implements Drawable.Callback {
     protected enum TransitionState {
