@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ListIterator;
+import java.util.Locale;
 
 public class RoutineView extends AppCompatActivity implements CircleTimerView.CircleTimerListener {
     // Static variables
@@ -38,7 +39,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private Button startRoutineBtn;
     private Button stopRoutineBtn;
     private ListView listView;
-
     // Custom view element
     private CircleTimerView mTimer;
 
@@ -98,7 +98,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             routineTitle.setVisibility(View.GONE);
             listView.setVisibility(View.GONE);
         } else {
-            Toast.makeText(this, "Aseta aika ensin", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.timer_warning), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -107,7 +107,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             completeSubRoutineBtn.setText(subRtnIterator.next().toString());
             progressBar.setProgress(progressBar.getProgress() + (100 / routine.getSubRoutines().size()));
         } else {
-            completeSubRoutineBtn.setText("Valmis!");
+            completeSubRoutineBtn.setText(getString(R.string.routine_done));
             progressBar.setProgress(100);
 
             // start dialog with overview of completed routine
@@ -115,16 +115,14 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             resultDialog.setContentView(R.layout.result_dialog);
 
             TextView dialogText = resultDialog.findViewById(R.id.result_dialog_text);
-            dialogText.setText("Rutiiniin asetettu aika: " + formatTime(mTimer.getCurrentTime() + mTimer.getTotalTime()) + "\n");
-            dialogText.append("Oma aikasi: " + formatTime(userTime) + "\n");
-            dialogText.append("\n");
+            dialogText.setText(String.format("%s%s\n", getString(R.string.routine_time_set), formatTime(mTimer.getCurrentTime() + mTimer.getTotalTime())));
+            dialogText.append(getString(R.string.user_time) + formatTime(userTime) + "\n\n");
             if(userTime < (mTimer.getCurrentTime() + mTimer.getTotalTime() / 2)) {
-                dialogText.append("Todella nopeaa toimintaa, hienosti tehty! Olithan huolellinen? \n");
+                dialogText.append(getString(R.string.routine_fast_time));
             } else {
-                dialogText.append("Hyvä, jatka samaan malliin! \n");
+                dialogText.append(getString(R.string.routine_average_time));
             }
-            dialogText.append("\n");
-            dialogText.append("Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.");
+            dialogText.append("\n\n" + getString(R.string.routine_scores));
             // give players points here...
 
             Button dialogButton = resultDialog.findViewById(R.id.result_dialog_dismiss_button);
@@ -232,7 +230,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     }
 
     public String formatTime(int seconds) {
-        return String.format("%02d", seconds /60) + ":" + String.format("%02d", seconds % 60);
+        // Use locale to avoid lint error
+        return String.format(Locale.ENGLISH,"%02d", seconds /60) + ":" + String.format(Locale.ENGLISH,"%02d", seconds % 60);
     }
 
     public int millisToSeconds(long millis) {

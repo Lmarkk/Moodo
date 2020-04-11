@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Moodo</string>
+    <string name="timer_warning">Aseta aika ensin</string>
+    <string name="routine_done">Valmis!</string>
+    <string name="routine_time_set">Rutiiniin asetettu aika:</string>
+    <string name="user_time">Oma aikasi:</string>
+    <string name="routine_fast_time">Todella nopeaa toimintaa, hienosti tehty! Olithan huolellinen?</string>
+    <string name="routine_average_time">Hyvä, jatka samaan malliin!</string>
+    <string name="routine_scores">Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.</string>
 </resources>
