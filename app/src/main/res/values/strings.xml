@@ -8,4 +8,7 @@
     <string name="routine_fast_time">Todella nopeaa toimintaa, hienosti tehty! Olithan huolellinen?</string>
     <string name="routine_average_time">Hyvä, jatka samaan malliin!</string>
     <string name="routine_scores">Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.</string>
+    <!-- Routine dialog layout elements strings -->
+    <string name="routine_dialog_done">Ok</string>
+    <string name="result_dialog_text_loading">Loading</string>
 </resources>
