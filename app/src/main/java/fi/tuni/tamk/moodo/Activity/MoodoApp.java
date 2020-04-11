@@ -97,7 +97,7 @@ public class MoodoApp extends AppCompatActivity {
                 for(int j = 0; j < subroutineArray.length(); j++) {
                     // Get current subroutine and add to list
                     JSONObject currSubRoutine = subroutineArray.getJSONObject(j);
-                    subRoutines.add(new SubRoutine(currSubRoutine.getInt("id"),
+                    subRoutines.add(new SubRoutine(currRoutine.getInt("id"),
                             currSubRoutine.getString("description")));
                 }
                 // After looping through whole data add temp list to routine's subroutine list
