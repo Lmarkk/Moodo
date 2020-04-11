@@ -1,10 +1,14 @@
-package fi.tuni.tamk.moodo;
+package fi.tuni.tamk.moodo.Activity;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import androidx.appcompat.app.AppCompatActivity;
+import fi.tuni.tamk.moodo.CyclicTransitionDrawable;
+import fi.tuni.tamk.moodo.R;
+import fi.tuni.tamk.moodo.Routine;
+import fi.tuni.tamk.moodo.SubRoutine;
 
 import android.os.Build;
 import android.os.Bundle;
