@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Moodo</string>
+    <!-- Routine view strings -->
     <string name="timer_warning">Aseta aika ensin</string>
     <string name="routine_done">Valmis!</string>
     <string name="routine_time_set">Rutiiniin asetettu aika:</string>
