@@ -241,7 +241,6 @@ public class CircleTimerView extends View
         mTimerColonPaint.setTextAlign(Paint.Align.CENTER);
         mTimerColonPaint.setTextSize(mTimerNumberSize);
 
-        mHintText = "Hello world";
         // Solve the target version related to shadow
         setLayerType(View.LAYER_TYPE_SOFTWARE, null); // use this, when targetSdkVersion is greater than or equal to api 14
     }
