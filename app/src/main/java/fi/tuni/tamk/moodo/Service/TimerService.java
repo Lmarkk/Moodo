@@ -28,16 +28,10 @@ public class TimerService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // Start a new thread if heavy operations needed here
-        //Intent notificationIntent = new Intent(this, RoutineView.class);
-        //PendingIntent pendingIntent = PendingIntent.getActivity(this,
-        //        0, notificationIntent, 0);
-
         Notification notification  = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(CONTENT_TITLE)
                 .setContentText("Moodo is running...")
                 .setSmallIcon(R.drawable.ic_alarm)
-                //.setContentIntent(pendingIntent)
                 .build();
 
         startForeground(SERVICE_ID, notification);
