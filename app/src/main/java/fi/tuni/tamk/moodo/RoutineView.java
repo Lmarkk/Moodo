@@ -1,5 +1,7 @@
 package fi.tuni.tamk.moodo;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -9,8 +11,11 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,59 +35,58 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private Button stopRoutineBtn;
     //private TextView timerText;
     //private CountDownTimer routineTimer = null;
+    private boolean exitCountThread = false;
+    private boolean doNotNotify = false;
+    private NotificationManagerCompat notificationManager;
     private Routine routine;
     private ListView listView;
     private final int COLOR_DONE = Color.GREEN;
     private CircleTimerView mTimer;
     private int userTime;
     private Thread countThread;
+    public static final int OPEN_NEW_ACTIVITY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            Log.d("RoutineView", "onCreate");
-            setContentView(R.layout.routine_view);
-            routineTitle = findViewById(R.id.routine_title);
-            //timerText = findViewById(R.id.routine_timer);
+        super.onCreate(savedInstanceState);
+        Log.d("RoutineView", "onCreate");
+        setContentView(R.layout.routine_view);
+        routineTitle = findViewById(R.id.routine_title);
+        //timerText = findViewById(R.id.routine_timer);
+        //Instantiate notification manager
+        notificationManager = NotificationManagerCompat.from(this);
 
-            completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
-            startRoutineBtn = findViewById(R.id.startButton);
-            stopRoutineBtn = findViewById(R.id.stopButton);
+        completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
+        startRoutineBtn = findViewById(R.id.startButton);
+        stopRoutineBtn = findViewById(R.id.stopButton);
 
-            // Set routine variable from sent intent, set routine title from routine name
-            routine = (Routine) getIntent().getSerializableExtra("routine");
-            routineTitle.setText(routine.getName());
-
-            subRtnIterator = routine.getSubRoutines().listIterator();
-            subRtnIterator.next();
-
-            progressBar = findViewById(R.id.progressBar);
-            progressBar.setProgress(0);
-
-
-            mTimer = (CircleTimerView) findViewById(R.id.ctv);
-            mTimer.setCircleTimerListener(this);
-            mTimer.setHintText("");
-
-            // Set routine timer from routine time
-            //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
-            // Set routine timer from routine time and user time to 0;
-            userTime = 0;
-            //timerText.setText(formatTime(routine.getTime()));
-
-            // Set subroutines to list view for specific routine
-            listView = (ListView) findViewById(R.id.subroutine_list);
-            ArrayAdapter<SubRoutine> adapter = new ArrayAdapter<>(this, R.layout.subroutine_list_item_layout, routine.getSubRoutines());
-            listView.setAdapter(adapter);
-
-            initializeBackgroundTransition();
+        // Set routine variable from sent intent, set routine title from routine name
+        routine = (Routine) getIntent().getSerializableExtra("routine");
+        routineTitle.setText(routine.getName());
+        subRtnIterator = routine.getSubRoutines().listIterator();
+        subRtnIterator.next();
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(0);
+        mTimer = (CircleTimerView) findViewById(R.id.ctv);
+        mTimer.setCircleTimerListener(this);
+        mTimer.setHintText("");
+        // Set routine timer from routine time
+        //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
+        // Set routine timer from routine time and user time to 0;
+        userTime = 0;
+        //timerText.setText(formatTime(routine.getTime()));
+        // Set subroutines to list view for specific routine
+        listView = (ListView) findViewById(R.id.subroutine_list);
+        ArrayAdapter<SubRoutine> adapter = new ArrayAdapter<>(this, R.layout.subroutine_list_item_layout, routine.getSubRoutines());
+        listView.setAdapter(adapter);
+        initializeBackgroundTransition();
     }
 
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
             // Start timer service
-            Intent serviceIntent = new Intent(this, TimerService.class);
-            startService(serviceIntent);
+            // Intent serviceIntent = new Intent(this, TimerService.class);
+            // startService(serviceIntent);
 
             ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
             newLayoutParams.topMargin = 256;
@@ -111,7 +115,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             progressBar.setProgress(progressBar.getProgress() + (100 / routine.getSubRoutines().size()));
         } else {
             Intent serviceIntent = new Intent(this, TimerService.class);
-            stopService(serviceIntent);
+            // stopService(serviceIntent);
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
             //userTime = userTime -1;
@@ -143,7 +147,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             resultDialog.show();
             progressBar.getProgressDrawable().setColorFilter(COLOR_DONE, PorterDuff.Mode.SRC_IN);
             mTimer.pauseTimer();
-            // start dialog with overview of completed routine...
         }
     }
 
@@ -202,8 +205,18 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     }
 
     public void openSettings(View view) {
+        doNotNotify = true;
         Intent intent = new Intent(this, Settings.class);
-        startActivity(intent);
+        //startActivity(intent);
+        startActivityForResult(intent, OPEN_NEW_ACTIVITY);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Result OK.d.
+        if (requestCode == OPEN_NEW_ACTIVITY) {
+            doNotNotify = false;
+        }
     }
 
     @Override
@@ -213,6 +226,10 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         listView.setAdapter(null);
         Intent serviceIntent = new Intent(this, TimerService.class);
         stopService(serviceIntent);
+        notificationManager.cancelAll();
+        exitCountThread = true;
+        mTimer.pauseTimer();
+
         //if(routineTimer != null) {
         //    routineTimer.cancel();
         //}
@@ -252,10 +269,9 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             @Override
             public void run() {
                 try {
-                    while(progressBar.getProgress() != 100) {
+                    while(progressBar.getProgress() != 100 && !exitCountThread) {
                         sleep(1000);
                         userTime++;
-                        System.out.println("USER TIME: " + userTime);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -271,6 +287,46 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public int millisToSeconds(long millis) {
         return (int) millis / 1000;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // Start timer service
+        if(mTimer.ismStarted() && !doNotNotify) {
+            Intent serviceIntent = new Intent(this, TimerService.class);
+            startService(serviceIntent);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // stop timer service
+        Intent serviceIntent = new Intent(this, TimerService.class);
+        notificationManager.cancelAll();
+        stopService(serviceIntent);
+
+    }
+
+    // Check for older android versions and redirect to onBackPressed method if needed
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ECLAIR
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            // Take care of calling this method on earlier versions of
+            // the platform where it doesn't exist.
+            onBackPressed();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    // Prevent notifications when back button is pressed
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        doNotNotify = true;
     }
 
     @Override
