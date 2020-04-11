@@ -1,4 +1,4 @@
-package fi.tuni.tamk.moodo;
+package fi.tuni.tamk.moodo.Service;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 

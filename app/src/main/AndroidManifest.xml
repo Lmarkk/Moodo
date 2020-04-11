@@ -25,13 +25,13 @@
         <activity android:name=".Unlocks"
             android:screenOrientation="portrait" />
         <service
-            android:name=".CustomFirebaseMessagingService"
+            android:name=".Service.CustomFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".TimerService"/>
+        <service android:name=".Service.TimerService"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package fi.tuni.tamk.moodo;
+package fi.tuni.tamk.moodo.Service;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -8,6 +8,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import fi.tuni.tamk.moodo.R;
 
 import static fi.tuni.tamk.moodo.TimerNotification.CHANNEL_ID;
 
