@@ -38,9 +38,6 @@ public class MoodoApp extends AppCompatActivity {
         routineList = new ArrayList<>();
         // Add the default routines for all
         addDefaultRoutines();
-        // Adds custom routines that user has made
-        // addCustomRoutines();
-
         addDefaultSubRoutines();
 
         // Add list of routines to the list view
@@ -54,7 +51,6 @@ public class MoodoApp extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), RoutineView.class);
                 // Add clicked list routine to be displayed in RoutineView
                 intent.putExtra("routine", listItem);
-                // Toast.makeText(getApplicationContext(), listItem.toString(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
@@ -72,7 +68,6 @@ public class MoodoApp extends AppCompatActivity {
     private void addDefaultSubRoutines() {
         ArrayList<SubRoutine> subRoutines = new ArrayList<>();
         for(Routine item : routineList) {
-            System.out.println("Itemin id: " + item.getId());
             switch (item.getId()) {
                 case 1:
                     subRoutines.add(new SubRoutine(1, "Ota hammasharja"));
@@ -92,11 +87,6 @@ public class MoodoApp extends AppCompatActivity {
                 subRoutines.clear();
             }
         }
-    }
-
-    // Adds custom routines for each user
-    private void addCustomRoutines() {
-
     }
 
     public void openSettings(View view) {
