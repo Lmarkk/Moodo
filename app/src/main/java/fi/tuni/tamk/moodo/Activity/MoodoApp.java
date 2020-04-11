@@ -128,7 +128,7 @@ public class MoodoApp extends AppCompatActivity {
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "TimerNotification";
-            String description = "Timer notification channel";
+            String description = "Routine notification channel";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
