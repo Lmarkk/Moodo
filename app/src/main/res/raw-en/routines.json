@@ -1,0 +1,42 @@
+{
+  "routines": [
+    {
+      "id": 1,
+      "name": "Wash teeth",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Take toothbrush"
+        },
+        {
+          "description": "Add toothpaste"
+        },
+        {
+          "description": "Wash teeth for three minutes"
+        },
+        {
+          "description": "Rinse mouth and toothbrush"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Take garbage out",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Close garbage bag"
+        },
+        {
+          "description": "Pick garbage bag out of container"
+        },
+        {
+          "description": "Take garbage to garbage bin"
+        },
+        {
+          "description": "Put new garbage bag to container"
+        }
+      ]
+    }
+  ]
+}
