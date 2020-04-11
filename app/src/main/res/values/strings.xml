@@ -14,4 +14,10 @@
     <!-- Routine view layout elements string -->
     <string name="routine_title_loading">Ladataan…</string>
     <string name="start_routine_text">Aloita rutiini</string>
+    <string name="settings_title">Asetukset</string>
+    <string name="settings_notifications_text">Ilmoitukset</string>
+    <string name="settings_sound_text">Äänet</string>
+    <string name="settings_customizations_text">Ulkoasut</string>
+    <string name="settings_about_text">Tietoja</string>
+    <!-- Settings view layout elements strings -->
 </resources>
