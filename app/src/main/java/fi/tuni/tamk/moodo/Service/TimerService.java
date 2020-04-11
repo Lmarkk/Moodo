@@ -1,7 +1,6 @@
 package fi.tuni.tamk.moodo.Service;
 
 import android.app.Notification;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -10,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import fi.tuni.tamk.moodo.R;
 
-import static fi.tuni.tamk.moodo.TimerNotification.CHANNEL_ID;
+import static fi.tuni.tamk.moodo.Classes.TimerNotification.CHANNEL_ID;
 
 public class TimerService extends Service {
     public static final String CONTENT_TITLE = "Moodo App";

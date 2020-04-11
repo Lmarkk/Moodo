@@ -1,4 +1,4 @@
-package fi.tuni.tamk.moodo;
+package fi.tuni.tamk.moodo.Classes;
 
 import android.app.Application;
 import android.app.NotificationChannel;

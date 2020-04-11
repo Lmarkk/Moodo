@@ -10,12 +10,12 @@ import android.os.Bundle;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationManagerCompat;
-import fi.tuni.tamk.moodo.CircleTimerView;
-import fi.tuni.tamk.moodo.CyclicTransitionDrawable;
+import fi.tuni.tamk.moodo.Classes.CircleTimerView;
+import fi.tuni.tamk.moodo.Classes.CyclicTransitionDrawable;
 import fi.tuni.tamk.moodo.R;
-import fi.tuni.tamk.moodo.Routine;
+import fi.tuni.tamk.moodo.Classes.Routine;
 import fi.tuni.tamk.moodo.Service.TimerService;
-import fi.tuni.tamk.moodo.SubRoutine;
+import fi.tuni.tamk.moodo.Classes.SubRoutine;
 
 import android.util.Log;
 import android.view.View;

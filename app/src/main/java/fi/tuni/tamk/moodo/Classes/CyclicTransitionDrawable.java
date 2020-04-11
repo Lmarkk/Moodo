@@ -5,7 +5,7 @@
  *
  * Source https://github.com/plymouthsoftware/android-commons/blob/master/src/com/plymouthsoftware/android/commons/graphics/drawable/CyclicTransitionDrawable.java
  */
-package fi.tuni.tamk.moodo;
+package fi.tuni.tamk.moodo.Classes;
 
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;

@@ -1,4 +1,4 @@
-package fi.tuni.tamk.moodo;
+package fi.tuni.tamk.moodo.Classes;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
 import androidx.core.content.ContextCompat;
+import fi.tuni.tamk.moodo.R;
+
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
