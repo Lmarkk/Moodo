@@ -82,7 +82,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         listView = (ListView) findViewById(R.id.subroutine_list);
         ArrayAdapter<SubRoutine> adapter = new ArrayAdapter<>(this, R.layout.subroutine_list_item_layout, routine.getSubRoutines());
         listView.setAdapter(adapter);
-        Util.initializeBackgroundTransition(this, findViewById(R.id.root_view_routine));
+        Util.initializeBackgroundTransition(findViewById(R.id.root_view_routine));
     }
 
     public void startRoutine(View v) {

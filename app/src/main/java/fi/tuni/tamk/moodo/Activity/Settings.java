@@ -13,6 +13,6 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d("Settings", "onCreate");
         setContentView(R.layout.settings_layout);
-        Util.initializeBackgroundTransition(this, findViewById(R.id.root_view_settings));
+        Util.initializeBackgroundTransition(findViewById(R.id.root_view_settings));
     }
 }

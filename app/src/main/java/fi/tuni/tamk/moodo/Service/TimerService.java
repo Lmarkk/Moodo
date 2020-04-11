@@ -9,10 +9,10 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import fi.tuni.tamk.moodo.R;
 
-import static fi.tuni.tamk.moodo.Classes.TimerNotification.CHANNEL_ID;
+import static fi.tuni.tamk.moodo.Classes.App.CHANNEL_ID;
 
 public class TimerService extends Service {
-    public static final String CONTENT_TITLE = "Moodo App";
+    public static final String CONTENT_TITLE = "Moodo";
     public static final int SERVICE_ID = 1;
 
     @Override
@@ -30,7 +30,7 @@ public class TimerService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Notification notification  = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(CONTENT_TITLE)
-                .setContentText("Moodo is running...")
+                .setContentText(getString(R.string.routine_notification_text))
                 .setSmallIcon(R.drawable.ic_alarm)
                 .build();
 

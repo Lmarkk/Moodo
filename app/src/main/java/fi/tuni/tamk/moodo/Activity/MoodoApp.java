@@ -48,7 +48,7 @@ public class MoodoApp extends AppCompatActivity {
             }
         });
 
-        Util.initializeBackgroundTransition(this, findViewById(R.id.root_view_moodo));
+        Util.initializeBackgroundTransition(findViewById(R.id.root_view_moodo));
     }
 
     // Adds default routines for all (unless deleted if possible)
