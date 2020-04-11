@@ -1,7 +1,5 @@
 package fi.tuni.tamk.moodo;
 
-import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -11,7 +9,6 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.util.Log;
@@ -33,8 +30,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private Button completeSubRoutineBtn;
     private Button startRoutineBtn;
     private Button stopRoutineBtn;
-    //private TextView timerText;
-    //private CountDownTimer routineTimer = null;
     private boolean exitCountThread = false;
     private boolean doNotNotify = false;
     private NotificationManagerCompat notificationManager;
@@ -52,7 +47,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         Log.d("RoutineView", "onCreate");
         setContentView(R.layout.routine_view);
         routineTitle = findViewById(R.id.routine_title);
-        //timerText = findViewById(R.id.routine_timer);
         //Instantiate notification manager
         notificationManager = NotificationManagerCompat.from(this);
 
@@ -70,11 +64,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         mTimer = (CircleTimerView) findViewById(R.id.ctv);
         mTimer.setCircleTimerListener(this);
         mTimer.setHintText("");
-        // Set routine timer from routine time
-        //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
         // Set routine timer from routine time and user time to 0;
         userTime = 0;
-        //timerText.setText(formatTime(routine.getTime()));
         // Set subroutines to list view for specific routine
         listView = (ListView) findViewById(R.id.subroutine_list);
         ArrayAdapter<SubRoutine> adapter = new ArrayAdapter<>(this, R.layout.subroutine_list_item_layout, routine.getSubRoutines());
@@ -84,10 +75,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
-            // Start timer service
-            // Intent serviceIntent = new Intent(this, TimerService.class);
-            // startService(serviceIntent);
-
             ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
             newLayoutParams.topMargin = 256;
             mTimer.setLayoutParams(newLayoutParams);
@@ -95,7 +82,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             mTimer.startTimer();
             startCountThread();
             progressBar.getProgressDrawable().setColorFilter(null);
-            //startTimer(routine.getTime(), timerText);
             completeSubRoutineBtn.setText(routine.getSubRoutines().get(0).toString());
             completeSubRoutineBtn.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.VISIBLE);
@@ -114,19 +100,14 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             completeSubRoutineBtn.setText(subRtnIterator.next().toString());
             progressBar.setProgress(progressBar.getProgress() + (100 / routine.getSubRoutines().size()));
         } else {
-            Intent serviceIntent = new Intent(this, TimerService.class);
-            // stopService(serviceIntent);
             completeSubRoutineBtn.setText("Valmis!");
             progressBar.setProgress(100);
-            //userTime = userTime -1;
-            //routineTimer.cancel();
 
             // start dialog with overview of completed routine
             final Dialog resultDialog = new Dialog(this);
             resultDialog.setContentView(R.layout.result_dialog);
 
             TextView dialogText = resultDialog.findViewById(R.id.result_dialog_text);
-            //dialogText.setText("Rutiiniin asetettu aika: " + formatTime(routine.getTime()) + "\n");
             dialogText.setText("Rutiiniin asetettu aika: " + formatTime(mTimer.getCurrentTime() + mTimer.getTotalTime()) + "\n");
             dialogText.append("Oma aikasi: " + formatTime(userTime) + "\n");
             dialogText.append("\n");
@@ -159,14 +140,10 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         mTimer.setLayoutParams(newLayoutParams);
         countThread.interrupt();
         // reset timer and set timer text to full
-        //routineTimer.cancel();
         mTimer.pauseTimer();
         mTimer.setCurrentTime(0);
         mTimer.setTotalTime(0);
-        //timerText.setText(String.format("%02d", routine.getTime() /60) + ":" + String.format("%02d", routine.getTime() % 60));
-        //routineTimer.cancel();
         userTime = 0;
-        //timerText.setText(formatTime(routine.getTime()));
 
         //reset visibilities back to starting position
         completeSubRoutineBtn.setVisibility(View.GONE);
@@ -207,7 +184,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     public void openSettings(View view) {
         doNotNotify = true;
         Intent intent = new Intent(this, Settings.class);
-        //startActivity(intent);
         startActivityForResult(intent, OPEN_NEW_ACTIVITY);
     }
 
@@ -229,40 +205,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         notificationManager.cancelAll();
         exitCountThread = true;
         mTimer.pauseTimer();
-
-        //if(routineTimer != null) {
-        //    routineTimer.cancel();
-        //}
     }
-
-    /*public void startTimer(int seconds, final TextView textView) {
-
-        routineTimer = new CountDownTimer(seconds* 1000+1000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                int seconds = (int) (millisUntilFinished / 1000);
-                textView.setText(formatTime(seconds));
-                userTime++;
-                System.out.println(userTime);
-            }
-
-            public void onFinish() {
-                Thread thread = new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                            while(progressBar.getProgress() != 100) {
-                                sleep(1000);
-                                userTime++;
-                            }
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                };
-                thread.start();
-            }
-        }.start();
-    }*/
 
     public void startCountThread() {
         countThread = new Thread() {
