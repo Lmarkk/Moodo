@@ -9,6 +9,9 @@
     <string name="routine_average_time">Hyvä, jatka samaan malliin!</string>
     <string name="routine_scores">Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.</string>
     <!-- Routine dialog layout elements strings -->
-    <string name="routine_dialog_done">Ok</string>
-    <string name="result_dialog_text_loading">Loading</string>
+    <string name="routine_dialog_done">OK</string>
+    <string name="result_dialog_text_loading">Ladataan…</string>
+    <!-- Routine view layout elements string -->
+    <string name="routine_title_loading">Ladataan…</string>
+    <string name="start_routine_text">Aloita rutiini</string>
 </resources>
