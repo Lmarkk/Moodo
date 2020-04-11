@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,22 +23,30 @@ import android.widget.Toast;
 import java.util.ListIterator;
 
 public class RoutineView extends AppCompatActivity implements CircleTimerView.CircleTimerListener {
+    // Static variables
+    private static final int COLOR_DONE = Color.GREEN;
+    private static final int OPEN_NEW_ACTIVITY = 1;
+
+    private ListIterator<SubRoutine> subRtnIterator;
+    private NotificationManagerCompat notificationManager;
+    private Thread countThread;
+
+    // Android view elements
     private TextView routineTitle;
     private ProgressBar progressBar;
-    private ListIterator<SubRoutine> subRtnIterator;
     private Button completeSubRoutineBtn;
     private Button startRoutineBtn;
     private Button stopRoutineBtn;
+    private ListView listView;
+
+    // Custom view element
+    private CircleTimerView mTimer;
+
+    // Class variables
+    private int userTime;
     private boolean exitCountThread = false;
     private boolean doNotNotify = false;
-    private NotificationManagerCompat notificationManager;
     private Routine routine;
-    private ListView listView;
-    private final int COLOR_DONE = Color.GREEN;
-    private CircleTimerView mTimer;
-    private int userTime;
-    private Thread countThread;
-    public static final int OPEN_NEW_ACTIVITY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
