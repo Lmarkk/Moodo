@@ -63,6 +63,7 @@ public class MoodoApp extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Loads JSON data from raw/routine_data.json file and convert it to string
     private void loadRoutineData() {
         Resources res = getResources();
         InputStream is = res.openRawResource(R.raw.routine_data);
@@ -74,21 +75,33 @@ public class MoodoApp extends AppCompatActivity {
         parseJson(builder.toString());
     }
 
-    private void parseJson(String s) {
+    // Parse string into routine and subroutines for list view
+    private void parseJson(String jsonString) {
+        // Temp array for storing subroutines
         ArrayList<SubRoutine> subRoutines = new ArrayList<>();
         try {
-            JSONObject root = new JSONObject(s);
+            // Json file root object
+            JSONObject root = new JSONObject(jsonString);
+            // Routine JsonArray
             JSONArray routineArray = root.getJSONArray("routines");
+            // Loop through routine array and add routines to routine list
             for(int i = 0; i < routineArray.length(); i++) {
-                JSONObject cr = routineArray.getJSONObject((i));
-                System.out.println(routineArray.getJSONObject(i));
-                Routine tempRoutine = new Routine(cr.getInt("id"), cr.getString("name"), cr.getInt("time"));
+                // Get current routine and add to array
+                JSONObject currRoutine = routineArray.getJSONObject((i));
+                Routine tempRoutine = new Routine(currRoutine.getInt("id"),
+                        currRoutine.getString("name"),
+                        currRoutine.getInt("time"));
                 routineList.add(tempRoutine);
-                JSONArray subroutineArray = cr.getJSONArray("subroutines");
+                // Loop through subroutine array included inside every routine JSONObject
+                JSONArray subroutineArray = currRoutine.getJSONArray("subroutines");
                 for(int j = 0; j < subroutineArray.length(); j++) {
-                    JSONObject csr = subroutineArray.getJSONObject(j);
-                    subRoutines.add(new SubRoutine(cr.getInt("id"), csr.getString("description")));
+                    // Get current subroutine and add to list
+                    JSONObject currSubRoutine = subroutineArray.getJSONObject(j);
+                    subRoutines.add(new SubRoutine(currSubRoutine.getInt("id"),
+                            currSubRoutine.getString("description")));
                 }
+                // After looping through whole data add temp list to routine's subroutine list
+                // and clear the subroutines list
                 tempRoutine.setSubRoutines(subRoutines);
                 subRoutines.clear();
             }
