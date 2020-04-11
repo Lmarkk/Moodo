@@ -252,19 +252,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     }
 
-    // Check for older android versions and redirect to onBackPressed method if needed
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)  {
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.ECLAIR
-                && keyCode == KeyEvent.KEYCODE_BACK
-                && event.getRepeatCount() == 0) {
-            // Take care of calling this method on earlier versions of
-            // the platform where it doesn't exist.
-            onBackPressed();
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     // Prevent notifications when back button is pressed
     @Override
     public void onBackPressed() {
