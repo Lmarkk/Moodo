@@ -18,16 +18,16 @@ public class CyclicTransitionDrawable extends LayerDrawable implements Drawable.
         PAUSED, RUNNING
     }
 
-    protected Drawable[] drawables;
-    protected int currentDrawableIndex;
-    protected int alpha = 0;
-    protected int fromAlpha;
-    protected int toAlpha;
-    protected long duration;
-    protected long startTimeMillis;
-    protected long pauseDuration;
+    private Drawable[] drawables;
+    private int currentDrawableIndex;
+    private int alpha = 0;
+    private int fromAlpha;
+    private int toAlpha;
+    private long duration;
+    private long startTimeMillis;
+    private long pauseDuration;
 
-    protected TransitionState transitionStatus;
+    private TransitionState transitionStatus;
 
     public CyclicTransitionDrawable(Drawable[] drawables) {
         super(drawables);
