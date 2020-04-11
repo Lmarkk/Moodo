@@ -1,15 +1,12 @@
 package fi.tuni.tamk.moodo.Activity;
 
-import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
-import fi.tuni.tamk.moodo.Classes.CyclicTransitionDrawable;
 import fi.tuni.tamk.moodo.Classes.Util;
 import fi.tuni.tamk.moodo.R;
 import fi.tuni.tamk.moodo.Classes.Routine;
 import fi.tuni.tamk.moodo.Classes.SubRoutine;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
