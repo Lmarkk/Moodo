@@ -20,4 +20,6 @@
     <string name="settings_sound_text">Äänet</string>
     <string name="settings_customizations_text">Ulkoasut</string>
     <string name="settings_about_text">Tietoja</string>
+    <!-- Notification strings -->
+    <string name="routine_notification_text">Moodo on käynnissä…</string>
 </resources>
