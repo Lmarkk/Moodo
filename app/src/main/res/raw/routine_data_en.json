@@ -2,39 +2,262 @@
   "routines": [
     {
       "id": 1,
-      "name": "Wash teeth",
+      "name": "Brushing the teeth",
       "time": 300,
       "subroutines": [
         {
           "description": "Take toothbrush"
         },
         {
-          "description": "Add toothpaste"
+          "description": "Add pea-sized amount of toothpaste to brush"
         },
         {
-          "description": "Wash teeth for three minutes"
+          "description": "Brush your teeth carefully on all sides"
         },
         {
           "description": "Rinse mouth and toothbrush"
+        },
+        {
+          "description": "Set the toothbrush to dry"
         }
       ]
     },
     {
       "id": 2,
-      "name": "Take garbage out",
+      "name": "Sorting waste and disposing",
       "time": 300,
       "subroutines": [
         {
-          "description": "Close garbage bag"
+          "description": "Sort the biowaste into your own container or biodegradable bag"
         },
         {
-          "description": "Pick garbage bag out of container"
+          "description": "Sort metal, glass, paper and cardboard waste separately"
         },
         {
-          "description": "Take garbage to garbage bin"
+          "description": "Sort other waste that does not contain hazardous waste in a mixed waste bag"
         },
         {
-          "description": "Put new garbage bag to container"
+          "description": "Close full garbage bag"
+        },
+        {
+          "description": "Take the garbage to a waste collection point and sort into the correct containers"
+        },
+        {
+          "description": "Place a new garbage bag in the waste container"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Washing the laundry",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Sort laundry into light, dark and white"
+        },
+        {
+          "description": "Sort the laundry according to the washing method and temperature"
+        },
+        {
+          "description": "Empty the pockets and close the zippers"
+        },
+        {
+          "description": "Check the washing instructions for each cloth"
+        },
+        {
+          "description": "Put the laundry in the washing machine"
+        },
+        {
+          "description": "Dispense laundry detergent according to the laundry"
+        },
+        {
+          "description": "Select the washing program according to the laundry"
+        },
+        {
+          "description": "Check that the tap of the washing machine is open"
+        },
+        {
+          "description": "Close the washing machine door and start washing machine"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Drying the laundry",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Wait for the washing program to end"
+        },
+        {
+          "description": "Turn off the power and turn off the water tap"
+        },
+        {
+          "description": "Take the laundry out of the washing machine. Leave the machine door and detergent drawer open"
+        },
+        {
+          "description": "Straighten the laundry"
+        },
+        {
+          "description": "Hang airily to dry or use a tumble dryer"
+        },
+        {
+          "description": "Leave the bathroom door open for drying if you are drying laundry there"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Washing dishes by hand",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "If your hands are sensitive to detergent or hot water, wear rubber or plastic protective gloves"
+        },
+        {
+          "description": "Remove food residues from the dishes. Pre-rinse them with cool or hand-warm running water if necessary"
+        },
+        {
+          "description": "If necessary, place the cooking and serving utensils to soak"
+        },
+        {
+          "description": "Fill the sink to half with as hot water as your hands allow"
+        },
+        {
+          "description": "Dispense the dishwashing detergent as instructed, usually a small pressing is sufficient"
+        },
+        {
+          "description": "Fill the rinsing sink with as how water as your hands can hold"
+        },
+        {
+          "description": "Wash the dishes from inside and outside with a dish brush and flush the rinse sink"
+        },
+        {
+          "description": "Place the dishes in the airing cupboard to dry"
+        },
+        {
+          "description": "Rinse the dish brush and drain the water from the sinks"
+        },
+        {
+          "description": "Place the dish brush and sink's plug to dry"
+        },
+        {
+          "description": "Wipe the sink and back wall"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Filling the dishwasher",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Make sure the dishes are machine washable"
+        },
+        {
+          "description": "Remove food scraps from the dishes"
+        },
+        {
+          "description": "Dishes may not always need to be rinsed before machine washing"
+        },
+        {
+          "description": "Put the dishes in the baskets according to the instructions"
+        },
+        {
+          "description": "Do not place plastic containers near heating elements"
+        },
+        {
+          "description": "Dispense the detergent according to the instructions"
+        },
+        {
+          "description": "Choose the right washing program"
+        },
+        {
+          "description": "When there are dirty dishes in the machine, keep the door closed. This way the dirt does not dry out so easily on the surface of the dishes"
+        },
+        {
+          "description": "Empty and clean the waste strainer regularly. Also check the cleanliness of the shower arms"
+        },
+        {
+          "description": "Wipe the door surface regularly"
+        },
+        {
+          "description": "Always turn off the water tap after washing. Do not leave the machine unattended"
+        },
+        {
+          "description": "When washing is complete, allow the glasses to cool slightly before stacking them on top of each other. That way, they don’t stick together and break"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Cleaning the kitchen",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Wipe the worktops and stove with a damp cloth. You can use a kitchen cleaner"
+        },
+        {
+          "description": "Wipe the cabinet doors"
+        },
+        {
+          "description": "Clean cabinet surfaces if they are dirty"
+        },
+        {
+          "description": "Vacuum the kitchen floor"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Cleaning the WC",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Flush the toilet. Spray detergent on the the toilet bowl's walls."
+        },
+        {
+          "description": "Brush the inside of the toilet with a toilet brush. Also brush the bottom of the toilet from under the water as well as the top edge and water inlet area"
+        },
+        {
+          "description": "Flush the toilet. Rinse the brush at the same time"
+        },
+        {
+          "description": "Dip a cleaning cloth into the cleaning solution and wipe the pull button, water tank, lid and seat ring from both sides"
+        },
+        {
+          "description": "Wipe the foot of the toilet seat and the floor around the seat"
+        },
+        {
+          "description": "Wipe the walls around the seat from a splash height"
+        },
+        {
+          "description": "Be sure to wash the cleaning cloth and let it dry"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Cleaning the bathroom",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Wipe the mirror with a lint-free damp or damp cloth. If necessary, dry with a window cloth"
+        },
+        {
+          "description": "If necessary, wipe the mirror shelf, bathroom cabinet doors, door handles and light switches"
+        },
+        {
+          "description": "Wash the sink with a non-scratch sponge or a dish brush"
+        },
+        {
+          "description": "Wipe the hand shower and pool area from splash height with a damp cleaning cloth"
+        },
+        {
+          "description": "Wash faucets, hand shower and shower hose from the shower area"
+        },
+        {
+          "description": "Wash the surrounding wall surface as well as glass and plastic shower walls"
         }
       ]
     }
