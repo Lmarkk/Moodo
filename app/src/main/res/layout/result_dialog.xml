@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_blueorange">
@@ -15,7 +14,7 @@
         android:layout_marginEnd="113dp"
         android:layout_marginBottom="26dp"
         android:background="@drawable/button_start_rounded"
-        android:text="Ok"
+        android:text="@string/routine_dialog_done"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +29,7 @@
         android:layout_marginTop="300dp"
         android:layout_marginEnd="200dp"
         android:layout_marginBottom="300dp"
-        android:text="Loading"
+        android:text="@string/result_dialog_text_loading"
         android:textAlignment="viewStart"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"

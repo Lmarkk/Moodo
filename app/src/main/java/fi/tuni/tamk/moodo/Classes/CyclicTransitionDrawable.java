@@ -5,12 +5,15 @@
  *
  * Source https://github.com/plymouthsoftware/android-commons/blob/master/src/com/plymouthsoftware/android/commons/graphics/drawable/CyclicTransitionDrawable.java
  */
-package fi.tuni.tamk.moodo;
+package fi.tuni.tamk.moodo.Classes;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.SystemClock;
+import android.view.View;
+import fi.tuni.tamk.moodo.R;
 
 public class CyclicTransitionDrawable extends LayerDrawable implements Drawable.Callback {
     protected enum TransitionState {
@@ -18,16 +21,16 @@ public class CyclicTransitionDrawable extends LayerDrawable implements Drawable.
         PAUSED, RUNNING
     }
 
-    protected Drawable[] drawables;
-    protected int currentDrawableIndex;
-    protected int alpha = 0;
-    protected int fromAlpha;
-    protected int toAlpha;
-    protected long duration;
-    protected long startTimeMillis;
-    protected long pauseDuration;
+    private Drawable[] drawables;
+    private int currentDrawableIndex;
+    private int alpha = 0;
+    private int fromAlpha;
+    private int toAlpha;
+    private long duration;
+    private long startTimeMillis;
+    private long pauseDuration;
 
-    protected TransitionState transitionStatus;
+    private TransitionState transitionStatus;
 
     public CyclicTransitionDrawable(Drawable[] drawables) {
         super(drawables);
