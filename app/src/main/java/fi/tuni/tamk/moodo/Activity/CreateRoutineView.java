@@ -26,4 +26,10 @@ public class CreateRoutineView extends AppCompatActivity {
                 listItems);
         listView.setAdapter(adapter);
     }
+
+    // insert data into list
+    public void addItems(View v) {
+        listItems.add("Test");
+        adapter.notifyDataSetChanged();
+    }
 }
