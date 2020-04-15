@@ -28,6 +28,7 @@
     </Button>
 
     <ListView
+        android:id="@+id/create_routine_listview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="0dp"
