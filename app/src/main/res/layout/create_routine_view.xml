@@ -25,6 +25,25 @@
 
     </EditText>
 
+    <EditText
+        android:id="@+id/create_routine_subnamefield"
+        android:layout_width="184dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="36dp"
+        android:hint="Subroutine text"
+        android:autofillHints="Subroutine text"
+        android:inputType="text"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/create_routine_listview"
+        app:layout_constraintEnd_toStartOf="@+id/create_routine_addbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_routine_namefield">
+
+    </EditText>
+
     <Button
         android:id="@+id/create_routine_addbutton"
         android:layout_width="113dp"
