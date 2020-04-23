@@ -1,11 +1,13 @@
 package fi.tuni.tamk.moodo.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import fi.tuni.tamk.moodo.Classes.Util;
 import fi.tuni.tamk.moodo.R;
 
 import android.util.Log;
+import android.view.View;
 
 public class Settings extends AppCompatActivity {
     @Override
@@ -14,5 +16,10 @@ public class Settings extends AppCompatActivity {
         Log.d("Settings", "onCreate");
         setContentView(R.layout.settings_layout);
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_settings));
+    }
+
+    public void openAbout(View v) {
+        Intent i = new Intent(this, About.class);
+        startActivity(i);
     }
 }

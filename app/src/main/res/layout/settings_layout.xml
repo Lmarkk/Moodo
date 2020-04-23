@@ -99,6 +99,7 @@
         android:background="@drawable/ic_info"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:onClick="openAbout"
         app:layout_constraintBottom_toTopOf="@+id/switch_notification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.758"
