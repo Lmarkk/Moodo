@@ -8,7 +8,7 @@
     <string name="routine_scores">You got 10 points! You can use your scores in skins activity.</string>
     <string name="routine_time_set">Set time for routine:</string>
     <string name="routine_title_loading">Loading…</string>
-    <string name="settings_about_text">Info</string>
+    <string name="settings_about_text">About</string>
     <string name="settings_customizations_text">Skins</string>
     <string name="settings_notifications_text">Notifications</string>
     <string name="settings_sound_text">Sounds</string>
@@ -21,4 +21,5 @@
     <string name="moodo_icon">Moodo icon</string>
     <string name="team_names" translatable="false">Miko Kauhanen\nErika Markkinen\nLauri Latva-Kyyny\nLassi Markkinen</string>
     <string name="team_roles">Scrummaster:\nGraphics:\nProgrammer:\nProgrammer:</string>
+    <string name="team_title">Team</string>
 </resources>

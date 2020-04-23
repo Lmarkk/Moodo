@@ -39,6 +39,7 @@
         android:text="@string/settings_notifications_text"
         android:textColor="@color/colorText"
         android:textSize="15sp"
+        android:labelFor="@id/switch_notification"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
@@ -73,6 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/settings_sound_text"
+        android:labelFor="@id/switch_sounds"
         android:textColor="@color/colorText"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -113,6 +115,7 @@
         android:layout_height="wrap_content"
         android:text="@string/settings_customizations_text"
         android:textColor="@color/colorText"
+        android:labelFor="@id/button_shop"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,12 +125,13 @@
         app:layout_constraintVertical_bias="0.206" />
 
     <TextView
-        android:id="@+id/text_info"
+        android:id="@+id/text_about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/settings_about_text"
         android:textColor="@color/colorText"
         android:textSize="15sp"
+        android:labelFor="@id/button_about"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.754"

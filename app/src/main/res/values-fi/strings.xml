@@ -26,4 +26,5 @@
     <string name="json_data_language">fi</string>
     <string name="moodo_icon">Moodo ikoni</string>
     <string name="team_roles">Scrummaster:\\nGraafiikat:\\nOhjelmoija:\\nOhjelmoija:</string>
+    <string name="team_title">Tiimi</string>
 </resources>
