@@ -105,9 +105,10 @@
         android:src="@drawable/tamk_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.489" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -116,17 +117,19 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/tiko_logo"
         android:src="@drawable/tiko_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.504" />
 
     <ImageView
+        android:id="@+id/imageView5"
         android:layout_width="193dp"
         android:layout_height="61dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
         android:contentDescription="@string/tampere_logo"
         android:src="@drawable/tampere_logo"
         app:layout_constraintBottom_toBottomOf="parent"
