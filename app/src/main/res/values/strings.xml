@@ -29,4 +29,7 @@
     <string name="open_about">Open about</string>
     <string name="radio_english">English</string>
     <string name="radio_finnish">Finnish</string>
+    <string name="tamk_logo" translatable="false">TAMK logo</string>
+    <string name="tiko_logo" translatable="false">Tiko logo</string>
+    <string name="tampere_logo" translatable="false">Tampere logo</string>
 </resources>
