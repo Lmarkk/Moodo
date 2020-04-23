@@ -30,6 +30,13 @@ public class CreateRoutineView extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_routine_view);
+
+        totalRoutines = getIntent().getIntExtra("totalRoutines", 0);
+        routineNameField = findViewById(R.id.create_routine_namefield);
+        subRoutineNameField = findViewById(R.id.create_routine_subnamefield);
+
+        ListView listView = findViewById(R.id.create_routine_listview);
+
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,
                 listItems);
