@@ -101,7 +101,7 @@
 
     <ImageButton
         android:id="@+id/button_about"
-        android:background="?android:selectableItemBackground"
+        android:background="?android:selectableItemBackgroundBorderless"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:contentDescription="@string/open_about"

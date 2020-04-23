@@ -14,7 +14,7 @@
         android:onClick="openSettings"
         android:src="@drawable/ic_settings"
         android:contentDescription="@string/open_settings"
-        android:background="?android:selectableItemBackground"
+        android:background="?android:selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

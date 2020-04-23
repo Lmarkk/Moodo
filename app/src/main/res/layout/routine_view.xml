@@ -11,7 +11,7 @@
         android:layout_height="50dp"
         android:onClick="openSettings"
         android:contentDescription="@string/open_settings"
-        android:background="?android:selectableItemBackground"
+        android:background="?android:selectableItemBackgroundBorderless"
         android:src="@drawable/ic_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
