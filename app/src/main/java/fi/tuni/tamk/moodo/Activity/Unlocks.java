@@ -1,4 +1,4 @@
-package fi.tuni.tamk.moodo;
+package fi.tuni.tamk.moodo.Activity;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;

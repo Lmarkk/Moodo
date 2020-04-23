@@ -2,29 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root_view_routine">
-
-    <!-- Previous timer
-    <TextView
-        android:id="@+id/routine_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="50dp"
-        android:text="00:00"
-        android:textColor="#000"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
-     -->
 
     <Button
         android:layout_width="50dp"
@@ -45,7 +25,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="50dp"
-        android:text="Ladataan..."
+        android:text="@string/routine_title_loading"
         android:textColor="@color/colorText"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -54,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ctv" />
 
-    <fi.tuni.tamk.moodo.CircleTimerView
+    <fi.tuni.tamk.moodo.Classes.CircleTimerView
         android:id="@+id/ctv"
         android:layout_width="252dp"
         android:layout_height="269dp"
@@ -74,7 +54,7 @@
         android:layout_marginBottom="28dp"
         android:background="@drawable/button_start_rounded"
         android:onClick="startRoutine"
-        android:text="Aloita rutiini"
+        android:text="@string/start_routine_text"
         android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

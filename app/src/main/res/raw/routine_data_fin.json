@@ -1,0 +1,265 @@
+{
+  "routines": [
+    {
+      "id": 1,
+      "name": "Hampaiden pesu",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Ota hammasharja"
+        },
+        {
+          "description": "Lisää hammastahnaa herneen kokoinen määrä"
+        },
+        {
+          "description": "Harjaa hampaita huolellisesti joka puolelta"
+        },
+        {
+          "description": "Huuhtele suu ja hammasharja"
+        },
+        {
+          "description": "Aseta hammasharja kuivumaan"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jätteiden lajittelu ja vienti",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Lajittele biojäte omaan astiaan tai biohajoavaan pussiin"
+        },
+        {
+          "description": "Lajittele metalli- , lasi-, paperi- ja pahvijäte erikseen"
+        },
+        {
+          "description": "Lajittele muu jäte, joka ei sisällä ongelmajätettä sekajätepussiin"
+        },
+        {
+          "description": "Sulje täysi roskapussi"
+        },
+        {
+          "description": "Vie jätteet jätteidenkeräyspisteseen ja lajittele oikeisiin säiliöihin"
+        },
+        {
+          "description": "Aseta uusi roskapussi jäteastiaan"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pyykinpesu",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Lajittele pyykit vaaleisiin, tummiin ja valkoisiin"
+        },
+        {
+          "description": "Lajittele pyykit pesumenetelmän ja lämpötilan mukaan"
+        },
+        {
+          "description": "Tyhjennä taskut ja sulje vetoketjut"
+        },
+        {
+          "description": "Tarkasta pesuohjeet vaatekohtaisesti"
+        },
+        {
+          "description": "Laita pyykit pyykinpesukoneeseen"
+        },
+        {
+          "description": "Annostele pyykinpesuaine pyykin mukaan"
+        },
+        {
+          "description": "Valitse pesuohjelma pyykin mukaan"
+        },
+        {
+          "description": "Tarkasta että pesukoneen hana on auki"
+        },
+        {
+          "description": "Sulje pesukoneen luukku ja käynnistä pesu"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Pyykkien kuivaus",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Odota pesuohjelman päättymistä"
+        },
+        {
+          "description": "Kytke virta pois ja sulje vesihana"
+        },
+        {
+          "description": "Ota pyykit pesukoneesta. Jätä koneen luukku ja pesuainelokero auki"
+        },
+        {
+          "description": "Oio pyykki"
+        },
+        {
+          "description": "Ripusta ilmavasti kuivumaan tai käytä kuivausrumpua"
+        },
+        {
+          "description": "Jätä kylpyhuoneen ovi auki kuivauksen ajaksi, jos kuivatat siellä pyykkiä"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Astioiden pesu käsin",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Jos kätesi ovat arat pesuaineelle tai kuumalle vedelle, käytä kumisia tai muovisia suojakäsineitä"
+        },
+        {
+          "description": "Poista astioista ruoantähteet. Esihuuhtele ne tarvittaessa viileällä tai kädenlämpöisellä juoksevalla vedellä"
+        },
+        {
+          "description": "Laita ruoanvalmistus- ja tarjoiluastiat tarvittaessa likoamaan"
+        },
+        {
+          "description": "Täytä allas puolilleen niin kuumaa vettä kuin kätesi sallivat"
+        },
+        {
+          "description": "Annostele astianpesuainetta ohjeen mukaan, yleensä pieni painallus riittää"
+        },
+        {
+          "description": "Täytä huuhteluallas niin kuumalla vedellä kuin kätesi kestävät"
+        },
+        {
+          "description": "Pese astiat astianpesuharjalla sisä- ja ulkopuolelta ja huuhtele huuhtelualtaassa"
+        },
+        {
+          "description": "Aseta astiat kuivumaan kuivauskaappiin"
+        },
+        {
+          "description": "Huuhtele pesuharja ja laske vedet pois altaista"
+        },
+        {
+          "description": "Laita pesuharja ja pohjatulppa ilmavasti kuivumaan"
+        },
+        {
+          "description": "Pyyhi tiskipöytä ja taustaseinä"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Astianpesukoneen täyttö",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Varmista, että astiat ovat konepesunkestäviä"
+        },
+        {
+          "description": "Poista ruoantähteet astioista"
+        },
+        {
+          "description": "Astioita ei välttämättä aina tarvitse huuhdella ennen konepesua"
+        },
+        {
+          "description": "Laita astiat koreihin käyttöohjeiden mukaisesti"
+        },
+        {
+          "description": "Älä laita muoviastioita lämpövastusten lähelle"
+        },
+        {
+          "description": "Annostele pesuainetta ohjeen mukaan"
+        },
+        {
+          "description": "Valitse oikea pesuohjelma"
+        },
+        {
+          "description": "Kun koneessa on likaisia astioita, pidä luukku kiinni. Näin lika ei kuivu niin helposti astioiden pintaan"
+        },
+        {
+          "description": "Tyhjennä ja puhdista jätesihti säännöllisesti. Tarkista myös suihkuvarsien puhtaus"
+        },
+        {
+          "description": "Pyyhi luukun pinta säännöllisesti"
+        },
+        {
+          "description": "Sulje vesihana aina pesun jälkeen. Älä jätä konetta päälle ilman valvontaa"
+        },
+        {
+          "description": "Kun pesu on valmis, anna lasien hieman jäähtyä ennen kuin pinoat ne päällekkäin. Näin ne eivät tartu toisiinsa ja rikkoudu"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Keittiön siivous",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Pyyhi työtasot ja liesi kostealla liinalla. Voit käyttää keittiönpuhdistusainetta"
+        },
+        {
+          "description": "Pyyhi kaapiston ovet"
+        },
+        {
+          "description": "Siivoa kaappien pinnat jos ne ovat likaisia"
+        },
+        {
+          "description": "Imuroi keittiön lattia"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "WC siivous",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Vedä wc-allas. Suihkauta pesuainetta altaan seinämiin"
+        },
+        {
+          "description": "Harjaa allas sisäpuolelta wc-harjalla. Harjaa myös altaan pohja veden alta sekä yläreuna ja vedentuloreunuksen seutu"
+        },
+        {
+          "description": "Huuhtele wc-allas vetämällä se. Huuhtele samalla harja"
+        },
+        {
+          "description": "Kasta siivousliina puhdistusaineliuokseen ja pyyhi vetonuppi, vesisäiliö, kansi ja istuinrengas molemmin puolin"
+        },
+        {
+          "description": "Pyyhi wc-istuimen jalkaosa ja lattia istuimen ympäriltä"
+        },
+        {
+          "description": "Pyyhi seinät istuimen ympäriltä roiskekorkeudelta"
+        },
+        {
+          "description": "Muista pestä siivousliina ja laittaa se ilmavasti kuivumaan"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Kypyhuoneen siivous",
+      "time": 300,
+      "subroutines": [
+        {
+          "description": "Pyyhi peili nukkaamattomalla nihkeällä tai kostealla liinalla. Kuivaa tarvittaessa ikkunaliinalla"
+        },
+        {
+          "description": "Pyyhi tarvittaessa peilihylly, kylpyhuonekaapin ovet, ovenkahvat ja valonkatkaisijat"
+        },
+        {
+          "description": "Pese käsienpesuallas naarmuttamattomalla pesusienellä tai astianpesuharjalla"
+        },
+        {
+          "description": "Pyyhi käsisuihku ja altaan ympäristö roiskekorkeudelta kostealla siivousliinalla"
+        },
+        {
+          "description": "Pese suihkutilasta hanat, käsisuihku ja suihkuletku"
+        },
+        {
+          "description": "Pese ympäröivä seinäpinta sekä lasiset ja muoviset suihkuseinät"
+        }
+      ]
+    }
+  ]
+}
