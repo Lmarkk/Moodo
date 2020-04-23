@@ -24,4 +24,12 @@
     <!-- Notification strings -->
     <string name="routine_notification_text">Moodo on käynnissä…</string>
     <string name="json_data_language">fi</string>
+    <!-- Custom Routine creation strings -->
+    <string name="create_routine_empty_subroutines_warning">Osasuoritukseen täytyy lisätä tekstiä!</string>
+    <string name="create_routine_savebutton_warning">Varmista että rutiinillasi on nimi ja vähintään yksi osasuoritus</string>
+    <string name="create_routine_savebutton_text">Tallenna rutiini</string>
+    <string name="create_routine_namefield_hint">Rutiinin nimi</string>
+    <string name="create_routine_subroutine_hint">Osasuorituksen kuvaus</string>
+    <string name="create_routine_add_subroutine_button">Lisää osasuoritus</string>
+
 </resources>
