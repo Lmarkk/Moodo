@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root_view_create_routine">
@@ -13,15 +14,15 @@
         android:layout_marginStart="38dp"
         android:layout_marginTop="163dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="39dp"
-        android:hint="Routine name"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="Routine name"
+        android:hint="@string/create_routine_namefield_hint"
         android:inputType="text"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_subnamefield"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="Routine name">
+        app:layout_constraintTop_toTopOf="parent">
 
     </EditText>
 
@@ -30,11 +31,11 @@
         android:layout_width="184dp"
         android:layout_height="73dp"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="36dp"
-        android:hint="Subroutine text"
         android:autofillHints="Subroutine text"
+        android:hint="@string/create_routine_subroutine_hint"
         android:inputType="text"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_listview"
@@ -49,11 +50,11 @@
         android:layout_width="113dp"
         android:layout_height="77dp"
         android:layout_marginStart="21dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="33dp"
         android:onClick="addItems"
-        android:text="Add subroutine"
+        android:text="@string/create_routine_add_subroutine_button"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_listview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/create_routine_subnamefield"
@@ -61,14 +62,30 @@
 
     </Button>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="253dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="saveNewRoutine"
+        android:text="@string/create_routine_savebutton_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_routine_listview">
+
+    </Button>
+
     <ListView
         android:id="@+id/create_routine_listview"
         android:layout_width="334dp"
-        android:layout_height="250dp"
+        android:layout_height="240dp"
         android:layout_marginStart="38dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="63dp"
+        android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
