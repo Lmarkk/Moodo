@@ -118,4 +118,10 @@ public class MoodoApp extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public void openCreateRoutineView(View v) {
+        Intent intent = new Intent(this, CreateRoutineView.class);
+        intent.putExtra("totalRoutines", routineList.size() + 1);
+        startActivity(intent);
+    }
 }
