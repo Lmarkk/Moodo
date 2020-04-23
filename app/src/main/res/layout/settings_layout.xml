@@ -84,12 +84,14 @@
         app:layout_constraintTop_toBottomOf="@+id/text_notification"
         app:layout_constraintVertical_bias="0.101" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button_shop"
+        android:background="?android:selectableItemBackground"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:contentDescription="@string/open_shop"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/ic_shop"
+        android:src="@drawable/ic_shop"
         app:layout_constraintBottom_toTopOf="@+id/text_notification"
         app:layout_constraintEnd_toStartOf="@+id/button_about"
         app:layout_constraintHorizontal_bias="0.404"
@@ -97,12 +99,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.363" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button_about"
+        android:background="?android:selectableItemBackground"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:contentDescription="@string/open_about"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/ic_info"
+        android:src="@drawable/ic_about"
         android:onClick="openAbout"
         app:layout_constraintBottom_toTopOf="@+id/switch_notification"
         app:layout_constraintEnd_toEndOf="parent"

@@ -26,4 +26,8 @@
     <string name="team_roles">Scrummaster:\\nGraafiikat:\\nOhjelmoija:\\nOhjelmoija:</string>
     <string name="team_title">Tiimi</string>
     <string name="team_icon">Tiimi ikoni</string>
+    <string name="open_about">Avaa tietoja</string>
+    <string name="open_settings">Avaa asetukset</string>
+    <string name="open_shop">Avaa kauppa</string>
+    <string name="cancel_routine">Peruuta rutiini</string>
 </resources>

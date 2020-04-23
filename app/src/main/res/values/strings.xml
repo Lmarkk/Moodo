@@ -23,4 +23,8 @@
     <string name="team_roles">Scrummaster:\nGraphics:\nProgrammer:\nProgrammer:</string>
     <string name="team_title">Team</string>
     <string name="team_icon">Team icon</string>
+    <string name="cancel_routine">Cancel routine</string>
+    <string name="open_settings">Open settings</string>
+    <string name="open_shop">Open shop</string>
+    <string name="open_about">Open about</string>
 </resources>
