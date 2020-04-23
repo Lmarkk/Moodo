@@ -49,6 +49,7 @@
         android:id="@+id/switch_sounds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:thumbTint="#333"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.331"
@@ -60,6 +61,7 @@
         android:id="@+id/switch_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:thumbTint="#333"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.246"
@@ -153,6 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:buttonTint="#333"
             android:textColor="@color/colorText"
             android:onClick="changeLanguage"
             android:text="@string/radio_english" />
@@ -162,6 +165,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:buttonTint="#333"
             android:textColor="@color/colorText"
             android:onClick="changeLanguage"
             android:text="@string/radio_finnish" />
