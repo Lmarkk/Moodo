@@ -19,4 +19,6 @@
     <string name="routine_dialog_done">OK</string>
     <string name="json_data_language">en</string>
     <string name="moodo_icon">Moodo icon</string>
+    <string name="team_names" translatable="false">Miko Kauhanen\nErika Markkinen\nLauri Latva-Kyyny\nLassi Markkinen</string>
+    <string name="team_roles">Scrummaster:\nGraphics:\nProgrammer:\nProgrammer:</string>
 </resources>

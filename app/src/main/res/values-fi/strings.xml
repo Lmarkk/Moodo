@@ -25,4 +25,5 @@
     <string name="routine_notification_text">Moodo on käynnissä…</string>
     <string name="json_data_language">fi</string>
     <string name="moodo_icon">Moodo ikoni</string>
+    <string name="team_roles">Scrummaster:\\nGraafiikat:\\nOhjelmoija:\\nOhjelmoija:</string>
 </resources>
