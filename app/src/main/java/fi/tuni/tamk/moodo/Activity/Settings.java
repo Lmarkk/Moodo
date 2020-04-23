@@ -9,13 +9,21 @@ import fi.tuni.tamk.moodo.R;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 
 public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("Settings", "onCreate");
         setContentView(R.layout.settings_layout);
+        Log.d("Settings", "onCreate");
+        if(LocaleHelper.getLanguage(this).equals("en")) {
+            RadioButton radioEnglish = findViewById(R.id.radio_english);
+            radioEnglish.setChecked(true);
+        } else {
+            RadioButton radioFinnish  = findViewById(R.id.radio_finnish);
+            radioFinnish.setChecked(true);
+        }
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_settings));
     }
 
@@ -26,7 +34,7 @@ public class Settings extends AppCompatActivity {
 
     public void changeLanguage(View v) {
         Log.d("Settings", "changeLanguage: ");
-        if(v.getId() == R.id.btn_language_eng) {
+        if(v.getId() == R.id.radio_english) {
             LocaleHelper.setLocale(this, "en");
         } else {
             LocaleHelper.setLocale(this, "fi");

@@ -41,9 +41,7 @@
         android:textColor="@color/colorText"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/text_sounds"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.242" />
 
@@ -78,19 +76,17 @@
         android:textColor="@color/colorText"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/text_notification"
         app:layout_constraintVertical_bias="0.101" />
 
     <ImageButton
         android:id="@+id/button_shop"
-        android:background="?android:selectableItemBackground"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:contentDescription="@string/open_shop"
         android:layout_marginBottom="8dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@string/open_shop"
         android:src="@drawable/ic_shop"
         app:layout_constraintBottom_toTopOf="@+id/text_notification"
         app:layout_constraintEnd_toStartOf="@+id/button_about"
@@ -101,13 +97,13 @@
 
     <ImageButton
         android:id="@+id/button_about"
-        android:background="?android:selectableItemBackgroundBorderless"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:contentDescription="@string/open_about"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_about"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:contentDescription="@string/open_about"
         android:onClick="openAbout"
+        android:src="@drawable/ic_about"
         app:layout_constraintBottom_toTopOf="@+id/switch_notification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.758"
@@ -141,31 +137,34 @@
         app:layout_constraintStart_toStartOf="@+id/button_about"
         app:layout_constraintTop_toTopOf="@+id/text_shop" />
 
-    <Button
-        android:id="@+id/btn_language_fin"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="SUOMI"
-        android:onClick="changeLanguage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_language_eng"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_sounds"
-        app:layout_constraintVertical_bias="0.129" />
-
-    <Button
-        android:id="@+id/btn_language_eng"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:text="ENGLANTI"
-        android:onClick="changeLanguage"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_sounds"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintTop_toBottomOf="@+id/switch_sounds">
+
+        <RadioButton
+            android:id="@+id/radio_english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/colorText"
+            android:onClick="changeLanguage"
+            android:text="@string/radio_english" />
+
+        <RadioButton
+            android:id="@+id/radio_finnish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/colorText"
+            android:onClick="changeLanguage"
+            android:text="@string/radio_finnish" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

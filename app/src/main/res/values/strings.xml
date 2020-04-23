@@ -27,4 +27,6 @@
     <string name="open_settings">Open settings</string>
     <string name="open_shop">Open shop</string>
     <string name="open_about">Open about</string>
+    <string name="radio_english">English</string>
+    <string name="radio_finnish">Finnish</string>
 </resources>
