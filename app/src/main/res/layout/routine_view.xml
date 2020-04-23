@@ -85,7 +85,7 @@
         android:layout_height="30dp"
         android:progressDrawable="@drawable/progressbar"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/completeSubRoutineButton"
+        app:layout_constraintBottom_toTopOf="@+id/completeSubRoutineButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,9 +105,11 @@
 
     <Button
         android:id="@+id/completeSubRoutineButton"
-        android:layout_width="410dp"
-        android:layout_height="130dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/button_subroutine_next"
+        android:maxHeight="200dp"
+        android:minHeight="200dp"
         android:onClick="completeSubRoutine"
         android:text=""
         android:textAlignment="center"
@@ -116,9 +118,6 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
