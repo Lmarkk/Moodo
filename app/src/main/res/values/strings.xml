@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Moodo</string>
+    <string name="app_name" translatable="false">Moodo</string>
     <string name="result_dialog_text_loading">Loading…</string>
     <string name="routine_average_time">"Good, keep up the great work. "</string>
     <string name="routine_done">Done!</string>
@@ -16,10 +16,11 @@
     <string name="start_routine_text">Start routine</string>
     <string name="timer_warning">Set time first</string>
     <string name="user_time">Your time:</string>
-    <string name="routine_dialog_done">OK</string>
+    <string name="routine_dialog_done" translatable="false">OK</string>
     <string name="json_data_language">en</string>
     <string name="moodo_icon">Moodo icon</string>
     <string name="team_names" translatable="false">Miko Kauhanen\nErika Markkinen\nLauri Latva-Kyyny\nLassi Markkinen</string>
     <string name="team_roles">Scrummaster:\nGraphics:\nProgrammer:\nProgrammer:</string>
     <string name="team_title">Team</string>
+    <string name="team_icon">Team icon</string>
 </resources>

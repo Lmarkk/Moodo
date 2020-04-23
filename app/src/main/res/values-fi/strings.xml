@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Moodo</string>
     <!-- Routine view strings -->
     <string name="timer_warning">Aseta aika ensin</string>
     <string name="routine_done">Valmis!</string>
@@ -10,7 +9,6 @@
     <string name="routine_average_time">Hyvä, jatka samaan malliin!</string>
     <string name="routine_scores">Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.</string>
     <!-- Routine dialog layout elements strings -->
-    <string name="routine_dialog_done">OK</string>
     <string name="result_dialog_text_loading">Ladataan…</string>
     <!-- Routine view layout elements string -->
     <string name="routine_title_loading">Ladataan…</string>
@@ -27,4 +25,5 @@
     <string name="moodo_icon">Moodo ikoni</string>
     <string name="team_roles">Scrummaster:\\nGraafiikat:\\nOhjelmoija:\\nOhjelmoija:</string>
     <string name="team_title">Tiimi</string>
+    <string name="team_icon">Tiimi ikoni</string>
 </resources>
