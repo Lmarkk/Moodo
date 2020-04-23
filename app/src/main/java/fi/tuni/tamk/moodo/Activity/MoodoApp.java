@@ -78,6 +78,10 @@ public class MoodoApp extends AppCompatActivity {
             builder.append(scanner.nextLine());
         }
         parseJson(builder.toString());
+        ArrayList<Routine> customRoutines = (ArrayList<Routine>) Util.read(this);
+        if(customRoutines != null) {
+            routineList.addAll(customRoutines);
+        }
     }
 
     // Parse string into routine and subroutines for list view
