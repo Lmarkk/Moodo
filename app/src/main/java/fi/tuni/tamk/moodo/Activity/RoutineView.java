@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -42,7 +43,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private ProgressBar progressBar;
     private Button completeSubRoutineBtn;
     private Button startRoutineBtn;
-    private Button stopRoutineBtn;
+    private ImageButton stopRoutineBtn;
     private ListView listView;
     // Custom view element
     private CircleTimerView mTimer;

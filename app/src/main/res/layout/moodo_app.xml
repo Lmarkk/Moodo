@@ -8,13 +8,13 @@
     tools:context=".Activity.MoodoApp"
     android:id="@+id/root_view_moodo">
 
-    <Button
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/ic_settings"
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:onClick="openSettings"
+        android:src="@drawable/ic_settings"
+        android:contentDescription="@string/open_settings"
+        android:background="?android:selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.98"

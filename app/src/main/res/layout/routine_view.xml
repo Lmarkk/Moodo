@@ -6,26 +6,28 @@
     android:layout_height="match_parent"
     android:id="@+id/root_view_routine">
 
-    <Button
+    <ImageButton
         android:id="@+id/backButton"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:contentDescription="@string/stop_routine"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/ic_back"
+        android:src="@drawable/ic_back"
+        android:background="?android:selectableItemBackgroundBorderless"
         android:onClick="stopRoutine"
         android:textColor="#FFF"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/ic_settings"
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:onClick="openSettings"
+        android:contentDescription="@string/open_settings"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

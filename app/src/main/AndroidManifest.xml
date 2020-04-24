@@ -24,6 +24,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".Activity.Unlocks"
             android:screenOrientation="portrait" />
+        <activity android:name=".Activity.About"
+            android:screenOrientation="portrait" />
         <service
             android:name=".Service.CustomFirebaseMessagingService"
             android:exported="false">
