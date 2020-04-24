@@ -7,30 +7,40 @@
     android:id="@+id/root_view_routine">
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:onClick="openSettings"
-        android:background="@drawable/ic_settings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_back"
+        android:onClick="stopRoutine"
+        android:textColor="#FFF"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
-        app:layout_constraintVertical_bias="0.005" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_settings"
+        android:onClick="openSettings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/routine_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="50dp"
         android:text="@string/routine_title_loading"
         android:textColor="@color/colorText"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ctv" />
 
@@ -38,65 +48,48 @@
         android:id="@+id/ctv"
         android:layout_width="252dp"
         android:layout_height="269dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"
         app:layout_constraintVertical_weight="1" />
 
     <Button
         android:id="@+id/startButton"
-        android:layout_width="210dp"
-        android:layout_height="54dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:background="@drawable/button_start_rounded"
         android:onClick="startRoutine"
+        android:paddingStart="48dp"
+        android:paddingEnd="48dp"
         android:text="@string/start_routine_text"
         android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/subroutine_list"
-        app:layout_constraintVertical_bias="0.844" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/stopButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:background="@drawable/icon_exit_dark"
-        android:onClick="stopRoutine"
-        android:textColor="#FFF"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.038"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="410dp"
-        android:layout_height="30dp"
+        android:layout_height="10dp"
         android:progressDrawable="@drawable/progressbar"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/completeSubRoutineButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ListView
         android:id="@+id/subroutine_list"
-        android:layout_width="274dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +104,7 @@
         android:maxHeight="200dp"
         android:minHeight="200dp"
         android:onClick="completeSubRoutine"
+        android:padding="5dp"
         android:text=""
         android:textAlignment="center"
         android:textColor="@color/colorText"
