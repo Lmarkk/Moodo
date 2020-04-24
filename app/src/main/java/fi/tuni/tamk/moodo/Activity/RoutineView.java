@@ -64,7 +64,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
         completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
         startRoutineBtn = findViewById(R.id.startButton);
-        stopRoutineBtn = findViewById(R.id.stopButton);
+        stopRoutineBtn = findViewById(R.id.backButton);
 
         // Set routine variable from sent intent, set routine title from routine name
         routine = (Routine) getIntent().getSerializableExtra("routine");
