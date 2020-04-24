@@ -2,116 +2,94 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_view_settings"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/root_view_settings">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings_title"
-        android:textColor="@color/colorText"
-        android:textSize="24sp"
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_back"
+        android:onClick="onClickBack"
+        android:textColor="#FFF"
+        android:visibility="visible"
+        android:contentDescription="@string/back_settings"
+        android:background="?android:selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.038" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:background="@color/colorText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <TextView
         android:id="@+id/text_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:labelFor="@id/switch_notification"
         android:text="@string/settings_notifications_text"
         android:textColor="@color/colorText"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/text_sounds"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.242" />
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/text_shop"
+        app:layout_constraintTop_toBottomOf="@id/text_shop" />
 
     <Switch
         android:id="@+id/switch_sounds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:thumbTint="#333"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.331"
-        app:layout_constraintStart_toEndOf="@+id/text_sounds"
-        app:layout_constraintTop_toBottomOf="@+id/switch_notification"
-        app:layout_constraintVertical_bias="0.086" />
+        android:layout_marginTop="30dp"
+        android:theme="@style/switchStyle"
+        app:layout_constraintStart_toStartOf="@+id/switch_notification"
+        app:layout_constraintTop_toBottomOf="@+id/switch_notification" />
 
     <Switch
         android:id="@+id/switch_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:thumbTint="#333"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.246"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="57dp"
+        android:theme="@style/switchStyle"
         app:layout_constraintStart_toEndOf="@+id/text_notification"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.235" />
+        app:layout_constraintTop_toBottomOf="@+id/text_shop" />
 
     <TextView
         android:id="@+id/text_sounds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:labelFor="@id/switch_sounds"
         android:text="@string/settings_sound_text"
         android:textColor="@color/colorText"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/text_notification"
-        app:layout_constraintVertical_bias="0.101" />
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/text_notification"
+        app:layout_constraintTop_toBottomOf="@+id/text_notification" />
 
     <ImageButton
         android:id="@+id/button_shop"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:background="?android:selectableItemBackground"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="180dp"
+        android:background="?android:selectableItemBackgroundBorderless"
         android:contentDescription="@string/open_shop"
         android:src="@drawable/ic_shop"
-        app:layout_constraintBottom_toTopOf="@+id/text_notification"
-        app:layout_constraintEnd_toStartOf="@+id/button_about"
-        app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageButton
         android:id="@+id/button_about"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="90dp"
         android:background="?android:selectableItemBackgroundBorderless"
         android:contentDescription="@string/open_about"
         android:onClick="openAbout"
         android:src="@drawable/ic_about"
-        app:layout_constraintBottom_toTopOf="@+id/switch_notification"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.313" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/text_shop"
@@ -120,12 +98,10 @@
         android:labelFor="@id/button_shop"
         android:text="@string/settings_customizations_text"
         android:textColor="@color/colorText"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/button_shop"
-        app:layout_constraintStart_toStartOf="@+id/button_shop"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/button_shop"
+        app:layout_constraintStart_toStartOf="@id/button_shop"
+        app:layout_constraintTop_toBottomOf="@id/button_shop" />
 
     <TextView
         android:id="@+id/text_about"
@@ -134,7 +110,7 @@
         android:labelFor="@id/button_about"
         android:text="@string/settings_about_text"
         android:textColor="@color/colorText"
-        android:textSize="15sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/button_about"
         app:layout_constraintStart_toStartOf="@+id/button_about"
         app:layout_constraintTop_toTopOf="@+id/text_shop" />

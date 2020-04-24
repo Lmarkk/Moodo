@@ -32,4 +32,6 @@
     <string name="tamk_logo" translatable="false">TAMK logo</string>
     <string name="tiko_logo" translatable="false">Tiko logo</string>
     <string name="tampere_logo" translatable="false">Tampere logo</string>
+    <string name="stop_routine">Stop routine</string>
+    <string name="back_settings">Back from settings</string>
 </resources>

@@ -42,4 +42,8 @@ public class Settings extends AppCompatActivity {
         Intent i = new Intent(this, MoodoApp.class);
         startActivity(i);
     }
+
+    public void onClickBack(View view) {
+        onBackPressed();
+    }
 }

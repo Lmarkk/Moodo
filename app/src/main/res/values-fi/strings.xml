@@ -32,4 +32,6 @@
     <string name="cancel_routine">Peruuta rutiini</string>
     <string name="radio_english">Englanti</string>
     <string name="radio_finnish">Suomi</string>
+    <string name="stop_routine">Pysäytä rutiini</string>
+    <string name="back_settings">Takaisin asetuksista</string>
 </resources>
