@@ -2,20 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view_settings"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/root_view_settings">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/ic_back"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:contentDescription="@string/back_settings"
         android:onClick="onClickBack"
+        android:src="@drawable/ic_back"
         android:textColor="#FFF"
         android:visibility="visible"
-        android:contentDescription="@string/back_settings"
-        android:background="?android:selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.038"
@@ -76,7 +76,7 @@
         android:contentDescription="@string/open_shop"
         android:src="@drawable/ic_shop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/button_about"
@@ -89,7 +89,7 @@
         android:onClick="openAbout"
         android:src="@drawable/ic_about"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_shop"
@@ -121,30 +121,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/text_sounds"
         app:layout_constraintTop_toBottomOf="@+id/switch_sounds">
 
         <RadioButton
             android:id="@+id/radio_english"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:buttonTint="#333"
-            android:textColor="@color/colorText"
             android:onClick="changeLanguage"
-            android:text="@string/radio_english" />
+            android:text="@string/radio_english"
+            android:textColor="@color/colorText"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radio_finnish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:buttonTint="#333"
-            android:textColor="@color/colorText"
             android:onClick="changeLanguage"
-            android:text="@string/radio_finnish" />
+            android:text="@string/radio_finnish"
+            android:textColor="@color/colorText"
+            android:textSize="20sp" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
