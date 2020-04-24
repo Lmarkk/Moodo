@@ -6,6 +6,7 @@ import fi.tuni.tamk.moodo.Classes.Util;
 import fi.tuni.tamk.moodo.R;
 
 import android.util.Log;
+import android.view.View;
 
 public class Settings extends AppCompatActivity {
     @Override
@@ -14,5 +15,8 @@ public class Settings extends AppCompatActivity {
         Log.d("Settings", "onCreate");
         setContentView(R.layout.settings_layout);
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_settings));
+    }
+
+    public void onClickBack(View view) {
     }
 }
