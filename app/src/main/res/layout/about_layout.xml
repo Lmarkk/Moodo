@@ -12,7 +12,7 @@
         android:layout_height="150dp"
         android:layout_marginTop="24dp"
         android:contentDescription="@string/moodo_icon"
-        android:src="@drawable/moodo_launcher"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
