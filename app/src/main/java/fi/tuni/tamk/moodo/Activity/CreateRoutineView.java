@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -24,6 +25,8 @@ public class CreateRoutineView extends AppCompatActivity {
     EditText routineNameField;
     ArrayList<String> listItems = new ArrayList<>();
     ArrayAdapter<String> adapter;
+    private Button saveCustomRoutines;
+
 
 
     @Override
@@ -34,6 +37,7 @@ public class CreateRoutineView extends AppCompatActivity {
         totalRoutines = getIntent().getIntExtra("totalRoutines", 0);
         routineNameField = findViewById(R.id.create_routine_namefield);
         subRoutineNameField = findViewById(R.id.create_routine_subnamefield);
+        saveCustomRoutines = findViewById(R.id.save_custom_routines);
 
         ListView listView = findViewById(R.id.create_routine_listview);
 
@@ -50,6 +54,7 @@ public class CreateRoutineView extends AppCompatActivity {
             listItems.add(subRoutineNameField.getText().toString());
             adapter.notifyDataSetChanged();
             subRoutineNameField.setText("");
+            saveCustomRoutines.setEnabled(true);
         } else {
             Toast.makeText(this, getString(R.string.create_routine_empty_subroutines_warning), Toast.LENGTH_LONG).show();
         }

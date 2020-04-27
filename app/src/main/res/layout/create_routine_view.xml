@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="268dp"
+        android:labelFor="@+id/create_routine_namefield"
         android:text="@string/subroutine_description"
         android:textColor="@color/colorText"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_subnamefield"
@@ -41,6 +42,7 @@
         android:layout_height="wrap_content"
         android:text="@string/routine_name_add"
         android:textColor="@color/colorText"
+        android:labelFor="@+id/create_routine_subnamefield"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_namefield"
         app:layout_constraintStart_toStartOf="@+id/create_routine_namefield"
         app:layout_constraintTop_toTopOf="parent"
@@ -82,12 +84,13 @@
     </ImageButton>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/save_custom_routines"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:onClick="saveNewRoutine"
+        android:enabled="false"
         android:text="@string/create_routine_savebutton_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
