@@ -28,4 +28,5 @@
     <string name="routine_name_add">Routine name</string>
     <string name="add_subroutine_custom">Add subroutine</string>
     <string name="cancel_custom_routine">Cancel</string>
+    <string name="preview_subroutines">Preview subroutines</string>
 </resources>

@@ -10,13 +10,12 @@
         android:id="@+id/label_routine_namefield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="268dp"
         android:labelFor="@+id/create_routine_namefield"
         android:text="@string/subroutine_description"
         android:textColor="@color/colorText"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_subnamefield"
         app:layout_constraintStart_toStartOf="@+id/create_routine_subnamefield"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_routine_namefield"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
@@ -28,8 +27,8 @@
         android:autofillHints="Routine name"
         android:hint="@string/create_routine_namefield_hint"
         android:inputType="text"
-        android:textColor="@color/colorText"
         android:textAlignment="center"
+        android:textColor="@color/colorText"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_subnamefield"
         app:layout_constraintStart_toStartOf="@+id/label_routine_namefield"
         app:layout_constraintTop_toTopOf="parent">
@@ -40,9 +39,9 @@
         android:id="@+id/label_subroutine_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:labelFor="@+id/create_routine_subnamefield"
         android:text="@string/routine_name_add"
         android:textColor="@color/colorText"
-        android:labelFor="@+id/create_routine_subnamefield"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_namefield"
         app:layout_constraintStart_toStartOf="@+id/create_routine_namefield"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,12 +56,11 @@
         android:autofillHints="Subroutine text"
         android:hint="@string/create_routine_subroutine_hint"
         android:inputType="text"
-        android:textColor="@color/colorText"
         android:textAlignment="center"
+        android:textColor="@color/colorText"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_listview"
-        app:layout_constraintStart_toStartOf="@+id/create_routine_listview"
-        app:layout_constraintTop_toBottomOf="@+id/create_routine_namefield">
-    </EditText>
+        app:layout_constraintStart_toStartOf="@+id/label_preview_subroutines"
+        app:layout_constraintTop_toBottomOf="@+id/create_routine_namefield" />
 
     <ImageButton
         android:id="@+id/create_routine_addbutton"
@@ -89,8 +87,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:onClick="saveNewRoutine"
         android:enabled="false"
+        android:onClick="saveNewRoutine"
         android:text="@string/create_routine_savebutton_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,14 +102,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="@string/cancel_custom_routine"
         android:onClick="cancelCustomRoutine"
+        android:text="@string/cancel_custom_routine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/create_routine_listview"
         app:layout_constraintVertical_bias="0.466" />
+
+    <TextView
+        android:id="@+id/label_preview_subroutines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/create_routine_listview"
+        android:text="@string/preview_subroutines"
+        android:textColor="@color/colorText"
+        app:layout_constraintBottom_toTopOf="@+id/create_routine_listview"
+        app:layout_constraintStart_toStartOf="@+id/create_routine_listview"
+        app:layout_constraintTop_toBottomOf="@+id/create_routine_subnamefield"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ListView
         android:id="@+id/create_routine_listview"
@@ -122,7 +132,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_routine_subnamefield">
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@+id/create_routine_subnamefield" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
