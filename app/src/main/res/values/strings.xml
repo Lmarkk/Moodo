@@ -24,4 +24,8 @@
     <string name="create_routine_namefield_hint">Routine name</string>
     <string name="create_routine_subroutine_hint">Subroutine description</string>
     <string name="create_routine_add_subroutine_button">Add subroutine</string>
+    <string name="subroutine_description">Subroutine description</string>
+    <string name="routine_name_add">Routine name</string>
+    <string name="add_subroutine_custom">Add subroutine</string>
+    <string name="cancel_custom_routine">Cancel</string>
 </resources>

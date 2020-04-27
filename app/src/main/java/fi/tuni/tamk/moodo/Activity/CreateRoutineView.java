@@ -73,5 +73,10 @@ public class CreateRoutineView extends AppCompatActivity {
 
     }
 
+    // Cancel creating custom routine
+    public void cancelCustomRoutine(View v) {
+        onBackPressed();
+    }
+
 
 }
