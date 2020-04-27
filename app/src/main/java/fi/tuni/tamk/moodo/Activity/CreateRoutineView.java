@@ -49,6 +49,7 @@ public class CreateRoutineView extends AppCompatActivity {
         if(subRoutineNameField.getText().toString().length() > 0) {
             listItems.add(subRoutineNameField.getText().toString());
             adapter.notifyDataSetChanged();
+            subRoutineNameField.setText("");
         } else {
             Toast.makeText(this, getString(R.string.create_routine_empty_subroutines_warning), Toast.LENGTH_LONG).show();
         }
