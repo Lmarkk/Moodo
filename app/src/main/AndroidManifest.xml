@@ -25,7 +25,8 @@
         <activity android:name=".Activity.Unlocks"
             android:screenOrientation="portrait" />
         <activity android:name=".Activity.CreateRoutineView"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <service
             android:name=".Service.CustomFirebaseMessagingService"
             android:exported="false">

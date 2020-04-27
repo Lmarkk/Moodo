@@ -22,8 +22,7 @@
         android:id="@+id/create_routine_namefield"
         android:layout_width="324dp"
         android:layout_height="87dp"
-        android:layout_marginTop="163dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="64dp"
         android:autofillHints="Routine name"
         android:hint="@string/create_routine_namefield_hint"
         android:inputType="text"
@@ -31,7 +30,8 @@
         android:textColor="@color/colorText"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_subnamefield"
         app:layout_constraintStart_toStartOf="@+id/label_routine_namefield"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
     </EditText>
 
@@ -51,33 +51,30 @@
         android:id="@+id/create_routine_subnamefield"
         android:layout_width="280dp"
         android:layout_height="73dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="64dp"
         android:autofillHints="Subroutine text"
         android:hint="@string/create_routine_subroutine_hint"
         android:inputType="text"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         app:layout_constraintBottom_toTopOf="@+id/create_routine_listview"
-        app:layout_constraintStart_toStartOf="@+id/label_preview_subroutines"
-        app:layout_constraintTop_toBottomOf="@+id/create_routine_namefield" />
+        app:layout_constraintStart_toStartOf="@+id/label_preview_subroutines" />
 
     <ImageButton
         android:id="@+id/create_routine_addbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="24dp"
         android:background="?android:selectableItemBackgroundBorderless"
         android:contentDescription="@string/add_subroutine_custom"
         android:onClick="addItems"
         android:src="@drawable/ic_add"
-        app:layout_constraintBottom_toTopOf="@+id/create_routine_listview"
+        app:layout_constraintBottom_toBottomOf="@+id/create_routine_subnamefield"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/create_routine_subnamefield"
-        app:layout_constraintTop_toBottomOf="@+id/create_routine_namefield"
-        app:layout_constraintVertical_bias="0.539">
+        app:layout_constraintTop_toTopOf="@+id/create_routine_subnamefield"
+        app:layout_constraintVertical_bias="0.612">
 
     </ImageButton>
 
@@ -127,11 +124,10 @@
         android:id="@+id/create_routine_listview"
         android:layout_width="334dp"
         android:layout_height="240dp"
-        android:layout_marginTop="17dp"
         android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_routine_subnamefield" />
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
