@@ -117,7 +117,7 @@ public class Util {
 
         reader.beginArray();
         while (reader.hasNext()) {
-            readRoutine(reader);
+            existingRoutines.add(readRoutine(reader));
         }
         reader.endArray();
         return existingRoutines;
