@@ -38,6 +38,7 @@ public class CreateRoutineView extends AppCompatActivity {
         routineNameField = findViewById(R.id.create_routine_namefield);
         subRoutineNameField = findViewById(R.id.create_routine_subnamefield);
         saveCustomRoutines = findViewById(R.id.save_custom_routines);
+        Util.initializeBackgroundTransition(findViewById(R.id.root_view_create_routine));
 
         ListView listView = findViewById(R.id.create_routine_listview);
 
