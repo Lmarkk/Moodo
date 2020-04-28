@@ -62,23 +62,23 @@
         app:layout_constraintBottom_toTopOf="@+id/create_routine_listview"
         app:layout_constraintStart_toStartOf="@+id/label_preview_subroutines" />
 
-    <ImageButton
-        android:id="@+id/create_routine_addbutton"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:background="?android:selectableItemBackgroundBorderless"
-        android:contentDescription="@string/add_subroutine_custom"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:src="@drawable/ic_fab_create_routine"
+        app:backgroundTint="#149414"
         android:onClick="addItems"
-        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="@+id/create_routine_subnamefield"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/create_routine_subnamefield"
         app:layout_constraintTop_toTopOf="@+id/create_routine_subnamefield"
-        app:layout_constraintVertical_bias="0.612">
-
-    </ImageButton>
+        app:layout_constraintVertical_bias="0.612"
+        android:focusable="true" />
 
     <Button
         android:id="@+id/save_custom_routines"
