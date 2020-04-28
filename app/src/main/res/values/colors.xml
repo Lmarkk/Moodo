@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorText">#454545</color>
+    <color name="colorText">#303030</color>
     <color name="colorTextLight">#6E6E6E</color>
     <color name="colorTextBackground">#12000000</color>
     <color name="colorTextBackgroundPressed">#1A000000</color>
 
-    <color name="colorPrimary">#58CC98</color>
-    <color name="colorPrimaryDark">#419972</color>
-    <color name="colorAccent">#8AFF87</color>
-
-    <color name="colorPrimaryAlt">#F54631</color>
-    <color name="colorPrimaryDarkAlt">#DE5021</color>
-    <color name="colorAccentAlt">#FA7926</color>
+    <color name="colorPrimary">#F54631</color>
+    <color name="colorPrimaryDark">#DE5021</color>
+    <color name="colorAccent">#FA7926</color>
 
     <color name="colorProgressbarBg">#0CFFFFFF</color>
     <color name="colorProgressbarProgressStart">#CCDE5021</color>
     <color name="colorProgressbarProgressCenter">#CCF54631</color>
     <color name="colorProgressbarProgressEnd">#CCFA7926</color>
 
-    <color name="colorTimerCircle">#65070707</color>
+    <color name="colorNextSubroutineBg">#00FFFFFF</color>
+    <color name="colorNextSubroutineBgPressed">#33FFFFFF</color>
+    <color name="colorNextSubroutineStrokePressed">#FF4800</color>
+
+    <color name="colorTimerCircle">#303030</color>
     <color name="colorTimerCircleButton">#FF4800</color>
-    <color name="colorTimerCircleLine">#65070707</color>
+    <color name="colorTimerCircleLine">#303030</color>
     <color name="colorTimerCircleLineHighlight">#FF4800</color>
-    <color name="colorTimerCircleNumber">#65070707</color>
+    <color name="colorTimerCircleNumber">#303030</color>
     <color name="colorTimerNumber">#FF4800</color>
     <color name="colorTimerNumberColon">#9AFF4800</color>
-    <color name="colorTimerText">#65070707</color>
+    <color name="colorTimerText">#303030</color>
 </resources>

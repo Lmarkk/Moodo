@@ -5,9 +5,9 @@
             android:shape="rectangle">
 
             <gradient
-                android:startColor="@color/colorPrimaryDarkAlt"
-                android:centerColor="@color/colorPrimaryAlt"
-                android:endColor="@color/colorAccentAlt"
+                android:startColor="@color/colorPrimaryDark"
+                android:centerColor="@color/colorPrimary"
+                android:endColor="@color/colorAccent"
                 android:angle="180" />
 
             <stroke

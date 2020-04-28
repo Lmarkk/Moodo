@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -42,7 +43,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     private ProgressBar progressBar;
     private Button completeSubRoutineBtn;
     private Button startRoutineBtn;
-    private Button stopRoutineBtn;
+    private ImageButton stopRoutineBtn;
     private ListView listView;
     // Custom view element
     private CircleTimerView mTimer;
@@ -64,7 +65,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
         completeSubRoutineBtn = findViewById(R.id.completeSubRoutineButton);
         startRoutineBtn = findViewById(R.id.startButton);
-        stopRoutineBtn = findViewById(R.id.stopButton);
+        stopRoutineBtn = findViewById(R.id.backButton);
 
         // Set routine variable from sent intent, set routine title from routine name
         routine = (Routine) getIntent().getSerializableExtra("routine");

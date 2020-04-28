@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Moodo</string>
+    <string name="app_name" translatable="false">Moodo</string>
     <string name="result_dialog_text_loading">Loading…</string>
     <string name="routine_average_time">"Good, keep up the great work. "</string>
     <string name="routine_done">Done!</string>
@@ -8,7 +8,7 @@
     <string name="routine_scores">You got 10 points! You can use your scores in skins activity.</string>
     <string name="routine_time_set">Set time for routine:</string>
     <string name="routine_title_loading">Loading…</string>
-    <string name="settings_about_text">Info</string>
+    <string name="settings_about_text">About</string>
     <string name="settings_customizations_text">Skins</string>
     <string name="settings_notifications_text">Notifications</string>
     <string name="settings_sound_text">Sounds</string>
@@ -16,7 +16,7 @@
     <string name="start_routine_text">Start routine</string>
     <string name="timer_warning">Set time first</string>
     <string name="user_time">Your time:</string>
-    <string name="routine_dialog_done">OK</string>
+    <string name="routine_dialog_done" translatable="false">OK</string>
     <string name="json_data_language">en</string>
     <string name="create_routine_empty_subroutines_warning">Please write some text for the subroutine!</string>
     <string name="create_routine_savebutton_warning">Make sure your routine has a name and at least one subroutine</string>
@@ -29,4 +29,20 @@
     <string name="add_subroutine_custom">Add subroutine</string>
     <string name="cancel_custom_routine">Cancel</string>
     <string name="preview_subroutines">Preview subroutines</string>
+    <string name="moodo_icon">Moodo icon</string>
+    <string name="team_names" translatable="false">Miko Kauhanen\nErika Markkinen\nLauri Latva-Kyyny\nLassi Markkinen</string>
+    <string name="team_roles">Scrummaster:\nGraphics:\nProgrammer:\nProgrammer:</string>
+    <string name="team_title">Team</string>
+    <string name="team_icon">Team icon</string>
+    <string name="cancel_routine">Cancel routine</string>
+    <string name="open_settings">Open settings</string>
+    <string name="open_shop">Open shop</string>
+    <string name="open_about">Open about</string>
+    <string name="radio_english">English</string>
+    <string name="radio_finnish">Finnish</string>
+    <string name="tamk_logo" translatable="false">TAMK logo</string>
+    <string name="tiko_logo" translatable="false">Tiko logo</string>
+    <string name="tampere_logo" translatable="false">Tampere logo</string>
+    <string name="stop_routine">Stop routine</string>
+    <string name="back_settings">Back from settings</string>
 </resources>
