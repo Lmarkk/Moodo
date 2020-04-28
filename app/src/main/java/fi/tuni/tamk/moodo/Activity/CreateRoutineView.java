@@ -56,6 +56,7 @@ public class CreateRoutineView extends AppCompatActivity {
             adapter.notifyDataSetChanged();
             subRoutineNameField.setText("");
             saveCustomRoutines.setEnabled(true);
+            saveCustomRoutines.setAlpha(1);
         } else {
             Toast.makeText(this, getString(R.string.create_routine_empty_subroutines_warning), Toast.LENGTH_LONG).show();
         }
