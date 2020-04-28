@@ -45,7 +45,6 @@ public class Util {
             FileInputStream fileIn = context.openFileInput(FILE_NAME);
             JsonReader reader = new JsonReader(new InputStreamReader(fileIn, StandardCharsets.UTF_8));
             existingRoutines = readRoutines(reader);
-            Toast.makeText(context, existingRoutines.toString(),Toast.LENGTH_LONG).show();
             reader.close();
             fileIn.close();
             return existingRoutines;

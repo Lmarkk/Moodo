@@ -42,7 +42,7 @@ public class CreateRoutineView extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.create_routine_listview);
 
-        adapter = new ArrayAdapter<String>(this,
+        adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
                 listItems);
 
