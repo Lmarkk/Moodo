@@ -15,13 +15,20 @@ import java.util.List;
 public class Routine implements Serializable {
     private int time;
     private String name;
-    private List<SubRoutine> subRoutines;
+    private List<SubRoutine> subRoutines = new ArrayList<>();
     private int id;
 
     public Routine(int id, String name, int time) {
         setName(name);
         setId(id);
         setTime(time);
+    }
+
+    public Routine(int id, String name, int time, List<SubRoutine> subRoutines) {
+        setName(name);
+        setId(id);
+        setTime(time);
+        setSubRoutines(subRoutines);
     }
 
     public int getTime() {
@@ -62,6 +69,10 @@ public class Routine implements Serializable {
 
     public void setSubRoutines(List<SubRoutine> subRoutines) {
         this.subRoutines = new ArrayList<>(subRoutines);
+    }
+
+    public void addSubRoutine(SubRoutine subRoutine) {
+        subRoutines.add(subRoutine);
     }
 
     public List<SubRoutine> getSubRoutines() {

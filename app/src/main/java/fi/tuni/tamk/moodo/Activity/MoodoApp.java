@@ -80,6 +80,10 @@ public class MoodoApp extends AppCompatActivity {
             builder.append(scanner.nextLine());
         }
         parseJson(builder.toString());
+        ArrayList<Routine> customRoutines = (ArrayList<Routine>) Util.read(this);
+        if(customRoutines != null) {
+            routineList.addAll(customRoutines);
+        }
     }
 
     // Parse string into routine and subroutines for list view
@@ -115,5 +119,11 @@ public class MoodoApp extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void openCreateRoutineView(View v) {
+        Intent intent = new Intent(this, CreateRoutineView.class);
+        intent.putExtra("totalRoutines", routineList.size() + 1);
+        startActivity(intent);
     }
 }

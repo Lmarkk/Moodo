@@ -18,6 +18,17 @@
     <string name="user_time">Your time:</string>
     <string name="routine_dialog_done" translatable="false">OK</string>
     <string name="json_data_language">en</string>
+    <string name="create_routine_empty_subroutines_warning">Please write some text for the subroutine!</string>
+    <string name="create_routine_savebutton_warning">Make sure your routine has a name and at least one subroutine</string>
+    <string name="create_routine_savebutton_text">Save routine</string>
+    <string name="create_routine_namefield_hint">Routine name</string>
+    <string name="create_routine_subroutine_hint">Subroutine description</string>
+    <string name="create_routine_add_subroutine_button">Add subroutine</string>
+    <string name="subroutine_description">Subroutine description</string>
+    <string name="routine_name_add">Routine name</string>
+    <string name="add_subroutine_custom">Add subroutine</string>
+    <string name="cancel_custom_routine">Cancel</string>
+    <string name="preview_subroutines">Preview subroutines</string>
     <string name="moodo_icon">Moodo icon</string>
     <string name="team_names" translatable="false">Miko Kauhanen\nErika Markkinen\nLauri Latva-Kyyny\nLassi Markkinen</string>
     <string name="team_roles">Scrummaster:\nGraphics:\nProgrammer:\nProgrammer:</string>
