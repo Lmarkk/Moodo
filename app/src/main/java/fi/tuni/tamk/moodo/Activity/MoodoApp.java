@@ -1,5 +1,7 @@
 package fi.tuni.tamk.moodo.Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import fi.tuni.tamk.moodo.Classes.LocaleHelper;
@@ -27,6 +29,7 @@ import java.util.Scanner;
 public class MoodoApp extends AppCompatActivity {
     private ListView listView;
     private ArrayList<Routine> routineList;
+    public static ArrayList<Integer> deletedRoutines;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,26 @@ public class MoodoApp extends AppCompatActivity {
         });
 
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_moodo));
+
+        listView.setOnItemLongClickListener((parent, view, pos, id) -> {
+            if(id > 8) {
+                final int which_item = pos;
+                System.out.println("Item deleted " + id);
+                new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_delete)
+                        .setTitle("Are you sure?")
+                        .setMessage("Delete this item?")
+                        .setPositiveButton("OK", (dialog, which) -> {
+                            routineList.remove(which_item);
+                            adapter.notifyDataSetChanged();
+                            //deletedRoutines.add(which_item);
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .show();
+            }
+            return true;
+        });
+
     }
 
     public void openSettings(View view) {
