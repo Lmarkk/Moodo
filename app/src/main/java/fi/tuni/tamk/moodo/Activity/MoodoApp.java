@@ -2,6 +2,7 @@ package fi.tuni.tamk.moodo.Activity;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import fi.tuni.tamk.moodo.Classes.LocaleHelper;
 import fi.tuni.tamk.moodo.Classes.Util;
 import fi.tuni.tamk.moodo.R;
 import fi.tuni.tamk.moodo.Classes.Routine;
@@ -32,6 +33,7 @@ public class MoodoApp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d("MoodoApp", "onCreate");
         setContentView(R.layout.moodo_app);
+        LocaleHelper.setLocale(this, LocaleHelper.getLanguage(this));
 
         // Create view and addroutines to list
         listView = findViewById(R.id.routine_list);
@@ -67,7 +69,7 @@ public class MoodoApp extends AppCompatActivity {
     private void loadRoutineData() {
         Resources res = getResources();
         InputStream is = null;
-        if(getString(R.string.json_data_language).equals("fi")) {
+        if(LocaleHelper.getLanguage(this).equals("fi")) {
             is = res.openRawResource(R.raw.routine_data_fin);
         } else {
             is = res.openRawResource(R.raw.routine_data_en);
@@ -78,6 +80,10 @@ public class MoodoApp extends AppCompatActivity {
             builder.append(scanner.nextLine());
         }
         parseJson(builder.toString());
+        ArrayList<Routine> customRoutines = (ArrayList<Routine>) Util.read(this);
+        if(customRoutines != null) {
+            routineList.addAll(customRoutines);
+        }
     }
 
     // Parse string into routine and subroutines for list view
@@ -113,5 +119,11 @@ public class MoodoApp extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void openCreateRoutineView(View v) {
+        Intent intent = new Intent(this, CreateRoutineView.class);
+        intent.putExtra("totalRoutines", routineList.size() + 1);
+        startActivity(intent);
     }
 }

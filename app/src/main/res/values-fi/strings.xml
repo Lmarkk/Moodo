@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Moodo</string>
     <!-- Routine view strings -->
     <string name="timer_warning">Aseta aika ensin</string>
     <string name="routine_done">Valmis!</string>
@@ -10,7 +9,6 @@
     <string name="routine_average_time">Hyvä, jatka samaan malliin!</string>
     <string name="routine_scores">Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.</string>
     <!-- Routine dialog layout elements strings -->
-    <string name="routine_dialog_done">OK</string>
     <string name="result_dialog_text_loading">Ladataan…</string>
     <!-- Routine view layout elements string -->
     <string name="routine_title_loading">Ladataan…</string>
@@ -24,4 +22,29 @@
     <!-- Notification strings -->
     <string name="routine_notification_text">Moodo on käynnissä…</string>
     <string name="json_data_language">fi</string>
+    <!-- Custom Routine creation strings -->
+    <string name="create_routine_empty_subroutines_warning">Osasuoritukseen täytyy lisätä tekstiä!</string>
+    <string name="create_routine_savebutton_warning">Varmista että rutiinillasi on nimi ja vähintään yksi osasuoritus</string>
+    <string name="create_routine_savebutton_text">Tallenna rutiini</string>
+    <string name="create_routine_namefield_hint">Rutiinin nimi</string>
+    <string name="create_routine_subroutine_hint">Osasuorituksen kuvaus</string>
+    <string name="create_routine_add_subroutine_button">Lisää osasuoritus</string>
+
+    <string name="moodo_icon">Moodo ikoni</string>
+    <string name="team_roles">Scrummaster:\nGraafiikat:\nOhjelmoija:\nOhjelmoija:</string>
+    <string name="team_title">Tiimi</string>
+    <string name="team_icon">Tiimi ikoni</string>
+    <string name="open_about">Avaa tietoja</string>
+    <string name="open_settings">Avaa asetukset</string>
+    <string name="open_shop">Avaa kauppa</string>
+    <string name="cancel_routine">Peruuta rutiini</string>
+    <string name="radio_english">Englanti</string>
+    <string name="radio_finnish">Suomi</string>
+    <string name="stop_routine">Pysäytä rutiini</string>
+    <string name="back_settings">Takaisin asetuksista</string>
+    <string name="cancel_custom_routine">Peruuta</string>
+    <string name="add_subroutine_custom">Lisää alirutiini</string>
+    <string name="preview_subroutines">Esikatsele alirutiineja</string>
+    <string name="routine_name_add">Rutiinin nimi</string>
+    <string name="subroutine_description">Alirutiinin kuvaus</string>
 </resources>

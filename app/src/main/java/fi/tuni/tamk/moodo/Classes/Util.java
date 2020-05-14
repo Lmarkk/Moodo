@@ -1,11 +1,26 @@
 package fi.tuni.tamk.moodo.Classes;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.JsonReader;
+import android.util.JsonWriter;
 import android.view.View;
+import android.widget.Toast;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 import fi.tuni.tamk.moodo.R;
 
 public class Util {
+    private static final String FILE_NAME = "custom_routine_data.json";
 
     public static void initializeBackgroundTransition(View view) {
         Drawable bg_0 = App.getContext().getDrawable(R.drawable.bg_blue);
@@ -22,5 +37,143 @@ public class Util {
         CyclicTransitionDrawable ctd = new CyclicTransitionDrawable(drawables);
         view.setBackground(ctd);
         ctd.startTransition(4000, 8000); // 1 second transition, 3 second pause between transitions.
+    }
+
+    public static List<Routine> read(Context context) {
+        List<Routine> existingRoutines;
+        try {
+            FileInputStream fileIn = context.openFileInput(FILE_NAME);
+            JsonReader reader = new JsonReader(new InputStreamReader(fileIn, StandardCharsets.UTF_8));
+            existingRoutines = readRoutines(reader);
+            reader.close();
+            fileIn.close();
+            return existingRoutines;
+        } catch (FileNotFoundException f) {
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    public static void write(Context context, Routine newRoutine, List<Routine> existingRoutines) {
+        try {
+            // Write file with new content
+            FileOutputStream fileOut = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+            JsonWriter jsonWriter = new JsonWriter(new OutputStreamWriter(fileOut, StandardCharsets.UTF_8));
+
+            if(existingRoutines == null) {
+                existingRoutines = new ArrayList<>();
+            }
+            existingRoutines.add(newRoutine);
+            writeRoutinesArray(jsonWriter, existingRoutines);
+
+            jsonWriter.close();
+            fileOut.close();
+
+            //display file saved message
+            Toast.makeText(context, "File saved successfully!",
+                    Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void writeRoutinesArray(JsonWriter writer, List<Routine> routines) throws IOException {
+        writer.beginArray();
+        for (Routine routine : routines) {
+            writeRoutine(writer, routine);
+        }
+        writer.endArray();
+    }
+
+    public static void writeRoutine(JsonWriter writer, Routine routine) throws IOException {
+        writer.beginObject();
+        writer.name("id").value(routine.getId());
+        writer.name("name").value(routine.getName());
+        writer.name("time").value(routine.getTime());
+        writer.name("subRoutines");
+        writeSubRoutines(writer, routine.getSubRoutines());
+        writer.endObject();
+    }
+
+    public static void writeSubRoutines(JsonWriter writer, List<SubRoutine> subRoutines) throws IOException {
+        writer.beginArray();
+        for (SubRoutine value : subRoutines) {
+            writer.beginObject();
+            writer.name("description");
+            writer.value(value.getDescription());
+            writer.endObject();
+        }
+        writer.endArray();
+    }
+
+    public static List<Routine> readRoutines(JsonReader reader) throws IOException {
+        List<Routine> existingRoutines = new ArrayList<>();
+
+        reader.beginArray();
+        while (reader.hasNext()) {
+            existingRoutines.add(readRoutine(reader));
+        }
+        reader.endArray();
+        return existingRoutines;
+    }
+
+    public static Routine readRoutine(JsonReader reader) throws IOException {
+        int id = -1;
+        String name = null;
+        int time = -1;
+        List<SubRoutine> subRoutines = new ArrayList<>();
+
+        reader.beginObject();
+        while (reader.hasNext()) {
+            String jsonName = reader.nextName();
+            if (jsonName.equals("id")) {
+                id = reader.nextInt();
+            } else if (jsonName.equals("name")) {
+                name = reader.nextString();
+            } else if (jsonName.equals("time")) {
+                time = reader.nextInt();
+            } else if (jsonName.equals("subRoutines")) {
+                subRoutines = readSubRoutines(reader);
+            } else {
+                reader.skipValue();
+            }
+        }
+        reader.endObject();
+        return new Routine(id, name, time, subRoutines);
+    }
+
+    public static ArrayList<SubRoutine> readSubRoutines(JsonReader reader) throws IOException {
+        ArrayList<SubRoutine> subList = new ArrayList<>();
+
+        reader.beginArray();
+        while (reader.hasNext()) {
+            subList.add(readSubRoutine(reader));
+        }
+        reader.endArray();
+        return subList;
+    }
+
+    public static SubRoutine readSubRoutine(JsonReader reader) throws IOException {
+        int id = -1;
+        String description = null;
+
+        reader.beginObject();
+        while (reader.hasNext()) {
+            String jsonName = reader.nextName();
+            if (jsonName.equals("id")) {
+                id = reader.nextInt();
+            }else if (jsonName.equals("description")) {
+                description = reader.nextString();
+            } else {
+                reader.skipValue();
+            }
+        }
+        reader.endObject();
+        return new SubRoutine(id, description);
     }
 }
