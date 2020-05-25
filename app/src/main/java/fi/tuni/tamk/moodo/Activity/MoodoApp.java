@@ -35,14 +35,22 @@ public class MoodoApp extends AppCompatActivity {
         setContentView(R.layout.moodo_app);
         LocaleHelper.setLocale(this, LocaleHelper.getLanguage(this));
 
-        // Create view and addroutines to list
+        // Create view and routinelist
         listView = findViewById(R.id.routine_list);
         routineList = new ArrayList<>();
 
-        // Load routine data from .json file
-        loadRoutineData();
+        // Load routine data from .json file if first time startup
+        if(Util.checkAppStart(this) == Util.AppStart.FIRST_TIME) {
+            loadRoutineData();
+        }
 
-        // Add list ofroutines to the list view
+        // Add routines from local storage file to list
+        ArrayList<Routine> customRoutines = (ArrayList<Routine>) Util.read(this);
+        if(customRoutines != null) {
+            routineList.addAll(customRoutines);
+        }
+
+        // Add list of routines to the list view
         ArrayAdapter<Routine> adapter = new ArrayAdapter<>(this, R.layout.list_item, routineList);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -56,7 +64,6 @@ public class MoodoApp extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_moodo));
     }
 
@@ -80,13 +87,9 @@ public class MoodoApp extends AppCompatActivity {
             builder.append(scanner.nextLine());
         }
         parseJson(builder.toString());
-        ArrayList<Routine> customRoutines = (ArrayList<Routine>) Util.read(this);
-        if(customRoutines != null) {
-            routineList.addAll(customRoutines);
-        }
     }
 
-    // Parse string into routine and subroutines for list view
+    // Parse string into routine and subroutines for adding into local storage
     private void parseJson(String jsonString) {
         // Temp array for storing subroutines
         ArrayList<SubRoutine> subRoutines = new ArrayList<>();
@@ -102,7 +105,6 @@ public class MoodoApp extends AppCompatActivity {
                 Routine tempRoutine = new Routine(currRoutine.getInt("id"),
                         currRoutine.getString("name"),
                         currRoutine.getInt("time"));
-                routineList.add(tempRoutine);
                 // Loop through subroutine array included inside every routine JSONObject
                 JSONArray subroutineArray = currRoutine.getJSONArray("subroutines");
                 for(int j = 0; j < subroutineArray.length(); j++) {
@@ -114,6 +116,8 @@ public class MoodoApp extends AppCompatActivity {
                 // After looping through whole data add temp list to routine's subroutine list
                 // and clear the subroutines list
                 tempRoutine.setSubRoutines(subRoutines);
+                // Write temp routine to storage
+                Util.write(this, tempRoutine, Util.read(this));
                 subRoutines.clear();
             }
         } catch (JSONException e) {
