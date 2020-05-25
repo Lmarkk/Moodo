@@ -1,9 +1,14 @@
 package fi.tuni.tamk.moodo.Classes;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.util.JsonReader;
 import android.util.JsonWriter;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,10 +22,24 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+import fi.tuni.tamk.moodo.Activity.MoodoApp;
 import fi.tuni.tamk.moodo.R;
 
 public class Util {
     private static final String FILE_NAME = "custom_routine_data.json";
+
+    /**
+     * Distinguishes different kinds of app starts:
+     * First start ever (FIRST_TIME)
+     * First start in this version (FIRST_TIME_VERSION)
+     * Normal app start (NORMAL)
+     *
+     */
+    public enum AppStart {
+        FIRST_TIME, FIRST_TIME_VERSION, NORMAL;
+    }
+
+    private static final String LAST_APP_VERSION = "last_app_version";
 
     public static void initializeBackgroundTransition(View view) {
         Drawable bg_0 = App.getContext().getDrawable(R.drawable.bg_blue);
