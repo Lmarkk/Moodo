@@ -22,7 +22,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import fi.tuni.tamk.moodo.Activity.MoodoApp;
 import fi.tuni.tamk.moodo.R;
 
 public class Util {
