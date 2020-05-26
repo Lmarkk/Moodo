@@ -39,6 +39,7 @@ public class Util {
     }
 
     private static final String LAST_APP_VERSION = "last_app_version";
+    private static final String EXPERIENCE_POINTS ="experience_points";
 
     public static void initializeBackgroundTransition(View view) {
         Drawable bg_0 = App.getContext().getDrawable(R.drawable.bg_blue);
@@ -91,8 +92,8 @@ public class Util {
             fileOut.close();
 
             //display file saved message
-            Toast.makeText(context, "File saved successfully!",
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "File saved successfully!",
+            //        Toast.LENGTH_SHORT).show();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -185,7 +186,7 @@ public class Util {
             String jsonName = reader.nextName();
             if (jsonName.equals("id")) {
                 id = reader.nextInt();
-            }else if (jsonName.equals("description")) {
+            } else if (jsonName.equals("description")) {
                 description = reader.nextString();
             } else {
                 reader.skipValue();
@@ -226,5 +227,19 @@ public class Util {
         } else {
             return AppStart.NORMAL;
         }
+    }
+
+    public static int checkExp(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        return sharedPreferences.getInt(EXPERIENCE_POINTS, 0);
+    }
+
+    public static void putExp(Context context, int points) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        sharedPreferences.edit().putInt(EXPERIENCE_POINTS, points).apply();
     }
 }
