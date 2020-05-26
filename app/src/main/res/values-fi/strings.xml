@@ -5,8 +5,11 @@
     <string name="routine_done">Valmis!</string>
     <string name="routine_time_set">Rutiiniin asetettu aika:</string>
     <string name="user_time">Oma aikasi:</string>
+    <!--
     <string name="routine_fast_time">Todella nopeaa toimintaa, hienosti tehty! Olithan huolellinen?</string>
     <string name="routine_average_time">Hyvä, jatka samaan malliin!</string>
+    -->
+    <string name="result_dialog_feedback">Miten rutiini sujui omasta mielestäsi?</string>
     <string name="routine_scores">Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.</string>
     <!-- Routine dialog layout elements strings -->
     <string name="result_dialog_text_loading">Ladataan…</string>
@@ -47,4 +50,6 @@
     <string name="preview_subroutines">Esikatsele alirutiineja</string>
     <string name="routine_name_add">Rutiinin nimi</string>
     <string name="subroutine_description">Alirutiinin kuvaus</string>
+
+
 </resources>

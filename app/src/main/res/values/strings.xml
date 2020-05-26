@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name" translatable="false">Moodo</string>
     <string name="result_dialog_text_loading">Loading…</string>
-    <string name="routine_average_time">"Good, keep up the great work. "</string>
     <string name="routine_done">Done!</string>
+    <!--
+    <string name="routine_average_time">"Good, keep up the great work. "</string>
     <string name="routine_fast_time">Really fast done, well done! Remember not to rush.</string>
+    -->
+    <string name="result_dialog_feedback">How well did the routine go?</string>
     <string name="routine_notification_text">Moodo is running…</string>
     <string name="routine_scores">You got 10 points! You can use your scores in skins activity.</string>
     <string name="routine_time_set">Set time for routine:</string>
