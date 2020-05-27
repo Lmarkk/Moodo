@@ -8,9 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.util.JsonReader;
 import android.util.JsonWriter;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,7 +20,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import fi.tuni.tamk.moodo.Activity.MoodoApp;
 import fi.tuni.tamk.moodo.R;
 
 public class Util {
@@ -40,6 +37,9 @@ public class Util {
     }
 
     private static final String LAST_APP_VERSION = "last_app_version";
+    private static final String EXPERIENCE_POINTS ="experience_points";
+    private static final String EXPERIENCE_NEEDED_FOR_LVL ="experience_needed";
+    private static final String LEVEL ="user_level";
 
     public static void initializeBackgroundTransition(View view) {
         Drawable bg_0 = App.getContext().getDrawable(R.drawable.bg_blue);
@@ -92,8 +92,8 @@ public class Util {
             fileOut.close();
 
             //display file saved message
-            Toast.makeText(context, "File saved successfully!",
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "File saved successfully!",
+            //        Toast.LENGTH_SHORT).show();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -186,7 +186,7 @@ public class Util {
             String jsonName = reader.nextName();
             if (jsonName.equals("id")) {
                 id = reader.nextInt();
-            }else if (jsonName.equals("description")) {
+            } else if (jsonName.equals("description")) {
                 description = reader.nextString();
             } else {
                 reader.skipValue();
@@ -200,6 +200,9 @@ public class Util {
         PackageInfo pInfo;
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(context);
+
+
+        // sharedPreferences.edit().clear().apply();
 
         AppStart appStart = AppStart.NORMAL;
         try {
@@ -227,5 +230,47 @@ public class Util {
         } else {
             return AppStart.NORMAL;
         }
+    }
+
+    public static int checkExp(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        return sharedPreferences.getInt(EXPERIENCE_POINTS, 0);
+    }
+
+    public static void putExp(Context context, int points) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        sharedPreferences.edit().putInt(EXPERIENCE_POINTS, points).apply();
+    }
+
+    public static int checkExpNeededForNextLevel(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        return sharedPreferences.getInt(EXPERIENCE_NEEDED_FOR_LVL, 0);
+    }
+
+    public static void putExpNeededForNextLevel(Context context, int points) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        sharedPreferences.edit().putInt(EXPERIENCE_NEEDED_FOR_LVL, points).apply();
+    }
+
+    public static int checkLevel(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        return sharedPreferences.getInt(LEVEL, 0);
+    }
+
+    public static void putLevel(Context context, int level) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        sharedPreferences.edit().putInt(LEVEL, level).apply();
     }
 }

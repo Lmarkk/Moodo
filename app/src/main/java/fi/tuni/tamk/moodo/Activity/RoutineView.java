@@ -121,15 +121,21 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             resultDialog.setContentView(R.layout.result_dialog);
 
             TextView dialogText = resultDialog.findViewById(R.id.result_dialog_text);
-            dialogText.setText(String.format("%s%s\n", getString(R.string.routine_time_set), formatTime(mTimer.getCurrentTime() + mTimer.getTotalTime())));
-            dialogText.append(getString(R.string.user_time) + formatTime(userTime) + "\n\n");
-            if(userTime < (mTimer.getCurrentTime() + mTimer.getTotalTime() / 2)) {
-                dialogText.append(getString(R.string.routine_fast_time));
-            } else {
-                dialogText.append(getString(R.string.routine_average_time));
-            }
+            dialogText.setText(String.format("%s%s\n", getString(R.string.routine_time_set) + " ", formatTime(mTimer.getCurrentTime() + mTimer.getTotalTime())));
+            dialogText.append("\n" + getString(R.string.user_time) + " " + formatTime(userTime) + "\n\n");
+
             dialogText.append("\n\n" + getString(R.string.routine_scores));
-            // give players points here...
+
+            // User is given points, point and level up status is checked
+            Util.putExp(this, Util.checkExp(this) + 10);
+            if(Util.checkExp(this) >= Util.checkExpNeededForNextLevel(this)) {
+                Util.putLevel(this, Util.checkLevel(this) +1);
+                Util.putExp(this, 0);
+                Util.putExpNeededForNextLevel(this, Util.checkExpNeededForNextLevel(this) + 10);
+                dialogText.append("\n\n" + getString(R.string.result_dialog_levelup));
+            }
+
+            dialogText.append("\n\n" + getString(R.string.result_dialog_feedback));
 
             Button dialogButton = resultDialog.findViewById(R.id.result_dialog_dismiss_button);
             dialogButton.setOnClickListener(v1 -> {
@@ -181,6 +187,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         // Result OK.d.
         if (requestCode == OPEN_NEW_ACTIVITY) {
             doNotNotify = false;
