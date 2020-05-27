@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import fi.tuni.tamk.moodo.Classes.Routine;
@@ -28,6 +29,7 @@ public class CreateRoutineView extends AppCompatActivity {
     ArrayList<String> listItems = new ArrayList<>();
     ArrayAdapter<String> adapter;
     private Button saveCustomRoutines;
+    private Routine editRoutine;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,17 @@ public class CreateRoutineView extends AppCompatActivity {
         listView.setAdapter(adapter);
         routineNameField.addTextChangedListener(textWatcher);
         subRoutineNameField.addTextChangedListener(textWatcher);
+
+        if(getIntent().hasExtra("curr_routine")) {
+            editRoutine = (Routine) getIntent().getSerializableExtra("curr_routine");
+            routineNameField.setText(editRoutine.getName());
+            List<SubRoutine> subRoutines = editRoutine.getSubRoutines();
+            for(int i = 0; i < subRoutines.size(); i++) {
+                listItems.add(subRoutines.get(i).getDescription());
+            }
+            saveCustomRoutines.setEnabled(true);
+            saveCustomRoutines.setAlpha(1);
+        }
     }
 
     // insert data into list
@@ -73,6 +86,10 @@ public class CreateRoutineView extends AppCompatActivity {
             }
             Util.write(this, newRoutine, Util.read(this));
             Intent intent = new Intent(this, MoodoApp.class);
+            if(editRoutine != null) {
+                intent.putExtra("routine_status", 1);
+                intent.putExtra("routine_id", getIntent().getIntExtra("routine_id", 0));
+            }
             startActivity(intent);
         } else {
             Toast.makeText(this, getString(R.string.create_routine_savebutton_warning), Toast.LENGTH_LONG).show();

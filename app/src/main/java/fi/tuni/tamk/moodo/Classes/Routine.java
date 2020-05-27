@@ -71,6 +71,10 @@ public class Routine implements Serializable {
         this.subRoutines = new ArrayList<>(subRoutines);
     }
 
+    public void clearSubRoutines() {
+        subRoutines.clear();
+    }
+
     public void addSubRoutine(SubRoutine subRoutine) {
         subRoutines.add(subRoutine);
     }

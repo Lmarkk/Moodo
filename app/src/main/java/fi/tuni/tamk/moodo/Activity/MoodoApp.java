@@ -29,7 +29,6 @@ import java.util.Scanner;
 public class MoodoApp extends AppCompatActivity {
     private ListView listView;
     private ArrayList<Routine> routineList;
-    public static ArrayList<Integer> deletedRoutines;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +50,10 @@ public class MoodoApp extends AppCompatActivity {
         ArrayList<Routine> customRoutines = (ArrayList<Routine>) Util.read(this);
         if(customRoutines != null) {
             routineList.addAll(customRoutines);
+            if(getIntent().getIntExtra("routine_status", 0) == 1) {
+                routineList.remove(getIntent().getIntExtra("routine_id", 0));
+                Util.write(this, null, routineList);
+            }
         }
 
         // Add list of routines to the list view
@@ -72,16 +75,20 @@ public class MoodoApp extends AppCompatActivity {
         listView.setOnItemLongClickListener((parent, view, pos, id) -> {
             if(id > 8) {
                 final int which_item = pos;
-                System.out.println("Item deleted " + id);
                 new AlertDialog.Builder(this)
-                        .setIcon(android.R.drawable.ic_delete)
                         .setTitle("Are you sure?")
-                        .setMessage("Delete this item?")
+                        .setMessage("Modify this item")
                         .setPositiveButton("OK", (dialog, which) -> {
                             routineList.remove(which_item);
                             adapter.notifyDataSetChanged();
-                            //deletedRoutines.add(which_item);
                             Util.write(this, null, routineList);
+                        })
+                        .setNeutralButton("Edit", (dialog, which) -> {
+                            Intent intent = new Intent(this, CreateRoutineView.class);
+                            intent.putExtra("curr_routine", routineList.get(which_item));
+                            intent.putExtra("routine_id", which_item);
+                            intent.putExtra("totalRoutines", routineList.size() + 1);
+                            startActivity(intent);
                         })
                         .setNegativeButton("Cancel", null)
                         .show();
