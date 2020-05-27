@@ -8,9 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.util.JsonReader;
 import android.util.JsonWriter;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -40,6 +38,8 @@ public class Util {
 
     private static final String LAST_APP_VERSION = "last_app_version";
     private static final String EXPERIENCE_POINTS ="experience_points";
+    private static final String EXPERIENCE_NEEDED_FOR_LVL ="experience_needed";
+    private static final String LEVEL ="user_level";
 
     public static void initializeBackgroundTransition(View view) {
         Drawable bg_0 = App.getContext().getDrawable(R.drawable.bg_blue);
@@ -201,6 +201,9 @@ public class Util {
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(context);
 
+
+        // sharedPreferences.edit().clear().apply();
+
         AppStart appStart = AppStart.NORMAL;
         try {
             pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
@@ -241,5 +244,33 @@ public class Util {
                 .getDefaultSharedPreferences(context);
 
         sharedPreferences.edit().putInt(EXPERIENCE_POINTS, points).apply();
+    }
+
+    public static int checkExpNeededForNextLevel(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        return sharedPreferences.getInt(EXPERIENCE_NEEDED_FOR_LVL, 0);
+    }
+
+    public static void putExpNeededForNextLevel(Context context, int points) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        sharedPreferences.edit().putInt(EXPERIENCE_NEEDED_FOR_LVL, points).apply();
+    }
+
+    public static int checkLevel(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        return sharedPreferences.getInt(LEVEL, 0);
+    }
+
+    public static void putLevel(Context context, int level) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+
+        sharedPreferences.edit().putInt(LEVEL, level).apply();
     }
 }
