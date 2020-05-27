@@ -8,7 +8,7 @@
     -->
     <string name="result_dialog_feedback">How well did the routine go?</string>
     <string name="routine_notification_text">Moodo is running…</string>
-    <string name="routine_scores">You got 10 points! You can use your scores in skins activity.</string>
+    <string name="routine_scores">You got 10 experience points!</string>
     <string name="routine_time_set">Set time for routine:</string>
     <string name="routine_title_loading">Loading…</string>
     <string name="settings_about_text">About</string>
@@ -48,4 +48,5 @@
     <string name="tampere_logo" translatable="false">Tampere logo</string>
     <string name="stop_routine">Stop routine</string>
     <string name="back_settings">Back from settings</string>
+    <string name="result_dialog_levelup">Level up!</string>
 </resources>

@@ -10,7 +10,7 @@
     <string name="routine_average_time">Hyvä, jatka samaan malliin!</string>
     -->
     <string name="result_dialog_feedback">Miten rutiini sujui omasta mielestäsi?</string>
-    <string name="routine_scores">Sait 10 pistettä! Voit käyttää pisteitäsi ulkoasut-ruudussa.</string>
+    <string name="routine_scores">Sait 10 kokemuspistettä!</string>
     <!-- Routine dialog layout elements strings -->
     <string name="result_dialog_text_loading">Ladataan…</string>
     <!-- Routine view layout elements string -->
@@ -50,6 +50,6 @@
     <string name="preview_subroutines">Esikatsele alirutiineja</string>
     <string name="routine_name_add">Rutiinin nimi</string>
     <string name="subroutine_description">Alirutiinin kuvaus</string>
-
+    <string name="result_dialog_levelup">Uusi taso saavutettu!</string>
 
 </resources>
