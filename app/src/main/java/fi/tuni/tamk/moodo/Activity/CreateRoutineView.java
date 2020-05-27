@@ -2,6 +2,8 @@ package fi.tuni.tamk.moodo.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -27,8 +29,6 @@ public class CreateRoutineView extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     private Button saveCustomRoutines;
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,8 @@ public class CreateRoutineView extends AppCompatActivity {
                 listItems);
 
         listView.setAdapter(adapter);
+        routineNameField.addTextChangedListener(textWatcher);
+        subRoutineNameField.addTextChangedListener(textWatcher);
     }
 
     // insert data into list
@@ -55,8 +57,6 @@ public class CreateRoutineView extends AppCompatActivity {
             listItems.add(subRoutineNameField.getText().toString());
             adapter.notifyDataSetChanged();
             subRoutineNameField.setText("");
-            saveCustomRoutines.setEnabled(true);
-            saveCustomRoutines.setAlpha(1);
         } else {
             Toast.makeText(this, getString(R.string.create_routine_empty_subroutines_warning), Toast.LENGTH_LONG).show();
         }
@@ -79,6 +79,27 @@ public class CreateRoutineView extends AppCompatActivity {
         }
 
     }
+
+    // Check if routine name field is changed and enable/disable from result
+    private TextWatcher textWatcher = new TextWatcher() {
+
+        public void afterTextChanged(Editable s) {
+        }
+
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        public void onTextChanged(CharSequence s, int start, int before,
+                                  int count) {
+            if(listItems.size() > 0 && routineNameField.getText().toString().length() > 0) {
+                saveCustomRoutines.setEnabled(true);
+                saveCustomRoutines.setAlpha(1);
+            } else {
+                saveCustomRoutines.setEnabled(false);
+                saveCustomRoutines.setAlpha(0.2f);
+            }
+        }
+    };
 
     // Cancel creating custom routine
     public void cancelCustomRoutine(View v) {
