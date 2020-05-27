@@ -9,12 +9,13 @@
     android:id="@+id/root_view_moodo">
 
     <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:contentDescription="@string/open_settings"
         android:onClick="openSettings"
         android:src="@drawable/ic_settings"
-        android:contentDescription="@string/open_settings"
-        android:background="?android:selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.98"
@@ -33,7 +34,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -50,5 +51,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/routine_list"
         android:focusable="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBarLevel"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="250dp"
+        android:layout_height="34dp"
+        android:progressDrawable="@drawable/progressbar"
+        app:layout_constraintBottom_toTopOf="@+id/routine_list"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/progressBarLevelText"
+        android:layout_width="72dp"
+        android:layout_height="34dp"
+        android:text="@string/result_dialog_text_loading"
+        app:layout_constraintBottom_toTopOf="@+id/routine_list"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/progressBarLevel"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
