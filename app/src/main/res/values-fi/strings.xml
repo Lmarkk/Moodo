@@ -51,5 +51,6 @@
     <string name="routine_name_add">Rutiinin nimi</string>
     <string name="subroutine_description">Alirutiinin kuvaus</string>
     <string name="result_dialog_levelup">Uusi taso saavutettu!</string>
+    <string name="user_level">Taso:</string>
 
 </resources>

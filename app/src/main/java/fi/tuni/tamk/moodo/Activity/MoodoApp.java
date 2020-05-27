@@ -30,7 +30,8 @@ public class MoodoApp extends AppCompatActivity {
     private ListView listView;
     private ArrayList<Routine> routineList;
     private ProgressBar levelProgressBar;
-    private TextView levelProgressBarText;
+    private TextView levelProgressBarExpText;
+    private TextView levelProgressBarLvlText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,8 @@ public class MoodoApp extends AppCompatActivity {
 
         // Instantiate and update progress bar and text for user level
         levelProgressBar = findViewById(R.id.progressBarLevel);
-        levelProgressBarText = findViewById(R.id.progressBarLevelText);
+        levelProgressBarExpText = findViewById(R.id.progressBarExpText);
+        levelProgressBarLvlText = findViewById(R.id.progressBarLevelText);
         updateProgressBar();
 
         // Add routines from local storage file to list
@@ -87,7 +89,8 @@ public class MoodoApp extends AppCompatActivity {
     public void updateProgressBar() {
         levelProgressBar.setProgress(Util.checkExp(this));
         levelProgressBar.setMax(Util.checkExpNeededForNextLevel(this));
-        levelProgressBarText.setText(Util.checkExp(this) + "/" + Util.checkExpNeededForNextLevel(this));
+        levelProgressBarExpText.setText(Util.checkExp(this) + "/" + Util.checkExpNeededForNextLevel(this));
+        levelProgressBarLvlText.setText(getString(R.string.user_level) + " " + Util.checkLevel(this));
     }
 
     public void openSettings(View view) {

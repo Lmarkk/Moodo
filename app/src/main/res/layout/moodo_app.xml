@@ -55,22 +55,33 @@
     <ProgressBar
         android:id="@+id/progressBarLevel"
         style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="250dp"
+        android:layout_width="214dp"
         android:layout_height="34dp"
         android:progressDrawable="@drawable/progressbar"
         app:layout_constraintBottom_toTopOf="@+id/routine_list"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarLevelText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/progressBarLevelText"
-        android:layout_width="72dp"
+        android:id="@+id/progressBarExpText"
+        android:layout_width="55dp"
         android:layout_height="34dp"
         android:text="@string/result_dialog_text_loading"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/routine_list"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/progressBarLevelText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/progressBarLevelText"
+        android:layout_width="61dp"
+        android:layout_height="34dp"
+        android:text="@string/result_dialog_text_loading"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/routine_list"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarExpText"
         app:layout_constraintStart_toEndOf="@+id/progressBarLevel"
         app:layout_constraintTop_toTopOf="parent" />
 
