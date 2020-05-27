@@ -85,7 +85,9 @@ public class Util {
             if(existingRoutines == null) {
                 existingRoutines = new ArrayList<>();
             }
-            existingRoutines.add(newRoutine);
+            if(newRoutine != null) {
+                existingRoutines.add(newRoutine);
+            }
             writeRoutinesArray(jsonWriter, existingRoutines);
 
             jsonWriter.close();

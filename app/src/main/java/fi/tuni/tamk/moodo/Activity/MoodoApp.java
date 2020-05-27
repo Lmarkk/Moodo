@@ -81,6 +81,7 @@ public class MoodoApp extends AppCompatActivity {
                             routineList.remove(which_item);
                             adapter.notifyDataSetChanged();
                             //deletedRoutines.add(which_item);
+                            Util.write(this, null, routineList);
                         })
                         .setNegativeButton("Cancel", null)
                         .show();
