@@ -54,21 +54,21 @@ public class RoutineAdapter extends ArrayAdapter<String> {
 
         editSubRoutine.setOnClickListener((v) -> {
             AlertDialog.Builder alert = new AlertDialog.Builder(context);
-            alert.setTitle("Edit subroutine");
+            alert.setTitle(context.getString(R.string.routine_adapter_edit));
 
             final EditText input = new EditText(context);
             alert.setView(input);
             input.setText(list.get(position));
 
 
-            alert.setPositiveButton("OK", (dialog, which_button) -> {
+            alert.setPositiveButton(context.getString(R.string.routine_adapter_ok), (dialog, which_button) -> {
                 String srt = input.getEditableText().toString();
                 if(srt.length() != 0) {
                     list.set(position, srt);
                     responder.modifySubRoutine(position, srt);
                 }
             });
-            alert.setNegativeButton("CANCEL", (dialog, whichButton) -> {
+            alert.setNegativeButton(context.getString(R.string.routine_dialog_cancel), (dialog, whichButton) -> {
                 dialog.cancel();
             });
             AlertDialog alertDialog = alert.create();
