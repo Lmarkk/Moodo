@@ -86,26 +86,24 @@ public class MoodoApp extends AppCompatActivity {
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_moodo));
 
         listView.setOnItemLongClickListener((parent, view, pos, id) -> {
-            if(id > 8) {
-                final int which_item = pos;
-                new AlertDialog.Builder(this)
-                        .setTitle("Are you sure?")
-                        .setMessage("Modify this item?")
-                        .setPositiveButton("OK", (dialog, which) -> {
-                            routineList.remove(which_item);
-                            adapter.notifyDataSetChanged();
-                            Util.write(this, null, routineList);
-                        })
-                        .setNeutralButton("Edit", (dialog, which) -> {
-                            Intent intent = new Intent(this, CreateRoutineView.class);
-                            intent.putExtra("curr_routine", routineList.get(which_item));
-                            intent.putExtra("routine_id", which_item);
-                            intent.putExtra("totalRoutines", routineList.size() + 1);
-                            startActivity(intent);
-                        })
-                        .setNegativeButton("Cancel", null)
-                        .show();
-            }
+            final int which_item = pos;
+            new AlertDialog.Builder(this)
+                    .setTitle("Are you sure?")
+                    .setMessage("Modify this item?")
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        routineList.remove(which_item);
+                        adapter.notifyDataSetChanged();
+                        Util.write(this, null, routineList);
+                    })
+                    .setNeutralButton("Edit", (dialog, which) -> {
+                        Intent intent = new Intent(this, CreateRoutineView.class);
+                        intent.putExtra("curr_routine", routineList.get(which_item));
+                        intent.putExtra("routine_id", which_item);
+                        intent.putExtra("totalRoutines", routineList.size() + 1);
+                        startActivity(intent);
+                    })
+                    .setNegativeButton("Cancel", null)
+                    .show();
             return true;
         });
 
