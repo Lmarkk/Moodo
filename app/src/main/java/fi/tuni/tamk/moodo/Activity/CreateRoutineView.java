@@ -16,6 +16,7 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import fi.tuni.tamk.moodo.Classes.Routine;
+import fi.tuni.tamk.moodo.Classes.RoutineAdapter;
 import fi.tuni.tamk.moodo.Classes.SubRoutine;
 import fi.tuni.tamk.moodo.Classes.Util;
 import fi.tuni.tamk.moodo.R;
@@ -27,9 +28,9 @@ public class CreateRoutineView extends AppCompatActivity {
     EditText subRoutineNameField;
     EditText routineNameField;
     ArrayList<String> listItems = new ArrayList<>();
-    ArrayAdapter<String> adapter;
     private Button saveCustomRoutines;
     private Routine editRoutine;
+    private RoutineAdapter a;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,12 +44,9 @@ public class CreateRoutineView extends AppCompatActivity {
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_create_routine));
 
         ListView listView = findViewById(R.id.create_routine_listview);
+        a = new RoutineAdapter(this, listItems);
+        listView.setAdapter(a);
 
-        adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,
-                listItems);
-
-        listView.setAdapter(adapter);
         routineNameField.addTextChangedListener(textWatcher);
         subRoutineNameField.addTextChangedListener(textWatcher);
 
@@ -68,7 +66,7 @@ public class CreateRoutineView extends AppCompatActivity {
     public void addItems(View v) {
         if(subRoutineNameField.getText().toString().length() > 0) {
             listItems.add(subRoutineNameField.getText().toString());
-            adapter.notifyDataSetChanged();
+            a.notifyDataSetChanged();
             subRoutineNameField.setText("");
         } else {
             Toast.makeText(this, getString(R.string.create_routine_empty_subroutines_warning), Toast.LENGTH_LONG).show();
