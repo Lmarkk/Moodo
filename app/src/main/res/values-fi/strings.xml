@@ -37,6 +37,7 @@
     <string name="team_roles">Scrummaster:\nGraafiikat:\nOhjelmoija:\nOhjelmoija:</string>
     <string name="team_title">Tiimi</string>
     <string name="team_icon">Tiimi ikoni</string>
+    <string name="link_RoutineCalendar">Katso myös RoutineCalendar</string>
     <string name="open_about">Avaa tietoja</string>
     <string name="open_settings">Avaa asetukset</string>
     <string name="open_shop">Avaa kauppa</string>
@@ -52,6 +53,7 @@
     <string name="subroutine_description">Osasuorituksen kuvaus</string>
     <string name="result_dialog_levelup">Uusi taso saavutettu!</string>
     <string name="user_level">Taso:</string>
+    <string name="about_info">"Moodo on toteutettu Tampereen ammattikorkeakoulun tietojenkäsittelyn opiskelijoiden toimesta yhteistyössä Tampereen kaupungin Nepsy-tukitiimin koordinoiman ”Nepsy-nuorten palvelut nousuun” -työryhmän kanssa. Työryhmään on kuulunut monialaisesti Tampereen kaupungin henkilöstöä, kokemusasiantuntijoita sekä Tampereen seudun autismiyhdistys ry:n jäseniä. Toimeksiantaja on Tampereen kaupunki."</string>
     <string name="routine_dialog_cancel">PERUUTA</string>
     <string name="routine_adapter_edit">Muokkaa osasuoritusta</string>
     <string name="sub_dialog_edit">MUOKKAA</string>
@@ -59,5 +61,6 @@
     <string name="sub_dialog_title">Oletko varma?</string>
     <string name="sub_routine_cancel">Peruuta</string>
     <string name="sub_routine_delete">POISTA</string>
+
 
 </resources>

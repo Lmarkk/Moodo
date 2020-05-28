@@ -37,6 +37,13 @@
     <string name="team_roles">Scrummaster:\nGraphics:\nProgrammer:\nProgrammer:</string>
     <string name="team_title">Team</string>
     <string name="team_icon">Team icon</string>
+    <string name="about_info">
+        Moodo has been developed by BBA, Business Information Systems students of Tampere University of Applied Sciences in co-operation with the “Nepsy Youth Services” working group
+        coordinated by the Nepsy support team of the City of Tampere. The working group includes the staff from the City of Tampere, experienced experts and members of the Tampere Region Autism Association. The client is the city of Tampere.
+    </string>
+    <string name="link_Nepsy">http://www.tampere.fi/nepsy</string>
+    <string name="link_RoutineCalendar" translatable="false">Check also RoutineCalendar</string>
+    <string name="link_RoutineCalendar_URL" translatable="false">https://play.google.com/store/apps/details?id=fi.tuni.tamk.tiko.routinecalendar</string>
     <string name="cancel_routine">Cancel routine</string>
     <string name="open_settings">Open settings</string>
     <string name="open_shop">Open shop</string>

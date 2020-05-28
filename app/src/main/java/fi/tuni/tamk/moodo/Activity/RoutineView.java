@@ -179,11 +179,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
         subRtnIterator.next();
     }
 
-    public void openSettings(View view) {
-        doNotNotify = true;
-        Intent intent = new Intent(this, Settings.class);
-        startActivityForResult(intent, OPEN_NEW_ACTIVITY);
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
