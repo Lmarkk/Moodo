@@ -15,13 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import fi.tuni.tamk.moodo.Classes.ListStatus;
 import fi.tuni.tamk.moodo.Classes.Routine;
 import fi.tuni.tamk.moodo.Classes.RoutineAdapter;
 import fi.tuni.tamk.moodo.Classes.SubRoutine;
 import fi.tuni.tamk.moodo.Classes.Util;
 import fi.tuni.tamk.moodo.R;
 
-public class CreateRoutineView extends AppCompatActivity {
+public class CreateRoutineView extends AppCompatActivity implements ListStatus {
 
     private static final String FILE_NAME = "custom_routine_data.json";
     int totalRoutines;
@@ -44,7 +45,7 @@ public class CreateRoutineView extends AppCompatActivity {
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_create_routine));
 
         ListView listView = findViewById(R.id.create_routine_listview);
-        a = new RoutineAdapter(this, listItems);
+        a = new RoutineAdapter(this, listItems, this);
         listView.setAdapter(a);
 
         routineNameField.addTextChangedListener(textWatcher);
@@ -122,4 +123,9 @@ public class CreateRoutineView extends AppCompatActivity {
     }
 
 
+    @Override
+    public void checkStatus() {
+        saveCustomRoutines.setEnabled(false);
+        saveCustomRoutines.setAlpha(0.2f);
+    }
 }
