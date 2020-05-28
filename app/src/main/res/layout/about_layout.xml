@@ -85,7 +85,7 @@
     <ImageView
         android:id="@+id/tiko"
         android:layout_width="0dp"
-        android:layout_height="152dp"
+        android:layout_height="110dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@string/tiko_logo"
         android:src="@drawable/tiko_logo"
@@ -107,16 +107,29 @@
         app:layout_constraintTop_toTopOf="@+id/tiko" />
 
     <TextView
-        android:id="@+id/txtLink"
+        android:id="@+id/txtNepsy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:onClick="onClickLink"
-        android:text="@string/link_RoutineCalendar"
+        android:onClick="onClickNepsy"
+        android:text="@string/link_Nepsy"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tiko" />
+
+    <TextView
+        android:id="@+id/txtRoutineCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="onClickRoutineCalendar"
+        android:text="@string/link_RoutineCalendar"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNepsy" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

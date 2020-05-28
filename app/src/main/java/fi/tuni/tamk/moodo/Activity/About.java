@@ -16,11 +16,16 @@ public class About extends AppCompatActivity {
         setContentView(R.layout.about_layout);
         Util.initializeBackgroundTransition(findViewById(R.id.about_root));
     }
-    public void onClickLink(View view) {
+    public void onClickRoutineCalendar(View view) {
         String url = getResources().getString(R.string.link_RoutineCalendar_URL);
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
     }
-
+    public void onClickNepsy(View view) {
+        String url = getResources().getString(R.string.link_Nepsy);
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
 }
