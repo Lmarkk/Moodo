@@ -114,6 +114,9 @@ public class Util {
         writer.name("id").value(routine.getId());
         writer.name("name").value(routine.getName());
         writer.name("time").value(routine.getTime());
+        if(routine.getIconId() != 0) {
+            writer.name("iconId").value(routine.getIconId());
+        }
         writer.name("subRoutines");
         writeSubRoutines(writer, routine.getSubRoutines());
         writer.endObject();
@@ -145,6 +148,7 @@ public class Util {
         int id = -1;
         String name = null;
         int time = -1;
+        int iconId = -1;
         List<SubRoutine> subRoutines = new ArrayList<>();
 
         reader.beginObject();
@@ -156,6 +160,8 @@ public class Util {
                 name = reader.nextString();
             } else if (jsonName.equals("time")) {
                 time = reader.nextInt();
+            } else if (jsonName.equals("iconId")) {
+                iconId = reader.nextInt();
             } else if (jsonName.equals("subRoutines")) {
                 subRoutines = readSubRoutines(reader);
             } else {
@@ -163,7 +169,12 @@ public class Util {
             }
         }
         reader.endObject();
-        return new Routine(id, name, time, subRoutines);
+        if(iconId != -1) {
+            return new Routine(id, name, time, iconId, subRoutines);
+        } else {
+            return new Routine(id, name, time, 0, subRoutines);
+        }
+
     }
 
     public static ArrayList<SubRoutine> readSubRoutines(JsonReader reader) throws IOException {
@@ -200,7 +211,6 @@ public class Util {
         PackageInfo pInfo;
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(context);
-
 
         // sharedPreferences.edit().clear().apply();
 
