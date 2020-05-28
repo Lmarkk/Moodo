@@ -11,6 +11,7 @@ import fi.tuni.tamk.moodo.Classes.Routine;
 import fi.tuni.tamk.moodo.Classes.SubRoutine;
 
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -90,20 +91,21 @@ public class MoodoApp extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setTitle("Are you sure?")
                     .setMessage("Modify this item?")
-                    .setPositiveButton("OK", (dialog, which) -> {
-                        routineList.remove(which_item);
-                        adapter.notifyDataSetChanged();
-                        Util.write(this, null, routineList);
-                    })
-                    .setNeutralButton("Edit", (dialog, which) -> {
+                    .setPositiveButton("EDIT", (dialog, which) -> {
                         Intent intent = new Intent(this, CreateRoutineView.class);
                         intent.putExtra("curr_routine", routineList.get(which_item));
                         intent.putExtra("routine_id", which_item);
                         intent.putExtra("totalRoutines", routineList.size() + 1);
                         startActivity(intent);
+
+                    })
+                    .setNeutralButton("DELETE", (dialog, which) -> {
+                        routineList.remove(which_item);
+                        adapter.notifyDataSetChanged();
+                        Util.write(this, null, routineList);
                     })
                     .setNegativeButton("Cancel", null)
-                    .show();
+                    .show().getButton(DialogInterface.BUTTON_NEUTRAL).setTextColor(Color.RED);
             return true;
         });
 
