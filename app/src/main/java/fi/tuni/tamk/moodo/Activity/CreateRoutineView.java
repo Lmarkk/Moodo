@@ -128,4 +128,10 @@ public class CreateRoutineView extends AppCompatActivity implements ListStatus {
         saveCustomRoutines.setEnabled(false);
         saveCustomRoutines.setAlpha(0.2f);
     }
+
+    @Override
+    public void modifySubRoutine(int pos, String newValue) {
+        listItems.set(pos, newValue);
+        a.notifyDataSetChanged();
+    }
 }
