@@ -65,24 +65,26 @@
 
     <TextView
         android:id="@+id/progressBarExpText"
-        android:layout_width="55dp"
-        android:layout_height="34dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
         android:text="@string/result_dialog_text_loading"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/routine_list"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintStart_toEndOf="@+id/progressBarLevelText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarLevel"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarLevel"
+        app:layout_constraintStart_toStartOf="@+id/progressBarLevel"
+        app:layout_constraintTop_toTopOf="@+id/progressBarLevel" />
 
     <TextView
         android:id="@+id/progressBarLevelText"
         android:layout_width="61dp"
         android:layout_height="34dp"
+        android:gravity="center"
         android:text="@string/result_dialog_text_loading"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/routine_list"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarLevel"
         app:layout_constraintEnd_toStartOf="@+id/progressBarExpText"
         app:layout_constraintStart_toEndOf="@+id/progressBarLevel"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/progressBarLevel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
