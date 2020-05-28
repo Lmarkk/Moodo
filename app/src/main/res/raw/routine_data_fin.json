@@ -4,6 +4,7 @@
       "id": 1,
       "name": "Hampaiden pesu",
       "time": 300,
+      "iconId": 700149,
       "subroutines": [
         {
           "description": "Ota hammasharja"
@@ -26,6 +27,7 @@
       "id": 2,
       "name": "Jätteiden lajittelu ja vienti",
       "time": 300,
+      "iconId": 700137,
       "subroutines": [
         {
           "description": "Lajittele biojäte omaan astiaan tai biohajoavaan pussiin"
@@ -51,6 +53,7 @@
       "id": 3,
       "name": "Pyykinpesu",
       "time": 300,
+      "iconId": 700141,
       "subroutines": [
         {
           "description": "Lajittele pyykit vaaleisiin, tummiin ja valkoisiin"
@@ -85,6 +88,7 @@
       "id": 4,
       "name": "Pyykkien kuivaus",
       "time": 300,
+      "iconId": 700138,
       "subroutines": [
         {
           "description": "Odota pesuohjelman päättymistä"
@@ -110,6 +114,7 @@
       "id": 5,
       "name": "Astioiden pesu käsin",
       "time": 300,
+      "iconId": 700140,
       "subroutines": [
         {
           "description": "Jos kätesi ovat arat pesuaineelle tai kuumalle vedelle, käytä kumisia tai muovisia suojakäsineitä"
@@ -150,6 +155,7 @@
       "id": 6,
       "name": "Astianpesukoneen täyttö",
       "time": 300,
+      "iconId": 700136,
       "subroutines": [
         {
           "description": "Varmista, että astiat ovat konepesunkestäviä"
@@ -193,6 +199,7 @@
       "id": 7,
       "name": "Keittiön siivous",
       "time": 300,
+      "iconId": 700151,
       "subroutines": [
         {
           "description": "Pyyhi työtasot ja liesi kostealla liinalla. Voit käyttää keittiönpuhdistusainetta"
@@ -212,6 +219,7 @@
       "id": 8,
       "name": "WC siivous",
       "time": 300,
+      "iconId": 700146,
       "subroutines": [
         {
           "description": "Vedä wc-allas. Suihkauta pesuainetta altaan seinämiin"
@@ -240,6 +248,7 @@
       "id": 9,
       "name": "Kypyhuoneen siivous",
       "time": 300,
+      "iconId": 700147,
       "subroutines": [
         {
           "description": "Pyyhi peili nukkaamattomalla nihkeällä tai kostealla liinalla. Kuivaa tarvittaessa ikkunaliinalla"
