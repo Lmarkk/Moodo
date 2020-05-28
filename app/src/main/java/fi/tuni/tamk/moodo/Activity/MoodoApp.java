@@ -1,5 +1,7 @@
 package fi.tuni.tamk.moodo.Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import fi.tuni.tamk.moodo.Classes.LocaleHelper;
@@ -9,6 +11,7 @@ import fi.tuni.tamk.moodo.Classes.Routine;
 import fi.tuni.tamk.moodo.Classes.SubRoutine;
 
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -61,6 +64,10 @@ public class MoodoApp extends AppCompatActivity {
         ArrayList<Routine> customRoutines = (ArrayList<Routine>) Util.read(this);
         if(customRoutines != null) {
             routineList.addAll(customRoutines);
+            if(getIntent().getIntExtra("routine_status", 0) == 1) {
+                routineList.remove(getIntent().getIntExtra("routine_id", 0));
+                Util.write(this, null, routineList);
+            }
         }
 
         // Add list of routines to the list view
@@ -78,6 +85,34 @@ public class MoodoApp extends AppCompatActivity {
             }
         });
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_moodo));
+
+        // Show dialog for modifying list items from long click
+        listView.setOnItemLongClickListener((parent, view, pos, id) -> {
+            final int which_item = pos;
+            new AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.sub_dialog_title))
+                    .setMessage(getString(R.string.sub_dialog_msg))
+                    // Edit list item
+                    .setPositiveButton(getString(R.string.sub_dialog_edit), (dialog, which) -> {
+                        Intent intent = new Intent(this, CreateRoutineView.class);
+                        intent.putExtra("curr_routine", routineList.get(which_item));
+                        intent.putExtra("routine_id", which_item);
+                        intent.putExtra("totalRoutines", routineList.size() + 1);
+                        startActivity(intent);
+
+                    })
+                    // Delete list item
+                    .setNeutralButton(getString(R.string.sub_routine_delete), (dialog, which) -> {
+                        routineList.remove(which_item);
+                        adapter.notifyDataSetChanged();
+                        Util.write(this, null, routineList);
+                    })
+                    // Cancel action
+                    .setNegativeButton(getString(R.string.sub_routine_cancel), null)
+                    .show().getButton(DialogInterface.BUTTON_NEUTRAL).setTextColor(Color.RED);
+            return true;
+        });
+
     }
 
     @Override

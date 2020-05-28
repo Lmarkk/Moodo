@@ -57,4 +57,12 @@
     <string name="back_settings">Back from settings</string>
     <string name="result_dialog_levelup">Level up!</string>
     <string name="user_level">Level:</string>
+    <string name="sub_dialog_title">Are you sure?</string>
+    <string name="sub_dialog_msg">Modify this item?</string>
+    <string name="sub_dialog_edit">EDIT</string>
+    <string name="sub_routine_delete">DELETE</string>
+    <string name="sub_routine_cancel">CANCEL</string>
+    <string name="routine_dialog_cancel">CANCEL</string>
+    <string name="routine_adapter_ok" translatable="false">OK</string>
+    <string name="routine_adapter_edit">Edit subroutine</string>
 </resources>
