@@ -77,6 +77,16 @@ public class MoodoApp extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        for(int i = 0; i < adapter.getCount(); i++ ) {
+            System.out.println(adapter.getItem(i).getIconId());
+            if(adapter.getItem(i).getIconId() != 0) {
+                // TextView tv = (TextView) listView.getChildAt(i);
+                // tv.setCompoundDrawablesWithIntrinsicBounds(getDrawable(R.drawable.ic_rutiinit_01), null, null, null);
+            }
+        }
+
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_moodo));
     }
 
@@ -130,7 +140,9 @@ public class MoodoApp extends AppCompatActivity {
                 JSONObject currRoutine = routineArray.getJSONObject((i));
                 Routine tempRoutine = new Routine(currRoutine.getInt("id"),
                         currRoutine.getString("name"),
-                        currRoutine.getInt("time"));
+                        currRoutine.getInt("time"),
+                        currRoutine.getInt("iconId"));
+                System.out.println(tempRoutine.getIconId());
                 // Loop through subroutine array included inside every routine JSONObject
                 JSONArray subroutineArray = currRoutine.getJSONArray("subroutines");
                 for(int j = 0; j < subroutineArray.length(); j++) {
