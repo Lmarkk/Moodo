@@ -86,11 +86,13 @@ public class MoodoApp extends AppCompatActivity {
         });
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_moodo));
 
+        // Show dialog for modifying list items from long click
         listView.setOnItemLongClickListener((parent, view, pos, id) -> {
             final int which_item = pos;
             new AlertDialog.Builder(this)
                     .setTitle("Are you sure?")
                     .setMessage("Modify this item?")
+                    // Edit list item
                     .setPositiveButton("EDIT", (dialog, which) -> {
                         Intent intent = new Intent(this, CreateRoutineView.class);
                         intent.putExtra("curr_routine", routineList.get(which_item));
@@ -99,11 +101,13 @@ public class MoodoApp extends AppCompatActivity {
                         startActivity(intent);
 
                     })
+                    // Delete list item
                     .setNeutralButton("DELETE", (dialog, which) -> {
                         routineList.remove(which_item);
                         adapter.notifyDataSetChanged();
                         Util.write(this, null, routineList);
                     })
+                    // Cancel action
                     .setNegativeButton("Cancel", null)
                     .show().getButton(DialogInterface.BUTTON_NEUTRAL).setTextColor(Color.RED);
             return true;
