@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +31,9 @@ import java.util.Scanner;
 public class MoodoApp extends AppCompatActivity {
     private ListView listView;
     private ArrayList<Routine> routineList;
+    private ProgressBar levelProgressBar;
+    private TextView levelProgressBarExpText;
+    private TextView levelProgressBarLvlText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +47,17 @@ public class MoodoApp extends AppCompatActivity {
         routineList = new ArrayList<>();
 
         // Load routine data from .json file if first time startup
+        // Set experience needed for first levelup to 20 points
         if(Util.checkAppStart(this) == Util.AppStart.FIRST_TIME) {
+            Util.putExpNeededForNextLevel(this, 20);
             loadRoutineData();
         }
+
+        // Instantiate and update progress bar and text for user level
+        levelProgressBar = findViewById(R.id.progressBarLevel);
+        levelProgressBarExpText = findViewById(R.id.progressBarExpText);
+        levelProgressBarLvlText = findViewById(R.id.progressBarLevelText);
+        updateProgressBar();
 
         // Add routines from local storage file to list
         ArrayList<Routine> customRoutines = (ArrayList<Routine>) Util.read(this);
@@ -96,6 +109,19 @@ public class MoodoApp extends AppCompatActivity {
             return true;
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateProgressBar();
+    }
+
+    public void updateProgressBar() {
+        levelProgressBar.setProgress(Util.checkExp(this));
+        levelProgressBar.setMax(Util.checkExpNeededForNextLevel(this));
+        levelProgressBarExpText.setText(Util.checkExp(this) + "/" + Util.checkExpNeededForNextLevel(this));
+        levelProgressBarLvlText.setText(getString(R.string.user_level) + " " + Util.checkLevel(this));
     }
 
     public void openSettings(View view) {
