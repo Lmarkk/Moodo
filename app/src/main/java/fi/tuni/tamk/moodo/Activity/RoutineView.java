@@ -189,6 +189,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // Result OK.d.
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == OPEN_NEW_ACTIVITY) {
             doNotNotify = false;
         }

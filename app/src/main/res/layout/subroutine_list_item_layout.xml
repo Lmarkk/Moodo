@@ -4,6 +4,5 @@
     android:textSize="20sp"
     android:textAlignment="center"
     android:padding="10dp"
-    android:textColor="@color/colorText">
+    android:textColor="@color/colorText"/>
 
-</TextView>

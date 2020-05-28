@@ -46,10 +46,10 @@
     <string name="stop_routine">Pysäytä rutiini</string>
     <string name="back_settings">Takaisin asetuksista</string>
     <string name="cancel_custom_routine">Peruuta</string>
-    <string name="add_subroutine_custom">Lisää alirutiini</string>
-    <string name="preview_subroutines">Esikatsele alirutiineja</string>
+    <string name="add_subroutine_custom">Lisää osasuoritus</string>
+    <string name="preview_subroutines">Esikatsele osasuorituksia</string>
     <string name="routine_name_add">Rutiinin nimi</string>
-    <string name="subroutine_description">Alirutiinin kuvaus</string>
+    <string name="subroutine_description">Osasuorituksen kuvaus</string>
     <string name="result_dialog_levelup">Uusi taso saavutettu!</string>
     <string name="user_level">Taso:</string>
 
