@@ -77,7 +77,7 @@ public class MoodoApp extends AppCompatActivity {
                 final int which_item = pos;
                 new AlertDialog.Builder(this)
                         .setTitle("Are you sure?")
-                        .setMessage("Modify this item")
+                        .setMessage("Modify this item?")
                         .setPositiveButton("OK", (dialog, which) -> {
                             routineList.remove(which_item);
                             adapter.notifyDataSetChanged();
