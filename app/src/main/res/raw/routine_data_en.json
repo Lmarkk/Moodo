@@ -27,7 +27,7 @@
       "id": 2,
       "name": "Sorting waste and disposing",
       "time": 300,
-      "iconId": 2131165335,
+      "iconId": 2131165336,
       "subroutines": [
         {
           "description": "Sort the biowaste into your own container or biodegradable bag"
@@ -53,7 +53,7 @@
       "id": 3,
       "name": "Washing the laundry",
       "time": 300,
-      "iconId": 2131165348,
+      "iconId": 2131165351,
       "subroutines": [
         {
           "description": "Sort laundry into light, dark and white"
@@ -88,7 +88,7 @@
       "id": 4,
       "name": "Drying the laundry",
       "time": 300,
-      "iconId": 2131165349,
+      "iconId": 2131165352,
       "subroutines": [
         {
           "description": "Wait for the washing program to end"
@@ -199,7 +199,7 @@
       "id": 7,
       "name": "Cleaning the kitchen",
       "time": 300,
-      "iconId": 2131165336,
+      "iconId": 2131165338,
       "subroutines": [
         {
           "description": "Wipe the worktops and stove with a damp cloth. You can use a kitchen cleaner"
@@ -219,7 +219,7 @@
       "id": 8,
       "name": "Cleaning the WC",
       "time": 300,
-      "iconId": 2131165353,
+      "iconId": 2131165356,
       "subroutines": [
         {
           "description": "Flush the toilet. Spray detergent on the the toilet bowl's walls."
@@ -248,7 +248,7 @@
       "id": 9,
       "name": "Cleaning the bathroom",
       "time": 300,
-      "iconId": 2131165339,
+      "iconId": 2131165341,
       "subroutines": [
         {
           "description": "Wipe the mirror with a lint-free damp or damp cloth. If necessary, dry with a window cloth"
