@@ -2,6 +2,7 @@ package fi.tuni.tamk.moodo.Activity;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import fi.tuni.tamk.moodo.Classes.Adapter;
 import fi.tuni.tamk.moodo.Classes.LocaleHelper;
 import fi.tuni.tamk.moodo.Classes.Util;
 import fi.tuni.tamk.moodo.R;
@@ -64,7 +65,8 @@ public class MoodoApp extends AppCompatActivity {
         }
 
         // Add list of routines to the list view
-        ArrayAdapter<Routine> adapter = new ArrayAdapter<>(this, R.layout.list_item, routineList);
+        // ArrayAdapter<Routine> adapter = new ArrayAdapter<>(this, R.layout.list_item, routineList);
+        Adapter adapter = new Adapter(this, routineList);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,13 +80,8 @@ public class MoodoApp extends AppCompatActivity {
             }
         });
 
-
         for(int i = 0; i < adapter.getCount(); i++ ) {
-            System.out.println(adapter.getItem(i).getIconId());
-            if(adapter.getItem(i).getIconId() != 0) {
-                // TextView tv = (TextView) listView.getChildAt(i);
-                // tv.setCompoundDrawablesWithIntrinsicBounds(getDrawable(R.drawable.ic_rutiinit_01), null, null, null);
-            }
+            adapter.getView(i, null, listView);
         }
 
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_moodo));
