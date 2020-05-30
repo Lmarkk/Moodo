@@ -25,11 +25,10 @@
 
     <RadioGroup
         android:id="@+id/result_dialog_radio_group"
-        android:layout_width="318dp"
-        android:layout_height="48dp"
+        android:layout_width="336dp"
+        android:layout_height="91dp"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:paddingLeft="15dp"
         app:layout_constraintBottom_toTopOf="@+id/result_dialog_dismiss_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
@@ -37,45 +36,27 @@
         app:layout_constraintTop_toTopOf="@+id/result_dialog_text"
         app:layout_constraintVertical_bias="0.78">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <RadioButton
-                android:id="@+id/radio_bad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/radio_neutral"
-                app:layout_constraintHorizontal_bias="0.06"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <RadioButton
+            android:id="@+id/radio_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_huono"
+            android:text="" />
 
-            <RadioButton
-                android:id="@+id/radio_neutral"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text=""
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <RadioButton
+            android:id="@+id/radio_neutral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_huono"
+            android:text="" />
 
-            <RadioButton
-                android:id="@+id/radio_good"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.89"
-                app:layout_constraintStart_toEndOf="@+id/radio_neutral"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <RadioButton
+            android:id="@+id/radio_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_huono"
+            android:text="" />
 
     </RadioGroup>
 
@@ -88,6 +69,7 @@
         android:layout_marginEnd="200dp"
         android:layout_marginBottom="300dp"
         android:text="@string/result_dialog_text_loading"
+        android:textColor="@color/colorText"
         android:textAlignment="viewStart"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -96,43 +78,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.556" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/result_dialog_radio_group"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_jes" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/result_dialog_dismiss_button"
-        app:layout_constraintEnd_toStartOf="@+id/imageView8"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/result_dialog_radio_group"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_neutraali" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result_dialog_radio_group"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_huono" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
