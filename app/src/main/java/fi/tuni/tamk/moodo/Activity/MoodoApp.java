@@ -40,7 +40,6 @@ public class MoodoApp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("MoodoApp", "onCreate");
         setContentView(R.layout.moodo_app);
         LocaleHelper.setLocale(this, LocaleHelper.getLanguage(this));
 
@@ -79,7 +78,6 @@ public class MoodoApp extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Routine listItem = (Routine) listView.getItemAtPosition(position);
-                //Log.d("MoodoApp", "Subroutines: " + listItem.getSubRoutines().toString());
                 Intent intent = new Intent(getApplicationContext(), RoutineView.class);
                 // Add clicked list routine to be displayed in RoutineView
                 intent.putExtra("routine", listItem);

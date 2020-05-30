@@ -57,7 +57,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("RoutineView", "onCreate");
         setContentView(R.layout.routine_view);
         routineTitle = findViewById(R.id.routine_title);
         //Instantiate notification manager
@@ -166,7 +165,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("RoutineView", "onDestroy");
         listView.setAdapter(null);
         Intent serviceIntent = new Intent(this, TimerService.class);
         stopService(serviceIntent);

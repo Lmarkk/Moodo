@@ -38,13 +38,11 @@ public class Adapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // YOU SHOULD INFLATE A VIEW HERE
         View mView = View.inflate(mContext, R.layout.list_item, null);
         TextView mText = mView.findViewById(R.id.routine_list_textview);
         ImageView mImage = mView.findViewById(R.id.routine_list_imageview);
 
-
-        Routine mRoutine = (Routine) getItem(position);
+        Routine mRoutine = getItem(position);
         mText.setText(mRoutine.getName());
         if(mRoutine.getIconId() != 0) {
             mImage.setImageDrawable(ContextCompat.getDrawable(mContext, mRoutine.getIconId()));

@@ -36,14 +36,6 @@ public class Routine implements Serializable {
         setIconId(iconId);
     }
 
-    // public Routine(int id, String name, int time, List<SubRoutine> subRoutines) {
-    //     setName(name);
-    //     setId(id);
-    //     setTime(time);
-    //     setIconId(0);
-    //     setSubRoutines(subRoutines);
-    // }
-
     public Routine(int id, String name, int time, int iconId, List<SubRoutine> subRoutines) {
         setName(name);
         setId(id);
@@ -98,10 +90,6 @@ public class Routine implements Serializable {
 
     public void setSubRoutines(List<SubRoutine> subRoutines) {
         this.subRoutines = new ArrayList<>(subRoutines);
-    }
-
-    public void clearSubRoutines() {
-        subRoutines.clear();
     }
 
     public void addSubRoutine(SubRoutine subRoutine) {
