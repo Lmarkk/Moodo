@@ -25,16 +25,15 @@
 
     <RadioGroup
         android:id="@+id/result_dialog_radio_group"
-        android:layout_width="336dp"
-        android:layout_height="91dp"
+        android:layout_width="374dp"
+        android:layout_height="101dp"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/result_dialog_dismiss_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/result_dialog_text"
-        app:layout_constraintVertical_bias="0.78">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
 
         <RadioButton
@@ -48,14 +47,14 @@
             android:id="@+id/radio_neutral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_huono"
+            android:drawableStart="@drawable/ic_neutraali"
             android:text="" />
 
         <RadioButton
             android:id="@+id/radio_good"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_huono"
+            android:drawableStart="@drawable/ic_jes"
             android:text="" />
 
     </RadioGroup>
