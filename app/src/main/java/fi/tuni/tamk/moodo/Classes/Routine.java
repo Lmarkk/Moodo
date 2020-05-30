@@ -7,14 +7,6 @@ import java.util.Optional;
 
 import fi.tuni.tamk.moodo.R;
 
-/**
- * Class that holds information about a user's daily activity. The Routine contains several
- * SubRoutines.
- *
- * @author Lassi Markkinen
- * @version 2020.0220
- *
- */
 public class Routine implements Serializable {
     private int time;
     private String name;

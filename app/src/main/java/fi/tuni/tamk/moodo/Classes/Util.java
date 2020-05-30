@@ -93,10 +93,6 @@ public class Util {
             jsonWriter.close();
             fileOut.close();
 
-            //display file saved message
-            //Toast.makeText(context, "File saved successfully!",
-            //        Toast.LENGTH_SHORT).show();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -213,8 +209,6 @@ public class Util {
         PackageInfo pInfo;
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(context);
-
-        // sharedPreferences.edit().clear().apply();
 
         AppStart appStart = AppStart.NORMAL;
         try {
