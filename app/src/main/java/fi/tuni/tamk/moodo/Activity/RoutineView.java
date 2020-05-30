@@ -57,7 +57,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("RoutineView", "onCreate");
         setContentView(R.layout.routine_view);
         routineTitle = findViewById(R.id.routine_title);
         //Instantiate notification manager
@@ -89,7 +88,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
             ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
-            newLayoutParams.topMargin = 256;
+            newLayoutParams.topMargin = 190;
             mTimer.setLayoutParams(newLayoutParams);
             mTimer.setCircleButtonDisabled(true);
             mTimer.startTimer();
@@ -121,15 +120,21 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
             resultDialog.setContentView(R.layout.result_dialog);
 
             TextView dialogText = resultDialog.findViewById(R.id.result_dialog_text);
-            dialogText.setText(String.format("%s%s\n", getString(R.string.routine_time_set), formatTime(mTimer.getCurrentTime() + mTimer.getTotalTime())));
-            dialogText.append(getString(R.string.user_time) + formatTime(userTime) + "\n\n");
-            if(userTime < (mTimer.getCurrentTime() + mTimer.getTotalTime() / 2)) {
-                dialogText.append(getString(R.string.routine_fast_time));
-            } else {
-                dialogText.append(getString(R.string.routine_average_time));
-            }
+            dialogText.setText(String.format("%s%s\n", getString(R.string.routine_time_set) + " ", formatTime(mTimer.getCurrentTime() + mTimer.getTotalTime())));
+            dialogText.append("\n" + getString(R.string.user_time) + " " + formatTime(userTime) + "\n\n");
+
             dialogText.append("\n\n" + getString(R.string.routine_scores));
-            // give players points here...
+
+            // User is given points, point and level up status is checked
+            Util.putExp(this, Util.checkExp(this) + 10);
+            if(Util.checkExp(this) >= Util.checkExpNeededForNextLevel(this)) {
+                Util.putLevel(this, Util.checkLevel(this) +1);
+                Util.putExp(this, 0);
+                Util.putExpNeededForNextLevel(this, Util.checkExpNeededForNextLevel(this) + 10);
+                dialogText.append("\n\n" + getString(R.string.result_dialog_levelup));
+            }
+
+            dialogText.append("\n\n" + getString(R.string.result_dialog_feedback));
 
             Button dialogButton = resultDialog.findViewById(R.id.result_dialog_dismiss_button);
             dialogButton.setOnClickListener(v1 -> {
@@ -143,45 +148,15 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     }
 
     public void stopRoutine(View v) {
-        mTimer.setCircleButtonDisabled(false);
-        Intent serviceIntent = new Intent(this, TimerService.class);
-        stopService(serviceIntent);
-        ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
-        newLayoutParams.topMargin = 32;
-        mTimer.setLayoutParams(newLayoutParams);
-        countThread.interrupt();
-        // reset timer and set timer text to full
-        mTimer.pauseTimer();
-        mTimer.setCurrentTime(0);
-        mTimer.setTotalTime(0);
-        userTime = 0;
-
-        //reset visibilities back to starting position
-        completeSubRoutineBtn.setVisibility(View.GONE);
-        progressBar.setVisibility(View.GONE);
-        stopRoutineBtn.setVisibility(View.GONE);
-
-        startRoutineBtn.setVisibility(View.VISIBLE);
-        routineTitle.setVisibility(View.VISIBLE);
-        listView.setVisibility(View.VISIBLE);
-
-        // reset progress bar progress
-        progressBar.setProgress(0);
-
-        // reset subroutine iterator
-        subRtnIterator = routine.getSubRoutines().listIterator();
-        subRtnIterator.next();
+        onBackPressed();
     }
 
-    public void openSettings(View view) {
-        doNotNotify = true;
-        Intent intent = new Intent(this, Settings.class);
-        startActivityForResult(intent, OPEN_NEW_ACTIVITY);
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         // Result OK.d.
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == OPEN_NEW_ACTIVITY) {
             doNotNotify = false;
         }
@@ -190,7 +165,6 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("RoutineView", "onDestroy");
         listView.setAdapter(null);
         Intent serviceIntent = new Intent(this, TimerService.class);
         stopService(serviceIntent);

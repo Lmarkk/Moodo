@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
-        <activity android:name=".Activity.MoodoApp"
+        <activity android:name=".Activity.SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,11 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity.MoodoApp"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Activity.RoutineView"
             android:screenOrientation="portrait" />
         <activity android:name=".Activity.Settings"
-            android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Unlocks"
             android:screenOrientation="portrait" />
         <activity android:name=".Activity.CreateRoutineView"
             android:screenOrientation="portrait"

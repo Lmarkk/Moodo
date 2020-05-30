@@ -3,32 +3,45 @@ package fi.tuni.tamk.moodo.Classes;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-/**
- * Class that holds information about a user's daily activity. The Routine contains several
- * SubRoutines.
- *
- * @author Lassi Markkinen
- * @version 2020.0220
- *
- */
+import fi.tuni.tamk.moodo.R;
+
 public class Routine implements Serializable {
     private int time;
     private String name;
     private List<SubRoutine> subRoutines = new ArrayList<>();
     private int id;
+    private int iconId;
 
     public Routine(int id, String name, int time) {
         setName(name);
         setId(id);
         setTime(time);
+        setIconId(0);
     }
 
-    public Routine(int id, String name, int time, List<SubRoutine> subRoutines) {
+    public Routine(int id, String name, int time, int iconId) {
         setName(name);
         setId(id);
         setTime(time);
+        setIconId(iconId);
+    }
+
+    public Routine(int id, String name, int time, int iconId, List<SubRoutine> subRoutines) {
+        setName(name);
+        setId(id);
+        setTime(time);
+        setIconId(iconId);
         setSubRoutines(subRoutines);
+    }
+
+    public int getIconId() {
+        return iconId;
+    }
+
+    public void setIconId(int iconId) {
+        this.iconId = iconId;
     }
 
     public int getTime() {
