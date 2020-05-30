@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import fi.tuni.tamk.moodo.Classes.Adapter;
 import fi.tuni.tamk.moodo.Classes.LocaleHelper;
 import fi.tuni.tamk.moodo.Classes.Util;
 import fi.tuni.tamk.moodo.R;
@@ -71,7 +72,8 @@ public class MoodoApp extends AppCompatActivity {
         }
 
         // Add list of routines to the list view
-        ArrayAdapter<Routine> adapter = new ArrayAdapter<>(this, R.layout.list_item, routineList);
+        // ArrayAdapter<Routine> adapter = new ArrayAdapter<>(this, R.layout.list_item, routineList);
+        Adapter adapter = new Adapter(this, routineList);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -84,6 +86,11 @@ public class MoodoApp extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        for(int i = 0; i < adapter.getCount(); i++ ) {
+            adapter.getView(i, null, listView);
+        }
+
         Util.initializeBackgroundTransition(findViewById(R.id.root_view_moodo));
 
         // Show dialog for modifying list items from long click
@@ -165,7 +172,9 @@ public class MoodoApp extends AppCompatActivity {
                 JSONObject currRoutine = routineArray.getJSONObject((i));
                 Routine tempRoutine = new Routine(currRoutine.getInt("id"),
                         currRoutine.getString("name"),
-                        currRoutine.getInt("time"));
+                        currRoutine.getInt("time"),
+                        currRoutine.getInt("iconId"));
+                System.out.println(tempRoutine.getIconId());
                 // Loop through subroutine array included inside every routine JSONObject
                 JSONArray subroutineArray = currRoutine.getJSONArray("subroutines");
                 for(int j = 0; j < subroutineArray.length(); j++) {

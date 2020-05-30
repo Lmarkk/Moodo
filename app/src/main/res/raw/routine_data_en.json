@@ -4,6 +4,7 @@
       "id": 1,
       "name": "Brushing the teeth",
       "time": 300,
+      "iconId": 2131165334,
       "subroutines": [
         {
           "description": "Take toothbrush"
@@ -26,6 +27,7 @@
       "id": 2,
       "name": "Sorting waste and disposing",
       "time": 300,
+      "iconId": 2131165336,
       "subroutines": [
         {
           "description": "Sort the biowaste into your own container or biodegradable bag"
@@ -51,6 +53,7 @@
       "id": 3,
       "name": "Washing the laundry",
       "time": 300,
+      "iconId": 2131165351,
       "subroutines": [
         {
           "description": "Sort laundry into light, dark and white"
@@ -85,6 +88,7 @@
       "id": 4,
       "name": "Drying the laundry",
       "time": 300,
+      "iconId": 2131165352,
       "subroutines": [
         {
           "description": "Wait for the washing program to end"
@@ -110,6 +114,7 @@
       "id": 5,
       "name": "Washing dishes by hand",
       "time": 300,
+      "iconId": 2131165328,
       "subroutines": [
         {
           "description": "If your hands are sensitive to detergent or hot water, wear rubber or plastic protective gloves"
@@ -150,6 +155,7 @@
       "id": 6,
       "name": "Filling the dishwasher",
       "time": 300,
+      "iconId": 2131165327,
       "subroutines": [
         {
           "description": "Make sure the dishes are machine washable"
@@ -193,6 +199,7 @@
       "id": 7,
       "name": "Cleaning the kitchen",
       "time": 300,
+      "iconId": 2131165338,
       "subroutines": [
         {
           "description": "Wipe the worktops and stove with a damp cloth. You can use a kitchen cleaner"
@@ -212,6 +219,7 @@
       "id": 8,
       "name": "Cleaning the WC",
       "time": 300,
+      "iconId": 2131165356,
       "subroutines": [
         {
           "description": "Flush the toilet. Spray detergent on the the toilet bowl's walls."
@@ -240,6 +248,7 @@
       "id": 9,
       "name": "Cleaning the bathroom",
       "time": 300,
+      "iconId": 2131165341,
       "subroutines": [
         {
           "description": "Wipe the mirror with a lint-free damp or damp cloth. If necessary, dry with a window cloth"
