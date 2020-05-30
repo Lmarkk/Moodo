@@ -149,34 +149,8 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     }
 
     public void stopRoutine(View v) {
-        mTimer.setCircleButtonDisabled(false);
-        Intent serviceIntent = new Intent(this, TimerService.class);
-        stopService(serviceIntent);
-        ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
-        newLayoutParams.topMargin = 32;
-        mTimer.setLayoutParams(newLayoutParams);
-        countThread.interrupt();
-        // reset timer and set timer text to full
-        mTimer.pauseTimer();
-        mTimer.setCurrentTime(0);
-        mTimer.setTotalTime(0);
-        userTime = 0;
-
-        //reset visibilities back to starting position
-        completeSubRoutineBtn.setVisibility(View.GONE);
-        progressBar.setVisibility(View.GONE);
-        stopRoutineBtn.setVisibility(View.GONE);
-
-        startRoutineBtn.setVisibility(View.VISIBLE);
-        routineTitle.setVisibility(View.VISIBLE);
-        listView.setVisibility(View.VISIBLE);
-
-        // reset progress bar progress
-        progressBar.setProgress(0);
-
-        // reset subroutine iterator
-        subRtnIterator = routine.getSubRoutines().listIterator();
-        subRtnIterator.next();
+        Intent intent = new Intent(this, MoodoApp.class);
+        startActivity(intent);
     }
 
 
