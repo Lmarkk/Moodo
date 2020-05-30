@@ -9,13 +9,11 @@
     <ListView
         android:id="@+id/create_routine_listview"
         android:layout_width="334dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="190dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_routine_subnamefield"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/create_routine_subnamefield" />
 
     <EditText
         android:id="@+id/create_routine_namefield"
@@ -103,7 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:alpha="0.2"
         android:backgroundTint="#343434"
         android:enabled="false"
@@ -120,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#343434"
         android:onClick="cancelCustomRoutine"
         android:text="@string/cancel_custom_routine"
