@@ -25,8 +25,8 @@
 
     <RadioGroup
         android:id="@+id/result_dialog_radio_group"
-        android:layout_width="374dp"
-        android:layout_height="101dp"
+        android:layout_width="350dp"
+        android:layout_height="111dp"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/result_dialog_dismiss_button"
@@ -41,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_huono"
+            android:drawablePadding="-12dp"
             android:text="" />
 
         <RadioButton
@@ -48,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_neutraali"
+            android:drawablePadding="-12dp"
             android:text="" />
 
         <RadioButton
