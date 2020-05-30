@@ -2,19 +2,13 @@
     <string name="app_name" translatable="false">Moodo</string>
     <string name="result_dialog_text_loading">Loading…</string>
     <string name="routine_done">Done!</string>
-    <!--
-    <string name="routine_average_time">"Good, keep up the great work. "</string>
-    <string name="routine_fast_time">Really fast done, well done! Remember not to rush.</string>
-    -->
+
     <string name="result_dialog_feedback">How well did the routine go?</string>
     <string name="routine_notification_text">Moodo is running…</string>
     <string name="routine_scores">You got 10 experience points!</string>
     <string name="routine_time_set">Set time for routine:</string>
     <string name="routine_title_loading">Loading…</string>
     <string name="settings_about_text">About</string>
-    <string name="settings_customizations_text">Skins</string>
-    <string name="settings_notifications_text">Notifications</string>
-    <string name="settings_sound_text">Sounds</string>
     <string name="settings_title">Settings</string>
     <string name="start_routine_text">Start routine</string>
     <string name="timer_warning">Set time first</string>
