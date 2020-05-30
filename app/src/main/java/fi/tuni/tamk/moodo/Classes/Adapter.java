@@ -43,6 +43,7 @@ public class Adapter extends BaseAdapter {
         TextView mText = mView.findViewById(R.id.routine_list_textview);
         ImageView mImage = mView.findViewById(R.id.routine_list_imageview);
 
+
         Routine mRoutine = (Routine) getItem(position);
         mText.setText(mRoutine.getName());
         if(mRoutine.getIconId() != 0) {

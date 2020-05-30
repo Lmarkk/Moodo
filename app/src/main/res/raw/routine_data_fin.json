@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Hampaiden pesu",
       "time": 300,
-      "iconId": 2131165334,
+      "iconId": 2131165336,
       "subroutines": [
         {
           "description": "Ota hammasharja"
@@ -27,7 +27,7 @@
       "id": 2,
       "name": "Jätteiden lajittelu ja vienti",
       "time": 300,
-      "iconId": 2131165336,
+      "iconId": 2131165338,
       "subroutines": [
         {
           "description": "Lajittele biojäte omaan astiaan tai biohajoavaan pussiin"
@@ -53,7 +53,7 @@
       "id": 3,
       "name": "Pyykinpesu",
       "time": 300,
-      "iconId": 2131165351,
+      "iconId": 2131165353,
       "subroutines": [
         {
           "description": "Lajittele pyykit vaaleisiin, tummiin ja valkoisiin"
@@ -88,7 +88,7 @@
       "id": 4,
       "name": "Pyykkien kuivaus",
       "time": 300,
-      "iconId": 2131165352,
+      "iconId": 2131165354,
       "subroutines": [
         {
           "description": "Odota pesuohjelman päättymistä"
@@ -199,7 +199,7 @@
       "id": 7,
       "name": "Keittiön siivous",
       "time": 300,
-      "iconId": 2131165338,
+      "iconId": 2131165340,
       "subroutines": [
         {
           "description": "Pyyhi työtasot ja liesi kostealla liinalla. Voit käyttää keittiönpuhdistusainetta"
@@ -219,7 +219,7 @@
       "id": 8,
       "name": "WC siivous",
       "time": 300,
-      "iconId": 2131165356,
+      "iconId": 2131165358,
       "subroutines": [
         {
           "description": "Vedä wc-allas. Suihkauta pesuainetta altaan seinämiin"
@@ -248,7 +248,7 @@
       "id": 9,
       "name": "Kypyhuoneen siivous",
       "time": 300,
-      "iconId": 2131165341,
+      "iconId": 2131165343,
       "subroutines": [
         {
           "description": "Pyyhi peili nukkaamattomalla nihkeällä tai kostealla liinalla. Kuivaa tarvittaessa ikkunaliinalla"
