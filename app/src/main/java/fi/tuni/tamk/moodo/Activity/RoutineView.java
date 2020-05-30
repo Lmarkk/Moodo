@@ -88,7 +88,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     public void startRoutine(View v) {
         if(mTimer.getCurrentTime() != 0) {
             ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) mTimer.getLayoutParams();
-            newLayoutParams.topMargin = 256;
+            newLayoutParams.topMargin = 190;
             mTimer.setLayoutParams(newLayoutParams);
             mTimer.setCircleButtonDisabled(true);
             mTimer.startTimer();
