@@ -149,8 +149,7 @@ public class RoutineView extends AppCompatActivity implements CircleTimerView.Ci
     }
 
     public void stopRoutine(View v) {
-        Intent intent = new Intent(this, MoodoApp.class);
-        startActivity(intent);
+        onBackPressed();
     }
 
 
